@@ -1,0 +1,1 @@
+//Here will be the types for the search-service.
