@@ -11,6 +11,12 @@ importers:
       '@coreui/coreui':
         specifier: ^5.1.0
         version: 5.1.0(@popperjs/core@2.11.8)
+      '@coreui/icons':
+        specifier: ^3.0.1
+        version: 3.0.1
+      '@coreui/icons-react':
+        specifier: ^2.3.0
+        version: 2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@coreui/react':
         specifier: ^5.1.0
         version: 5.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -64,6 +70,15 @@ packages:
     resolution: {integrity: sha512-3t8Ekib5pUVYp6mpCvXL9oGyFJ9znFqWWHwxUjKD8QHW0JMJ2znjS5oADICQ+xvWaK6ATgwIipjQGi7lQ819MA==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
+
+  '@coreui/icons-react@2.3.0':
+    resolution: {integrity: sha512-s4jjCrtHnqnu30GLcfDbtWxEaB7imBQ5E6w89JzP5Jd6EV6o38tR0RNix4nXRubayJKAvIjlwZWOKEFNG0NM7Q==}
+    peerDependencies:
+      react: '>=17'
+      react-dom: '>=17'
+
+  '@coreui/icons@3.0.1':
+    resolution: {integrity: sha512-u9UKEcRMyY9pa4jUoLij8pAR03g5g6TLWV33/Mx2ix8sffyi0eO4fLV8DSTQljDCw938zt7KYog5cVKEAJUxxg==}
 
   '@coreui/react@5.1.0':
     resolution: {integrity: sha512-pOx4jG++YgOuuoMycbbVDnSxoPP54ZkKvxVQH4i/h38gscHBeSj2bDk7gxA29QNg3fVUZympgXpQ16C/WU0Ikw==}
@@ -1019,6 +1034,13 @@ snapshots:
   '@coreui/coreui@5.1.0(@popperjs/core@2.11.8)':
     dependencies:
       '@popperjs/core': 2.11.8
+
+  '@coreui/icons-react@2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@coreui/icons@3.0.1': {}
 
   '@coreui/react@5.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
