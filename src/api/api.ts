@@ -3,7 +3,6 @@ export class ApiService {
     private options: RequestInit;
   
     constructor(authToken: string, baseURL?: string, baseOptions?: RequestInit) {
-        console.log('authToken', authToken, baseURL)
       this.baseUrl = baseURL ?? '';
       this.options = {
         headers: {
