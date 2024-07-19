@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@coreui/coreui": "^5.1.0",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.3.0",
     "@coreui/react": "^5.1.0",
     "@tanstack/react-query": "^5.51.9",
     "bootstrap": "^5.3.3",

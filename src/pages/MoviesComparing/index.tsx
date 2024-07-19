@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 
 import SearchService from '../../api/search-service';
-import MoviesTable from '../../components/MoviesTable';
+
+import MoviesTable from '../../components/MovieTable';
 
 const MoviesComparingPage = () => {
 
