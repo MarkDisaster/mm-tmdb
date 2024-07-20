@@ -1,6 +1,7 @@
 import {
    CImage,
    CRow,
+   CSpinner,
    CTable,
    CTableBody,
    CTableDataCell,
@@ -17,7 +18,7 @@ const MoviesTable = ({
    isLoading,
    setSelectedMovieId,
 }: MovieTablesProps) => {
-   if (isLoading) return <div>Loading...</div>;
+   if (isLoading) return <CSpinner color="white" />;
    if (movies.length < 1) return;
 
    return (
