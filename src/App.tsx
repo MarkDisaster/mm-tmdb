@@ -1,15 +1,12 @@
 import MoviesComparingPage from './pages/MoviesComparing';
-import './App.css'
-
+import './App.css';
 
 const App = () => {
+   return (
+      <>
+         <MoviesComparingPage />
+      </>
+   );
+};
 
-  return (
-    <>
-      <MoviesComparingPage />
-    </>
-  )
-}
-
-export default App
-
+export default App;

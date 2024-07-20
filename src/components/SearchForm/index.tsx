@@ -1,0 +1,18 @@
+import { CContainer, CFormInput } from '@coreui/react';
+import { SearchFormProps } from './interfaces';
+
+const SearchForm = ({ setSearchedMovie }: SearchFormProps) => {
+   return (
+      <CContainer className="p-0 pb-5 d-flex align-items-start">
+         <CFormInput
+            type="email"
+            id="exampleFormControlInput1"
+            placeholder="Find Movie"
+            aria-describedby="exampleFormControlInputHelpInline"
+            onChange={(e) => setSearchedMovie(e.target.value)}
+         />
+      </CContainer>
+   );
+};
+
+export default SearchForm;
