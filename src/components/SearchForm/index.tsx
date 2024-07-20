@@ -3,9 +3,9 @@ import { SearchFormProps } from './interfaces';
 
 const SearchForm = ({ setSearchedMovie }: SearchFormProps) => {
    return (
-      <CContainer className="p-0 pb-5 d-flex align-items-start">
+      <CContainer className="p-0 pb-4 pt-3 d-flex align-items-start">
          <CFormInput
-            type="email"
+            type="search"
             id="exampleFormControlInput1"
             placeholder="Find Movie"
             aria-describedby="exampleFormControlInputHelpInline"

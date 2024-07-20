@@ -1,10 +1,15 @@
+import { Provider } from 'react-redux';
+import { moviesToCompareStore } from './stores/moviesToCompare/store';
+
 import MoviesComparingPage from './pages/MoviesComparing';
 import './App.css';
 
 const App = () => {
    return (
       <>
-         <MoviesComparingPage />
+         <Provider store={moviesToCompareStore}>
+            <MoviesComparingPage />
+         </Provider>
       </>
    );
 };

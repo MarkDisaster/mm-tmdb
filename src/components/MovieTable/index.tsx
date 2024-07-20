@@ -1,5 +1,6 @@
 import {
    CImage,
+   CRow,
    CTable,
    CTableBody,
    CTableDataCell,
@@ -11,59 +12,50 @@ import { cilImage } from '@coreui/icons';
 import { MovieTablesProps } from './interfaces';
 import { TMDB_IMG_URI } from '../../api/constants';
 
-const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
+const MoviesTable = ({
+   movies,
+   isLoading,
+   setSelectedMovieId,
+}: MovieTablesProps) => {
    if (isLoading) return <div>Loading...</div>;
    if (movies.length < 1) return;
 
    return (
-      <CTable
-         color="light"
-         striped
-         hover
-      >
-         <CTableBody>
-            <CTableRow>
-               <CTableDataCell className="fw-bold"></CTableDataCell>
-               <CTableDataCell className="fw-bold">Poster</CTableDataCell>
-               <CTableDataCell className="fw-bold">Name</CTableDataCell>
-            </CTableRow>
-            {movies?.map((movie, index) => {
-               return (
-                  <CTableRow
-                     key={index}
-                     className="mb-2"
-                  >
-                     <CTableDataCell>
-                        <div className="form-check">
-                           <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              id={`MovieTableCell${index}`}
-                           />
-                        </div>
-                     </CTableDataCell>
-                     <CTableDataCell className="p-0">
-                        {movie.poster_path ? (
-                           <CImage
-                              align="start"
-                              src={`${TMDB_IMG_URI}${movie.poster_path}`}
-                              width={50}
-                           />
-                        ) : (
-                           <CIcon
-                              icon={cilImage}
-                              height={50}
-                              className="text-secondary"
-                           />
-                        )}
-                     </CTableDataCell>
-                     <CTableDataCell>{movie.original_title}</CTableDataCell>
-                  </CTableRow>
-               );
-            })}
-         </CTableBody>
-      </CTable>
+      <CRow className="px-4">
+         <CTable>
+            <CTableBody>
+               {movies?.map((movie, index) => {
+                  return (
+                     <CTableRow
+                        key={index}
+                        onClick={() => setSelectedMovieId(movie.id)}
+                        className="mc-search-table-row"
+                     >
+                        <CTableDataCell className="p-0 border-0">
+                           {movie.poster_path ? (
+                              <CImage
+                                 align="start"
+                                 src={`${TMDB_IMG_URI}${movie.poster_path}`}
+                                 width={50}
+                                 className="py-2 px-0"
+                              />
+                           ) : (
+                              <CIcon
+                                 icon={cilImage}
+                                 height={50}
+                                 className="text-secondary"
+                              />
+                           )}
+                        </CTableDataCell>
+                        <CTableDataCell className="pt-1 ps-3 border-0 fw-normal fs-5">
+                           {movie.original_title}
+                        </CTableDataCell>
+                     </CTableRow>
+                  );
+               })}
+            </CTableBody>
+         </CTable>
+      </CRow>
    );
 };
 

@@ -79,6 +79,19 @@ button:focus-visible {
    background-color: rgb(43 102 202 / 40%) !important
 }
 
+.rc-movie-card-delete-button {
+   display: none !important;
+   padding: 15px;
+   position: absolute;
+   right: 0;
+   border-radius: 0 !important;
+   border-bottom-left-radius: 10px !important;
+}
+
+.rc-movie-card:hover .rc-movie-card-delete-button {
+   display: block !important;
+}
+
 table td {
    color: #ffffff !important;;
    background-color: unset !important;
