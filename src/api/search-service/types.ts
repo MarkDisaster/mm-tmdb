@@ -9,3 +9,10 @@ export type SearchMoviesResults = {
     original_title: string;
     poster_path: string;
 }
+
+export type SearchMoviesParams = {
+    query: string;
+    page: number,
+    language: string,
+    include_adult: boolean,
+}

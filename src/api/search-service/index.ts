@@ -1,8 +1,7 @@
 import api from "../api";
-import { SearchMoviesApiReturn } from "./types";
+import { SearchMoviesApiReturn, SearchMoviesParams } from "./types";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getMovies = async (params: Record<any, any>) => {
+const getMovies = async (params: SearchMoviesParams) => {
 	const res = await api.get<SearchMoviesApiReturn>(
 		`search/movie`,
 		params,
