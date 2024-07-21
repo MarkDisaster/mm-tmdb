@@ -31,8 +31,6 @@ const MoviesComparingPage = () => {
 
    const barChartData = getMoviesBarChartValues(moviesToCompareState);
 
-   console.log('barChartData', barChartData);
-
    const params = {
       query: debouncedSearchMovie,
       page: 1,
