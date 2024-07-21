@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 import { MainProps } from './interfaces';
-import { DartkThemeState } from '../../store/slices/darkTheme/store';
 
 const Main = ({ children }: MainProps) => {
-   const isDarkThemeState = useSelector(
-      (state: DartkThemeState) => state.darkTheme,
-   );
+   const isDarkThemeState = useSelector((state: RootState) => state.darkTheme);
 
    return (
       <main data-bs-theme={isDarkThemeState ? 'dark' : 'light'}>
