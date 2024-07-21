@@ -76,7 +76,17 @@ button:focus-visible {
 }
 
 .mc-search-table-row:hover td {
-   background-color: rgb(43 102 202 / 40%) !important
+   background-color:rgb(11 99 228) !important
+}
+
+.mc-search-table-row td:first-child {
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+}
+
+.mc-search-table-row td:last-child {
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
 }
 
 .rc-movie-card-delete-button {

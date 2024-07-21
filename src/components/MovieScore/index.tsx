@@ -2,7 +2,7 @@ import { Cell, Label, Pie, PieChart } from 'recharts';
 
 import { MovieScoreProps } from './interfaces';
 
-import { getMovieScoreValues } from '../../helpers/getMovieScoreChartValues';
+import { getMovieScoreChartValues } from '../../helpers/getMovieScoreChartValues';
 import { getMovieScore } from '../../helpers/getMovieScore';
 
 import { chart_colors } from './constants';
@@ -10,8 +10,8 @@ import { chart_colors } from './constants';
 import styles from './style.module.css';
 
 const MovieScore = ({ vote_average }: MovieScoreProps) => {
-   const vote_average_value = getMovieScore(vote_average);
-   const data_score = getMovieScoreValues(vote_average);
+   const voteAverageValues = getMovieScore(vote_average);
+   const dataScore = getMovieScoreChartValues(vote_average);
 
    return (
       <PieChart
@@ -19,7 +19,7 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
          height={125}
       >
          <Pie
-            data={data_score}
+            data={dataScore}
             cx={62.5} // Střed grafu na ose X
             cy={62.5} // Střed grafu na ose Y
             innerRadius={42} // Vnitřní poloměr
@@ -31,7 +31,7 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
             dataKey="value"
             animationEasing="ease"
          >
-            {data_score.map((entry, index) => (
+            {dataScore.map((entry, index) => (
                <Cell
                   key={`cell-${index}`}
                   fill={chart_colors[index % chart_colors.length]}
@@ -46,7 +46,7 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
                      offset="5"
                      x="62.5"
                      y="62.5"
-                     text-anchor="middle"
+                     textAnchor="middle"
                      fill="#808080"
                   >
                      <tspan
@@ -54,7 +54,7 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
                         dy="17"
                         className={styles.valueLabel}
                      >
-                        {vote_average_value}
+                        {voteAverageValues}
                      </tspan>
                      <tspan
                         dx="0"

@@ -22,7 +22,7 @@ const MoviesTable = ({
    if (movies.length < 1) return;
 
    return (
-      <CRow className="px-4">
+      <CRow className="px-2">
          <CTable>
             <CTableBody>
                {movies?.map((movie, index) => {
@@ -32,7 +32,7 @@ const MoviesTable = ({
                         onClick={() => setSelectedMovieId(movie.id)}
                         className="mc-search-table-row"
                      >
-                        <CTableDataCell className="p-0 border-0">
+                        <CTableDataCell className="p-0 ps-3 border-0">
                            {movie.poster_path ? (
                               <CImage
                                  align="start"
@@ -48,7 +48,7 @@ const MoviesTable = ({
                               />
                            )}
                         </CTableDataCell>
-                        <CTableDataCell className="pt-1 ps-3 border-0 fw-normal fs-5">
+                        <CTableDataCell className="pt-2 ps-3 pe-3 border-0 fw-bold fs-6">
                            {movie.original_title}
                         </CTableDataCell>
                      </CTableRow>

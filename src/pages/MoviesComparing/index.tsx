@@ -14,6 +14,9 @@ import { useDebounce } from '../../hooks/useDebounce';
 import MoviesTable from '../../components/MovieTable';
 import SearchForm from '../../components/SearchForm';
 import MovieCard from '../../components/MovieCard';
+import BarChart from '../../components/BarChart';
+
+import { getMoviesBarChartValues } from '../../helpers/getMoviesBarChartValues/getMoviesBarChartValues';
 
 const MoviesComparingPage = () => {
    const [searchedMovie, setSearchedMovie] = useState('');
@@ -25,6 +28,10 @@ const MoviesComparingPage = () => {
    );
 
    const [selectedMovieId, setSelectedMovieId] = useState(0);
+
+   const barChartData = getMoviesBarChartValues(moviesToCompareState);
+
+   console.log('barChartData', barChartData);
 
    const params = {
       query: debouncedSearchMovie,
@@ -64,11 +71,11 @@ const MoviesComparingPage = () => {
       >
          <CRow className="h-100">
             <CCol
-               xs={3}
+               xs={2}
                className="bg-primary text-white p-4"
             >
-               <h1>Movie Comparator</h1>
-               <h4>Find a Movie and add it to comparation</h4>
+               <h1 className="h2">Movie Comparator</h1>
+               <h2 className="h6">Find a Movie and add it to comparation</h2>
                <SearchForm
                   setSearchedMovie={handleSearchedMovieInputOnChange}
                />
@@ -78,8 +85,8 @@ const MoviesComparingPage = () => {
                   setSelectedMovieId={handleSetSelectedMovieId}
                />
             </CCol>
-            <CCol xs={9}>
-               <CRow className="mc-movie-row">
+            <CCol xs={10}>
+               <CRow className="mc-movie-row pb-5">
                   {moviesToCompareState.map((movieToCompare, index) => {
                      return (
                         <MovieCard
@@ -88,6 +95,9 @@ const MoviesComparingPage = () => {
                         />
                      );
                   })}
+               </CRow>
+               <CRow className="justify-content-center pt-5">
+                  <BarChart barChartValues={barChartData} />
                </CRow>
             </CCol>
          </CRow>

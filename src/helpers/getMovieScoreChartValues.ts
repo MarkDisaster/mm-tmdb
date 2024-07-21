@@ -1,6 +1,6 @@
 import { getMovieScore } from './getMovieScore';
 
-export const getMovieScoreValues = (voteAverage: number = 0) => {
+export const getMovieScoreChartValues = (voteAverage: number = 0) => {
    const voteAverageValue = getMovieScore(voteAverage);
 
    if (voteAverage <= 0) {
