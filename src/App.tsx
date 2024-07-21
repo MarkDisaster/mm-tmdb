@@ -1,16 +1,19 @@
 import { Provider } from 'react-redux';
-import { moviesToCompareStore } from './stores/moviesToCompare/store';
+import { rootStore } from './store/store';
 
 import MoviesComparingPage from './pages/MoviesComparing';
+
+import Main from './components/Main';
+
 import './App.css';
 
 const App = () => {
    return (
-      <>
-         <Provider store={moviesToCompareStore}>
+      <Provider store={rootStore}>
+         <Main>
             <MoviesComparingPage />
-         </Provider>
-      </>
+         </Main>
+      </Provider>
    );
 };
 

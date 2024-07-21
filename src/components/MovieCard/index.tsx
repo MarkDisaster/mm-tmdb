@@ -14,7 +14,7 @@ import { TMDB_IMG_URI } from '../../api/constants';
 
 import { cilTrash } from '@coreui/icons';
 import { useDispatch } from 'react-redux';
-import { removeMovie } from '../../stores/moviesToCompare/slice';
+import { removeMovie } from '../../store/slices/moviesToCompare/slice';
 import MovieScore from '../MovieScore';
 
 import styles from './style.module.css';

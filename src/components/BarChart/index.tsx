@@ -19,6 +19,7 @@ const MovieScore = ({ barChartValues }: BarChartProps) => {
          width={1600}
          height={350}
          data={barChartValues}
+         maxBarSize={75}
       >
          <CartesianGrid strokeDasharray="3 3" />
          <XAxis dataKey="name" />
