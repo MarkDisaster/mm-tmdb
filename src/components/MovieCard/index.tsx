@@ -5,6 +5,7 @@ import {
    CCardImage,
    CCardText,
    CCardTitle,
+   CRow,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
@@ -14,6 +15,9 @@ import { TMDB_IMG_URI } from '../../api/constants';
 import { cilTrash } from '@coreui/icons';
 import { useDispatch } from 'react-redux';
 import { removeMovie } from '../../stores/moviesToCompare/slice';
+import MovieScore from '../MovieScore';
+
+import styles from './style.module.css';
 
 const MovieCard = ({
    id,
@@ -39,16 +43,16 @@ const MovieCard = ({
                className="text-white"
             />
          </CButton>
-
          <CCardImage
             orientation="top"
             src={`${TMDB_IMG_URI}${poster_path}`}
          />
+         <CRow className={styles.movieScore}>
+            <MovieScore vote_average={vote_average} />
+         </CRow>
          <CCardBody>
             <CCardTitle className="fw-bold">{original_title}</CCardTitle>
-            <CCardText>
-               Vote: {Math.round(vote_average * 10)} % Popularity: {popularity}
-            </CCardText>
+            <CCardText>Popularity: {popularity}</CCardText>
          </CCardBody>
       </CCard>
    );
