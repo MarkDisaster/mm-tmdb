@@ -27,8 +27,9 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
             fill="#8884d8"
             paddingAngle={0}
             startAngle={90}
-            endAngle={450}
+            endAngle={-270}
             dataKey="value"
+            animationEasing="ease"
          >
             {data_score.map((entry, index) => (
                <Cell

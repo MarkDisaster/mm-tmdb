@@ -39,7 +39,6 @@ const MoviesComparingPage = () => {
    });
 
    const handleSearchedMovieInputOnChange = (value: string) => {
-      console.log('event.target.value', value);
       setSearchedMovie(value);
    };
 
@@ -49,7 +48,6 @@ const MoviesComparingPage = () => {
    });
 
    const handleSetSelectedMovieId = (movie_id: number) => {
-      console.log('event.target.value', movie_id);
       setSelectedMovieId(movie_id);
    };
 
@@ -58,8 +56,6 @@ const MoviesComparingPage = () => {
          dispatch(addMovie(dataMovie));
       }
    }, [dataMovie, dispatch]);
-
-   console.log('moviesToCompareState', moviesToCompareState);
 
    return (
       <CContainer

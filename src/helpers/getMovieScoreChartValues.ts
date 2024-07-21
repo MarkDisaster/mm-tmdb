@@ -1,17 +1,17 @@
 import { getMovieScore } from './getMovieScore';
 
-export const getMovieScoreValues = (vote_average: number = 0) => {
-   const vote_average_value = getMovieScore(vote_average);
+export const getMovieScoreValues = (voteAverage: number = 0) => {
+   const voteAverageValue = getMovieScore(voteAverage);
 
-   if (vote_average <= 0) {
+   if (voteAverage <= 0) {
       return [
-         { name: '', value: 100 },
          { name: '', value: 0 },
+         { name: '', value: 100 },
       ];
    }
 
    return [
-      { name: '', value: 100 - vote_average_value },
-      { name: '', value: vote_average_value },
+      { name: '', value: voteAverageValue },
+      { name: '', value: 100 - voteAverageValue },
    ];
 };

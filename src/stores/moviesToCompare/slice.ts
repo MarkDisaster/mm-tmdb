@@ -11,7 +11,6 @@ const moviesToCompareSlice = createSlice({
    initialState,
    reducers: {
       addMovie: (state, action: PayloadAction<GetMovieByIdApiReturn>) => {
-         console.log('action.payload.id', action.payload.id);
          const movieExists = state.values.some(
             (movie) => movie.id === action.payload.id,
          );

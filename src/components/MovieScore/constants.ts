@@ -1,1 +1,1 @@
-export const chart_colors = ['#FFFFFF', '#21d07a'];
+export const chart_colors = ['#21d07a', '#FFFFFF'];
