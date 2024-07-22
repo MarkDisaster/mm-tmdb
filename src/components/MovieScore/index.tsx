@@ -15,15 +15,15 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
 
    return (
       <PieChart
-         width={125}
-         height={125}
+         width={80}
+         height={80}
       >
          <Pie
             data={dataScore}
-            cx={62.5} // Střed grafu na ose X
-            cy={62.5} // Střed grafu na ose Y
-            innerRadius={42} // Vnitřní poloměr
-            outerRadius={55} // Vnější poloměr
+            cx={35} // Střed grafu na ose X
+            cy={40} // Střed grafu na ose Y
+            innerRadius={33} // Vnitřní poloměr
+            outerRadius={40} // Vnější poloměr
             fill="#8884d8"
             paddingAngle={0}
             startAngle={90}
@@ -31,7 +31,7 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
             dataKey="value"
             animationEasing="ease"
          >
-            {dataScore.map((entry, index) => (
+            {dataScore.map((_, index) => (
                <Cell
                   key={`cell-${index}`}
                   fill={chart_colors[index % chart_colors.length]}
@@ -44,13 +44,13 @@ const MovieScore = ({ vote_average }: MovieScoreProps) => {
                content={
                   <text
                      offset="5"
-                     x="62.5"
-                     y="62.5"
+                     x="40"
+                     y="40"
                      textAnchor="middle"
                      fill="#808080"
                   >
                      <tspan
-                        x="74"
+                        x="45"
                         dy="17"
                         className={styles.valueLabel}
                      >

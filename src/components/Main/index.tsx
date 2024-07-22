@@ -7,7 +7,10 @@ const Main = ({ children }: MainProps) => {
    const isDarkThemeState = useSelector((state: RootState) => state.darkTheme);
 
    return (
-      <main data-bs-theme={isDarkThemeState ? 'dark' : 'light'}>
+      <main
+         data-bs-theme={isDarkThemeState ? 'dark' : 'light'}
+         className="min-vh-100"
+      >
          {children}
       </main>
    );

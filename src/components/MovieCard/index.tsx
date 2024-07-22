@@ -30,7 +30,7 @@ const MovieCard = ({
 
    return (
       <CCard
-         style={{ width: '20rem' }}
+         style={{ width: '200px' }}
          className="rc-movie-card p-0 overflow-hidden"
       >
          <CButton
@@ -39,7 +39,7 @@ const MovieCard = ({
          >
             <CIcon
                icon={cilTrash}
-               height={35}
+               height={20}
                className="text-white"
             />
          </CButton>
@@ -51,7 +51,7 @@ const MovieCard = ({
             <MovieScore vote_average={vote_average} />
          </CRow>
          <CCardBody>
-            <CCardTitle className="fw-bold">{original_title}</CCardTitle>
+            <CCardTitle className="fw-bold fs-6">{original_title}</CCardTitle>
             <CCardText>Popularity: {popularity}</CCardText>
          </CCardBody>
       </CCard>

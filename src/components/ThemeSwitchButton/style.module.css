@@ -1,0 +1,4 @@
+.switchButton input {
+    transform: scale(1.5);
+    margin-right: 15px;
+}

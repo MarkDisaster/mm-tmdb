@@ -6,7 +6,7 @@ const SearchForm = ({ setSearchedMovie }: SearchFormProps) => {
       <CContainer className="p-0 pb-4 pt-3 d-flex align-items-start">
          <CFormInput
             type="search"
-            id="exampleFormControlInput1"
+            id="searchMovieInput"
             placeholder="Find Movie"
             aria-describedby="exampleFormControlInputHelpInline"
             onChange={(e) => setSearchedMovie(e.target.value)}
