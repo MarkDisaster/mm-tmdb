@@ -2,4 +2,32 @@
     position: absolute;
     left: 10px;
     top: 200px;
+    padding: 0;
 }
+
+.movieCard {
+    padding: 0 !important;
+    overflow: hidden;
+    width: 200px !important;
+}
+
+.movieCard:hover .cardDeleteButton {
+    display: block !important;
+ }
+
+.cardDeleteButton {
+    display: none !important;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    border-radius: 0 !important;
+    border-bottom-left-radius: 10px !important;
+    background-color: rgba(var(--bs-danger-rgb)) !important;
+    
+ }
+
+ .cardDeleteButton rect,
+ .cardDeleteButton path {
+    fill: var(--bs-white) !important;
+ }
+ 

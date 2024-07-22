@@ -19,6 +19,8 @@ import BarChart from '../../components/BarChart';
 import { getMoviesBarChartValues } from '../../helpers/getMoviesBarChartValues/getMoviesBarChartValues';
 import ThemeSwitchButton from '../../components/ThemeSwitchButton';
 
+import styles from './style.module.css';
+
 const MoviesComparingPage = () => {
    const [searchedMovie, setSearchedMovie] = useState('');
    const debouncedSearchMovie = useDebounce(searchedMovie, 500);
@@ -86,7 +88,7 @@ const MoviesComparingPage = () => {
                />
             </CCol>
             <CCol xs={10}>
-               <CRow className="mc-movie-row pb-5">
+               <CRow className={styles.movieRow}>
                   {moviesToCompareState.map((movieToCompare, index) => {
                      return (
                         <MovieCard

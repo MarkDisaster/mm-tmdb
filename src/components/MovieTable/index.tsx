@@ -13,6 +13,8 @@ import { cilImage } from '@coreui/icons';
 import { MovieTablesProps } from './interfaces';
 import { TMDB_IMG_URI } from '../../api/constants';
 
+import styles from './style.module.css';
+
 const MoviesTable = ({
    movies,
    isLoading,
@@ -30,9 +32,9 @@ const MoviesTable = ({
                      <CTableRow
                         key={index}
                         onClick={() => setSelectedMovieId(movie.id)}
-                        className="mc-search-table-row"
+                        className={styles.searchTableRow}
                      >
-                        <CTableDataCell className="p-0 ps-3 border-0">
+                        <CTableDataCell className={styles.searchTableCell}>
                            {movie.poster_path ? (
                               <CImage
                                  align="start"
@@ -48,7 +50,7 @@ const MoviesTable = ({
                               />
                            )}
                         </CTableDataCell>
-                        <CTableDataCell className="pt-2 ps-3 pe-3 border-0 fw-bold fs-6">
+                        <CTableDataCell className={styles.searchTableCellName}>
                            {movie.original_title}
                         </CTableDataCell>
                      </CTableRow>

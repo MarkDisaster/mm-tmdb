@@ -31,16 +31,15 @@ const MovieCard = ({
    return (
       <CCard
          style={{ width: '200px' }}
-         className="rc-movie-card p-0 overflow-hidden"
+         className={styles.movieCard}
       >
          <CButton
-            className="rc-movie-card-delete-button bg-danger"
+            className={styles.cardDeleteButton}
             onClick={() => dispatch(removeMovie(id))}
          >
             <CIcon
                icon={cilTrash}
                height={20}
-               className="text-white"
             />
          </CButton>
          <CCardImage
