@@ -4,8 +4,8 @@ A project that illustrates the integration of several technologies and tools to 
 
 ### Techniques and Best Practices
 
-#### 1. TypeScript Type Checking
-   Prevent errors and improve code readability and maintainability with TypeScript.
+1. TypeScript Type Checking
+-- Prevent errors and improve code readability and maintainability with TypeScript.
 
 #### 2. Modular and Reusable Components
    Create small, reusable components for better organization and maintainability.
