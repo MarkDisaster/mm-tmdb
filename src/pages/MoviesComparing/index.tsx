@@ -41,7 +41,7 @@ const MoviesComparingPage = () => {
       include_adult: true,
    };
 
-   const { data, isLoading } = useQuery({
+   const { data: dataSearchedMovies, isLoading } = useQuery({
       queryKey: ['getMovie', params],
       queryFn: async () => SearchService.getMoviesByName(params),
    });
@@ -53,6 +53,7 @@ const MoviesComparingPage = () => {
    const { data: dataMovie } = useQuery({
       queryKey: ['getMovie', selectedMovieId],
       queryFn: async () => MovieService.getMovieById(selectedMovieId),
+      enabled: !!selectedMovieId && !!dataSearchedMovies,
    });
 
    const handleSetSelectedMovieId = (movie_id: number) => {
@@ -60,7 +61,7 @@ const MoviesComparingPage = () => {
    };
 
    useEffect(() => {
-      if (dataMovie?.id) {
+      if (dataMovie) {
          dispatch(addMovie(dataMovie));
       }
    }, [dataMovie, dispatch]);
@@ -82,7 +83,7 @@ const MoviesComparingPage = () => {
                   setSearchedMovie={handleSearchedMovieInputOnChange}
                />
                <MoviesTable
-                  movies={data?.results ?? []}
+                  movies={dataSearchedMovies?.results ?? []}
                   isLoading={isLoading}
                   setSelectedMovieId={handleSetSelectedMovieId}
                />
