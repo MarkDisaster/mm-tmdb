@@ -14,7 +14,6 @@ A project that illustrates the integration of several technologies and tools to 
   - Divide the state into logical slices and manage it efficiently using `createSlice`.
 
 #### 4. Asynchronous API Operations and Data Caching with React Query
-  - Automatically synchronize and cache data to improve application performance.
 
 #### 5. Custom Hooks
   - Enhance component logic reusability and code structure with custom hooks.
