@@ -4,26 +4,26 @@ A project that illustrates the integration of several technologies and tools to 
 
 ### Techniques and Best Practices
 
-1. TypeScript Type Checking
--- Prevent errors and improve code readability and maintainability with TypeScript.
+#### 1. TypeScript Type Checking
+  - Prevent errors and improve code readability and maintainability with TypeScript.
 
 #### 2. Modular and Reusable Components
-   Create small, reusable components for better organization and maintainability.
+  - Create small, reusable components for better organization and maintainability.
 
 #### 3. State Management with Redux Toolkit
-Divide the state into logical slices and manage it efficiently using `createSlice`.
+  - Divide the state into logical slices and manage it efficiently using `createSlice`.
 
 #### 4. Asynchronous API Operations and Data Caching with React Query
-      Automatically synchronize and cache data to improve application performance.
+  - Automatically synchronize and cache data to improve application performance.
 
 #### 5. Custom Hooks
-   Enhance component logic reusability and code structure with custom hooks.
+  - Enhance component logic reusability and code structure with custom hooks.
 
 #### 6. Helper Functions
-   Modularize and reuse code through small utility functions.
+  - Modularize and reuse code through small utility functions.
 
 #### 7. Additional Performance Optimizations
-   Implement techniques like debounce to improve UI responsiveness and overall performance.
+  - Implement techniques like debounce to improve UI responsiveness and overall performance.
 
 ### Stack:
 -  React
