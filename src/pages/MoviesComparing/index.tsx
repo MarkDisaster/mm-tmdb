@@ -60,7 +60,7 @@ const MoviesComparingPage = () => {
    };
 
    useEffect(() => {
-      if (dataMovie) {
+      if (dataMovie?.id) {
          dispatch(addMovie(dataMovie));
       }
    }, [dataMovie, dispatch]);
