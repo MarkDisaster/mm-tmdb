@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MoviesToCompareState } from './interfaces';
-import { GetMovieByIdApiReturn } from '../../../api/movie-service/types';
+import { GetMovieByIdApiReturn } from '../../../services/movie-service/types';
 
 export const initialState: MoviesToCompareState = {
    values: [],

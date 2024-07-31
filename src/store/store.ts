@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import darkThemeReducer from './slices/darkTheme/slice';
 import moviesToCompareReducer from './slices/moviesToCompare/slice';
+import localStorageReducer from './slices/localStorage/slice';
 
 const rootReducer = combineReducers({
    darkTheme: darkThemeReducer,
    moviesToCompare: moviesToCompareReducer,
+   localStorage: localStorageReducer,
 });
 
 export const rootStore = configureStore({

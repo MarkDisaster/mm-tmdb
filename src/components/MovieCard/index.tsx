@@ -10,7 +10,7 @@ import {
 import CIcon from '@coreui/icons-react';
 
 import { MovieCardProps } from './interfaces';
-import { TMDB_IMG_URI } from '../../api/constants';
+import { TMDB_IMG_URI } from '../../services/constants';
 
 import { cilTrash } from '@coreui/icons';
 import { useDispatch } from 'react-redux';

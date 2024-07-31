@@ -10,7 +10,6 @@ const getMovieById = async (movie_id: number) => {
       `movie/${movie_id}`,
       getMovieByIdParams,
    );
-
    return res;
 };
 

@@ -11,7 +11,7 @@ import { CIcon } from '@coreui/icons-react';
 import { cilImage } from '@coreui/icons';
 
 import { MovieTablesProps } from './interfaces';
-import { TMDB_IMG_URI } from '../../api/constants';
+import { TMDB_IMG_URI } from '../../services/constants';
 
 import styles from './style.module.css';
 

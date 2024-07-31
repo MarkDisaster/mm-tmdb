@@ -1,4 +1,4 @@
-import { GetMovieByIdApiReturn } from '../../../api/movie-service/types';
+import { GetMovieByIdApiReturn } from '../../../services/movie-service/types';
 
 export interface MoviesToCompareState {
    values: GetMovieByIdApiReturn[];

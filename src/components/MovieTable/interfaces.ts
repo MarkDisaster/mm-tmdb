@@ -1,4 +1,4 @@
-import { SearchMoviesResults } from '../../api/search-service/types';
+import { SearchMoviesResults } from '../../services/search-service/types';
 
 export interface MovieTablesProps {
    movies: SearchMoviesResults[];

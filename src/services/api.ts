@@ -29,12 +29,15 @@ export class ApiService {
       return `${url}?${queryString}`;
    }
 
-   // Perform a GET request
-   async get<T>(
+   // General request method
+   private async request<TResponse>(
+      method: 'GET' | 'POST',
       url: string,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      body?: any,
       queryParams?: Record<string, string | number | boolean>,
       options?: RequestInit,
-   ): Promise<T> {
+   ): Promise<TResponse> {
       const requestURL = this.constructUrlWithParams(
          `${this.baseUrl}${url}`,
          queryParams,
@@ -43,7 +46,8 @@ export class ApiService {
       const requestInit: RequestInit = {
          ...this.options,
          ...options,
-         method: 'GET',
+         method,
+         ...(body && { body: JSON.stringify(body) }),
       };
 
       try {
@@ -60,6 +64,26 @@ export class ApiService {
             throw new Error('An unknown error occurred');
          }
       }
+   }
+
+   // Perform a GET request
+   async get<TResponse>(
+      url: string,
+      queryParams?: Record<string, string | number | boolean>,
+      options?: RequestInit,
+   ): Promise<TResponse> {
+      return this.request('GET', url, undefined, queryParams, options);
+   }
+
+   // Perform a POST request
+   async post<TResponse>(
+      url: string,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      body?: Record<any, any>,
+      queryParams?: Record<string, string | number | boolean>,
+      options?: RequestInit,
+   ): Promise<TResponse> {
+      return this.request('POST', url, body, queryParams, options);
    }
 }
 
