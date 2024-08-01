@@ -1,3 +1,7 @@
+.moviesTableWrapper {
+   padding: 0 10px;
+}
+
 .searchTableCell {
     color: #ffffff !important;
     border: 0px;
@@ -10,7 +14,7 @@
     font-weight: bold;
     padding: 14px 0 0px 5px !important;
     border: 0;
-    color: var(--bs-white) !important;
+    color: var(--bs-black) !important;
  }
 
 .searchTableRow {
@@ -18,7 +22,7 @@
  }
  
  .searchTableRow:hover td {
-    background-color:rgb(11 99 228) !important
+    background-color:var(--bs-gray-300) !important;
  }
  
  .searchTableRow td:first-child {

@@ -1,4 +1,11 @@
 .switchButton input {
-    transform: scale(1.5);
-    margin-right: 15px;
+    margin-right: 5px;
 }
+
+.switchButton input:checked {
+    background-color: var(--bs-body-bg) !important;
+}
+
+[data-bs-theme="dark"] .switchButton * {
+    color: var(--bs-gray-200) !important;
+ }

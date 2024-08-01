@@ -4,10 +4,22 @@
     align-content: flex-start !important;
     overflow: visible;
     max-height: 46.5px;
+    background-color: var(--bs-primary) !important;
 }
 
 .headerConteiner {
     display: flex;
     align-items: flex-start !important;
     align-content: flex-start !important;
+    height: 32.5px;
 }
+
+.headerNav {
+    margin-top: .5rem;
+    gap: 10px;
+}
+
+.headerLogo,
+.headerNav * {
+    color: var(--bs-gray-200) !important;
+ }

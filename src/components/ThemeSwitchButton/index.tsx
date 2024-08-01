@@ -12,7 +12,7 @@ const ThemeSwitchButton = () => {
 
    return (
       <CFormSwitch
-         label="Switch Color Theme"
+         label="Dark Theme"
          id="ThemeSwitchButton"
          className={styles.switchButton}
          onClick={handleToggleDarkTheme}

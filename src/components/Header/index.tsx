@@ -20,8 +20,13 @@ const Header = () => {
                fluid
                className={styles.headerConteiner}
             >
-               <CHeaderBrand href="#">MM TMDB App</CHeaderBrand>
-               <CHeaderNav>
+               <CHeaderBrand
+                  className={styles.headerLogo}
+                  href="#"
+               >
+                  MM TMDB App
+               </CHeaderBrand>
+               <CHeaderNav className={styles.headerNav}>
                   <CNavItem>
                      <Link to="/">Home</Link>
                   </CNavItem>
@@ -33,14 +38,14 @@ const Header = () => {
                   </CNavItem>
                </CHeaderNav>
                <SearchForm />
-               <CHeaderNav>
-                  {' '}
+               <CHeaderNav className="mt-2">
                   <CNavItem>
                      <Link to="/login">Přihlášení</Link>
                   </CNavItem>
                </CHeaderNav>
-
-               <ThemeSwitchButton />
+               <div className="mt-2">
+                  <ThemeSwitchButton />
+               </div>
             </CContainer>
          </CHeader>
       </>

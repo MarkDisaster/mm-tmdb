@@ -19,7 +19,7 @@ const MoviesComparingPage = () => {
    return (
       <CContainer fluid>
          <CRow className="min-vh-100">
-            <CCol xs={10}>
+            <CCol>
                <CRow className={styles.movieRow}>
                   {moviesToCompareState.map((movieToCompare, index) => {
                      return (
@@ -32,7 +32,7 @@ const MoviesComparingPage = () => {
                </CRow>
                {barChartData.length > 0 && (
                   <CRow className="justify-content-center pt-5">
-                     <h4 className="text-center pb-5">Popularity Chart</h4>
+                     <h4 className="text-center pb-5">Graf popularity</h4>
                      <BarChart barChartValues={barChartData} />
                   </CRow>
                )}

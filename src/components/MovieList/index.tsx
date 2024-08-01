@@ -21,7 +21,7 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
    if (movies.length < 1) return;
 
    return (
-      <CRow className="px-2">
+      <CRow className={styles.moviesTableWrapper}>
          <CTable>
             <CTableBody>
                {movies?.map((movie, index) => {
@@ -47,8 +47,10 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
                            )}
                         </CTableDataCell>
                         <CTableDataCell className={styles.searchTableCellName}>
-                           {movie.original_title}
-                           <AddToCompareButton selectedMovieId={movie.id} />
+                           <div>{movie.original_title}</div>
+                           <div>
+                              <AddToCompareButton selectedMovieId={movie.id} />
+                           </div>
                         </CTableDataCell>
                      </CTableRow>
                   );
