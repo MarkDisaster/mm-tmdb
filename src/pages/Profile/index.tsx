@@ -6,7 +6,10 @@ import AuthenticationService from '../../services/authentication-service';
 
 import AccountService from '../../services/account-service';
 import { MEDIA_TYPE } from '../../services/account-service/types';
-import { setLoggedIn } from '../../store/slices/authentication/slice';
+import {
+   setLoggedIn,
+   setLoggedOut,
+} from '../../store/slices/authentication/slice';
 import LocalStorageService from '../../services/storage-service';
 
 import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
@@ -22,6 +25,12 @@ const ProfilePage = () => {
 
    const handleUserLogIn = () => {
       dispatch(setLoggedIn());
+   };
+
+   const handleUserLogOut = () => {
+      dispatch(setLoggedOut());
+      LocalStorageService.removeItem(LOCAL_STORAGE.SESSION_ID);
+      LocalStorageService.removeItem(LOCAL_STORAGE.TOKEN_EXPIRATION_TIME);
    };
 
    const handleLogIn = () => {
@@ -99,6 +108,9 @@ const ProfilePage = () => {
                   }
                />
                <button onClick={handleLogIn}>LOG IN</button>
+            </div>
+            <div>
+               <button onClick={handleUserLogOut}>LOGOUT</button>
             </div>
             <div>
                <button onClick={handleAddMovieToFavorites}>PŘIDEJ MOVIE</button>

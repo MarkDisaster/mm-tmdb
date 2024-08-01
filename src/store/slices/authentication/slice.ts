@@ -1,6 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import LocalStorageService from '../../../services/storage-service';
+import { LOCAL_STORAGE } from '../../../services/storage-service/interfaces';
+import { getIsAuthorizationTokenExpired } from '../../../helpers/getIsAuthorizationTokenExpired';
 
-export const initialState: boolean = false;
+const tokenExpirationTime = LocalStorageService.getItem(
+   LOCAL_STORAGE.TOKEN_EXPIRATION_TIME,
+);
+const isTokenExpired = getIsAuthorizationTokenExpired(tokenExpirationTime);
+console.log('isTokenExpired tady', isTokenExpired);
+
+export const initialState: boolean = !isTokenExpired;
 
 const authenticationSlice = createSlice({
    name: 'authentication',

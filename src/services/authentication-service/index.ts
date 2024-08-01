@@ -34,10 +34,22 @@ const getSessionId = async (getSessionIdParam: string) => {
    return res;
 };
 
+//parameters {"session_id": "6b2e41942a65af61669665a20bbea4ffef98c580"}
+const deleteSession = async (deleteSessionIdParam: string) => {
+   const deleteSessionIdParams = { session_id: deleteSessionIdParam };
+   const res = await api.delete<GetSessionIdReturn>(
+      `authentication/session`,
+      deleteSessionIdParams,
+   );
+
+   return res;
+};
+
 const AuthenticationService = {
    getRequestToken,
    getValidateWithLogin,
    getSessionId,
+   deleteSession,
 };
 
 export default AuthenticationService;

@@ -15,6 +15,7 @@ import Header from '../../components/Header';
 import ProfilePage from '../../pages/Profile';
 
 const router = (isUserLoggedIn: boolean) => {
+   console.log('isUserLoggedIn', isUserLoggedIn);
    return createBrowserRouter(
       createRoutesFromElements(
          <Route
@@ -47,6 +48,8 @@ const RoutingService = () => {
    const isUserLoggedIn = useSelector(
       (state: RootState) => state.authentication,
    );
+
+   console.log('isUserLoggedInisUserLoggedIn', isUserLoggedIn);
 
    return <RouterProvider router={router(isUserLoggedIn)} />;
 };

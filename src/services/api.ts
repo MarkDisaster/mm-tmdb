@@ -31,7 +31,7 @@ export class ApiService {
 
    // General request method
    private async request<TResponse>(
-      method: 'GET' | 'POST',
+      method: 'GET' | 'POST' | 'DELETE',
       url: string,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       body?: any,
@@ -84,6 +84,15 @@ export class ApiService {
       options?: RequestInit,
    ): Promise<TResponse> {
       return this.request('POST', url, body, queryParams, options);
+   }
+
+   // Perform a DELETE request
+   async delete<TResponse>(
+      url: string,
+      queryParams?: Record<string, string | number | boolean>,
+      options?: RequestInit,
+   ): Promise<TResponse> {
+      return this.request('DELETE', url, undefined, queryParams, options);
    }
 }
 
