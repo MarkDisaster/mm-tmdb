@@ -56,17 +56,19 @@ const SearchForm = () => {
                }}
             />
          </CContainer>
-         {showList && (
-            <CContainer
-               className={styles.searchResultsWrapper}
-               ref={listRef}
-            >
-               <MovieList
-                  movies={dataSearchedMovies?.results ?? []}
-                  isLoading={isLoading}
-               />
-            </CContainer>
-         )}
+         {showList &&
+            dataSearchedMovies?.results !== undefined &&
+            dataSearchedMovies?.results.length > 0 && (
+               <CContainer
+                  className={styles.searchResultsWrapper}
+                  ref={listRef}
+               >
+                  <MovieList
+                     movies={dataSearchedMovies?.results ?? []}
+                     isLoading={isLoading}
+                  />
+               </CContainer>
+            )}
       </CForm>
    );
 };

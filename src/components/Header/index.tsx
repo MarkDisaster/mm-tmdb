@@ -1,7 +1,7 @@
 import {
+   CAvatar,
    CContainer,
    CHeader,
-   CHeaderBrand,
    CHeaderNav,
    CNavItem,
 } from '@coreui/react';
@@ -20,12 +20,12 @@ const Header = () => {
                fluid
                className={styles.headerConteiner}
             >
-               <CHeaderBrand
+               <Link
+                  to="/"
                   className={styles.headerLogo}
-                  href="#"
                >
                   MM TMDB App
-               </CHeaderBrand>
+               </Link>
                <CHeaderNav className={styles.headerNav}>
                   <CNavItem>
                      <Link to="/">Home</Link>
@@ -38,12 +38,22 @@ const Header = () => {
                   </CNavItem>
                </CHeaderNav>
                <SearchForm />
-               <CHeaderNav className="mt-2">
-                  <CNavItem>
-                     <Link to="/login">Přihlášení</Link>
-                  </CNavItem>
-               </CHeaderNav>
-               <div className="mt-2">
+
+               <div className={styles.headerLoginSwitchTheme}>
+                  <CHeaderNav className="mt-1">
+                     <CNavItem>
+                        <Link to="/login">
+                           Log In
+                           <CAvatar
+                              color="warning"
+                              textColor="white"
+                              className="ms-2 mb-1"
+                           >
+                              MM
+                           </CAvatar>
+                        </Link>
+                     </CNavItem>
+                  </CHeaderNav>
                   <ThemeSwitchButton />
                </div>
             </CContainer>

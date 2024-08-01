@@ -15,11 +15,33 @@
 }
 
 .headerNav {
-    margin-top: .5rem;
+    margin-top: 8px;
     gap: 10px;
+}
+
+.headerLogo {
+    margin-top: 3px;
+    font-size: 1.25rem;
 }
 
 .headerLogo,
 .headerNav * {
     color: var(--bs-gray-200) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+ }
+
+ .headerNav *:hover {
+    text-decoration: underline;
+ }
+
+ .headerLoginSwitchTheme {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+ }
+
+ .headerLoginSwitchTheme * {
+    color: var(--bs-gray-200) !important;
+    text-decoration: none;
  }

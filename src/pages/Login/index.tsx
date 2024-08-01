@@ -47,7 +47,7 @@ const LoginPage = () => {
                      );
 
                      handleUserLogIn();
-                     AccountService.getUserInfo(sessionId).then((res) => {
+                     AccountService.getUserInfo(res.session_id).then((res) => {
                         console.log('AccountRes', res);
                      });
                   },
