@@ -5,7 +5,6 @@ import { CContainer, CRow } from '@coreui/react';
 import AuthenticationService from '../../services/authentication-service';
 
 import AccountService from '../../services/account-service';
-import { MEDIA_TYPE } from '../../services/account-service/types';
 import {
    setLoggedIn,
    setLoggedOut,
@@ -72,19 +71,6 @@ const ProfilePage = () => {
       });
    };
 
-   const handleAddMovieToFavorites = () => {
-      const addMovieToFavoritesParams = {
-         media_id: 121,
-         media_type: MEDIA_TYPE.MOVIE,
-         favorite: false,
-      };
-
-      AccountService.addRemoveMovieFavorites(
-         addMovieToFavoritesParams,
-         sessionId,
-      );
-   };
-
    return (
       <CContainer fluid>
          <CRow className="">
@@ -111,9 +97,6 @@ const ProfilePage = () => {
             </div>
             <div>
                <button onClick={handleUserLogOut}>LOGOUT</button>
-            </div>
-            <div>
-               <button onClick={handleAddMovieToFavorites}>PŘIDEJ MOVIE</button>
             </div>
          </CRow>
       </CContainer>

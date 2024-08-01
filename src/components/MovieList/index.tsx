@@ -15,6 +15,7 @@ import { TMDB_IMG_URI } from '../../services/constants';
 
 import styles from './style.module.css';
 import AddToCompareButton from '../AddToCompareButton';
+import AddToFavoritesButton from '../AddToFavoritesButton';
 
 const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
    if (isLoading) return <CSpinner color="white" />;
@@ -48,8 +49,11 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
                         </CTableDataCell>
                         <CTableDataCell className={styles.searchTableCellName}>
                            <div>{movie.original_title}</div>
-                           <div>
+                           <div className={styles.searchTableButtons}>
                               <AddToCompareButton selectedMovieId={movie.id} />
+                              <AddToFavoritesButton
+                                 selectedMovieId={movie.id}
+                              />
                            </div>
                         </CTableDataCell>
                      </CTableRow>

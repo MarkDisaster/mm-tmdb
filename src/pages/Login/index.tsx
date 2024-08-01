@@ -5,7 +5,6 @@ import { CContainer, CRow } from '@coreui/react';
 import AuthenticationService from '../../services/authentication-service';
 
 import AccountService from '../../services/account-service';
-import { MEDIA_TYPE } from '../../services/account-service/types';
 import { setLoggedIn } from '../../store/slices/authentication/slice';
 import LocalStorageService from '../../services/storage-service';
 
@@ -17,8 +16,6 @@ const LoginPage = () => {
       username: '',
       password: '',
    });
-
-   const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
 
    const handleUserLogIn = () => {
       dispatch(setLoggedIn());
@@ -57,21 +54,12 @@ const LoginPage = () => {
       });
    };
 
-   const handleAddMovieToFavorites = () => {
-      const addMovieToFavoritesParams = {
-         media_id: 121,
-         media_type: MEDIA_TYPE.MOVIE,
-         favorite: false,
-      };
-
-      AccountService.addRemoveMovieFavorites(
-         addMovieToFavoritesParams,
-         sessionId,
-      );
-   };
-
    return (
       <CContainer fluid>
+         <CRow>
+            Pokud máte registraci na webu www.themoviedb.org, můžete si
+            přihlásit pod svými údaji.
+         </CRow>
          <CRow className="">
             <div>
                <input
@@ -93,9 +81,6 @@ const LoginPage = () => {
                   }
                />
                <button onClick={handleLogIn}>LOG IN</button>
-            </div>
-            <div>
-               <button onClick={handleAddMovieToFavorites}>PŘIDEJ MOVIE</button>
             </div>
          </CRow>
       </CContainer>

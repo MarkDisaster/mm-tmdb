@@ -12,7 +12,7 @@
  .searchTableCellName {
     background-color: unset !important;
     font-weight: bold;
-    padding: 14px 0 0px 5px !important;
+    padding: 14px 10px 0px 5px !important;
     border: 0;
     color: var(--bs-black) !important;
  }
@@ -24,7 +24,6 @@
  .searchTableRow:hover td {
     background-color:var(--bs-gray-300) !important;
  }
-
 
  [data-bs-theme="dark"] .searchTableRow:hover td {
    background-color:var(--bs-gray-800) !important;
@@ -38,4 +37,10 @@
  .searchTableRow td:last-child {
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
+ }
+
+ .searchTableButtons {
+   display: flex;
+   margin-top: 5px;
+   gap: 5px;
  }
