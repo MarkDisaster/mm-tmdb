@@ -1,0 +1,12 @@
+.searchWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px !important;
+    z-index: 111;
+}
+
+.searchResultsWrapper {
+    margin-top: 35px;
+    width: 400px !important;
+}

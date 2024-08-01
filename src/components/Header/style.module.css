@@ -1,0 +1,13 @@
+.headerWrapper {
+    display: flex;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    overflow: visible;
+    max-height: 46.5px;
+}
+
+.headerConteiner {
+    display: flex;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+}

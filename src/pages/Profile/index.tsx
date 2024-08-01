@@ -11,7 +11,7 @@ import LocalStorageService from '../../services/storage-service';
 
 import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
 
-const LoginPage = () => {
+const ProfilePage = () => {
    const dispatch = useDispatch();
    const [loginValues, setLoginValues] = useState({
       username: '',
@@ -44,6 +44,12 @@ const LoginPage = () => {
                      LocalStorageService.setItem(
                         LOCAL_STORAGE.SESSION_ID,
                         res.session_id,
+                     );
+                     console.log(
+                        'handleGetItem(',
+                        LocalStorageService.getItem(
+                           LOCAL_STORAGE.TOKEN_EXPIRATION_TIME,
+                        ),
                      );
 
                      handleUserLogIn();
@@ -102,4 +108,4 @@ const LoginPage = () => {
    );
 };
 
-export default LoginPage;
+export default ProfilePage;

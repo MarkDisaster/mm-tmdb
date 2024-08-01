@@ -1,14 +1,24 @@
 import api from '../api';
 import {
    AddRemoveMovieToFavoritesParams,
-   AuthenticationTokenApiReturn,
+   AddRemoveMovieApiReturn,
+   AddRemoveMovieToWatchlistParams,
+   GetUserInfoApiReturn,
 } from './types';
 
-const addMovieToFavorites = async (
+const getUserInfo = async (sessionId: string) => {
+   const res = await api.get<GetUserInfoApiReturn>(
+      `account/account_id?session_id=${sessionId}`,
+   );
+
+   return res;
+};
+
+const addRemoveMovieFavorites = async (
    addMovieToFavoritesParams: AddRemoveMovieToFavoritesParams,
    sessionId: string,
 ) => {
-   const res = await api.post<AuthenticationTokenApiReturn>(
+   const res = await api.post<AddRemoveMovieApiReturn>(
       `account/account_id/favorite?session_id=${sessionId}`,
       addMovieToFavoritesParams,
    );
@@ -16,8 +26,22 @@ const addMovieToFavorites = async (
    return res;
 };
 
+const addRemoveMovieWatchlist = async (
+   addMovieToFavoritesParams: AddRemoveMovieToWatchlistParams,
+   sessionId: string,
+) => {
+   const res = await api.get<AddRemoveMovieApiReturn>(
+      `account/account_id/watchlist?session_id=${sessionId}`,
+      addMovieToFavoritesParams,
+   );
+
+   return res;
+};
+
 const AccountService = {
-   addMovieToFavorites,
+   getUserInfo,
+   addRemoveMovieFavorites,
+   addRemoveMovieWatchlist,
 };
 
 export default AccountService;

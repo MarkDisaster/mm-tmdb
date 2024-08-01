@@ -1,18 +1,20 @@
 import { Provider } from 'react-redux';
 import { rootStore } from './store/store';
 
-import MoviesComparingPage from './pages/MoviesComparing';
-
 import Main from './components/Main';
 
 import './App.css';
+import RoutingService from './services/routing-service';
+import AuthorizationService from './services/authorization-service';
 
 const App = () => {
    return (
       <Provider store={rootStore}>
-         <Main>
-            <MoviesComparingPage />
-         </Main>
+         <AuthorizationService>
+            <Main>
+               <RoutingService />
+            </Main>
+         </AuthorizationService>
       </Provider>
    );
 };
