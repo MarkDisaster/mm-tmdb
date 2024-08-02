@@ -2,15 +2,19 @@ import { MouseEvent } from 'react';
 import { SelectedMovieId } from './interfaces';
 import CIcon from '@coreui/icons-react';
 import { cilHeart } from '@coreui/icons';
+import { useQueryClient } from '@tanstack/react-query';
 
-import styles from './style.module.css';
 import { MEDIA_TYPE } from '../../services/account-service/types';
 import AccountService from '../../services/account-service';
 import LocalStorageService from '../../services/storage-service';
 import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
 
+import styles from './style.module.css';
+
 const AddToFavoritesButton = ({ selectedMovieId }: SelectedMovieId) => {
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
+
+   const queryClient = useQueryClient();
 
    const handleAddMovieToFavorites = (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -23,7 +27,9 @@ const AddToFavoritesButton = ({ selectedMovieId }: SelectedMovieId) => {
       AccountService.addRemoveMovieFavorites(
          addMovieToFavoritesParams,
          sessionId,
-      );
+      ).then(() => {
+         queryClient.invalidateQueries({ queryKey: ['getFavoriteMovies'] });
+      });
    };
 
    return (

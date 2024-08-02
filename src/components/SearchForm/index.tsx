@@ -45,8 +45,8 @@ const SearchForm = () => {
             <CFormInput
                type="search"
                id="searchMovieInput"
-               placeholder="Find Movie"
-               aria-describedby="exampleFormControlInputHelpInline"
+               placeholder="Vyhledej film"
+               aria-describedby="searchMovieInput"
                onChange={(e) => {
                   setSearchedMovie(e.target.value);
                   setShowList(true);

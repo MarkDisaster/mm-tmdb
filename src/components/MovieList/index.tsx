@@ -18,7 +18,7 @@ import AddToCompareButton from '../AddToCompareButton';
 import AddToFavoritesButton from '../AddToFavoritesButton';
 
 const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
-   if (isLoading) return <CSpinner color="white" />;
+   if (isLoading) return <CSpinner color="blue" />;
    if (movies.length < 1) return;
 
    return (

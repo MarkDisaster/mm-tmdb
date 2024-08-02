@@ -4,6 +4,8 @@ import {
    AddRemoveMovieApiReturn,
    AddRemoveMovieToWatchlistParams,
    GetUserInfoApiReturn,
+   GetFavoriteMovies,
+   GetFavoriteMoviesApiReturn,
 } from './types';
 
 const getUserInfo = async (sessionId: string) => {
@@ -30,9 +32,21 @@ const addRemoveMovieWatchlist = async (
    addMovieToFavoritesParams: AddRemoveMovieToWatchlistParams,
    sessionId: string,
 ) => {
-   const res = await api.get<AddRemoveMovieApiReturn>(
+   const res = await api.post<AddRemoveMovieApiReturn>(
       `account/account_id/watchlist?session_id=${sessionId}`,
       addMovieToFavoritesParams,
+   );
+
+   return res;
+};
+
+const getFavoriteMovies = async (
+   addMovieToFavoritesParams: GetFavoriteMovies,
+) => {
+   const { session_id, language, page, sort_by } = addMovieToFavoritesParams;
+
+   const res = await api.get<GetFavoriteMoviesApiReturn>(
+      `account/account_id/favorite/movies?session_id=${session_id}&language=${language}&page=${page}&sort_by=${sort_by}`,
    );
 
    return res;
@@ -41,6 +55,7 @@ const addRemoveMovieWatchlist = async (
 const AccountService = {
    getUserInfo,
    addRemoveMovieFavorites,
+   getFavoriteMovies,
    addRemoveMovieWatchlist,
 };
 

@@ -7,7 +7,6 @@ const tokenExpirationTime = LocalStorageService.getItem(
    LOCAL_STORAGE.TOKEN_EXPIRATION_TIME,
 );
 const isTokenExpired = getIsAuthorizationTokenExpired(tokenExpirationTime);
-console.log('isTokenExpired tady', isTokenExpired);
 
 export const initialState: boolean = !isTokenExpired;
 

@@ -7,9 +7,7 @@ export const getIsAuthorizationTokenExpired = (expiresAt: string): boolean => {
       .replace(' ', '')
       .replace('UTC', 'Z');
    const expiresDateISO = new Date(expiresDate);
-   const now = new Date();
-   console.log('expiresDateISO', expiresDateISO);
-   console.log('now', now);
+   const actualDate = new Date();
 
-   return now > expiresDateISO;
+   return actualDate > expiresDateISO;
 };

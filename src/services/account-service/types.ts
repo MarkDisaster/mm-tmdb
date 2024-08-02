@@ -48,3 +48,39 @@ export type AddRemoveMovieToWatchlistApiReturn = {
    request_token: string;
    success: boolean;
 };
+
+export type GetFavoriteMovies = {
+   language: string;
+   page: number;
+   session_id: string;
+   sort_by: SORT;
+};
+
+export enum SORT {
+   ASC = 'created_at.asc',
+   DESC = 'created_at.desc',
+}
+
+type MovieGenre = {
+   id: number;
+   name: string;
+};
+
+export type Movie = {
+   id: number;
+   poster_path: string;
+   budget: number;
+   genres: MovieGenre[];
+   original_title: string;
+   revenue: number;
+   vote_average: number;
+   vote_count: number;
+   popularity: number;
+};
+
+export type GetFavoriteMoviesApiReturn = {
+   page: number;
+   results: Movie[];
+   total_pages: number;
+   total_results: number;
+};
