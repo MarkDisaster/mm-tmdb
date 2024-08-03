@@ -55,10 +55,10 @@ const Header = () => {
                      <Link to="/">Home</Link>
                   </CNavItem>
                   <CNavItem>
-                     <Link to="/movies-comparing">Porovnej filmy</Link>
+                     <Link to="/movies-comparing">Porovnání popularity</Link>
                   </CNavItem>
                   <CNavItem>
-                     <Link to="/profile">Uživatelský profil</Link>
+                     <Link to="/profile">Profil</Link>
                   </CNavItem>
                </CHeaderNav>
                <SearchForm />
