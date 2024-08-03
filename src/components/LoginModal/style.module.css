@@ -1,0 +1,15 @@
+.loginFormInfoText {
+    padding: 0 25px;
+    font-weight: bold;
+}
+
+.loginFormContainer {
+    padding: 0 25px 25px 25px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginFormLoginInfo {
+    padding: 0 25px;
+}
