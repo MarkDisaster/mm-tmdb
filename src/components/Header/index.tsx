@@ -2,11 +2,15 @@ import {
    CAvatar,
    CButton,
    CContainer,
+   CDropdown,
+   CDropdownItem,
+   CDropdownMenu,
+   CDropdownToggle,
    CHeader,
    CHeaderNav,
    CNavItem,
 } from '@coreui/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import ThemeSwitchButton from '../ThemeSwitchButton';
 import SearchForm from '../SearchForm';
@@ -21,12 +25,17 @@ import { useState } from 'react';
 import LoginModal from '../LoginModal';
 
 const Header = () => {
+   const navigate = useNavigate();
+   const handleOnClickMovie = () => navigate(`/profile`);
+
    const dispatch = useDispatch();
    const isUserLoggedIn = useSelector(
       (state: RootState) => state.authentication,
    );
 
-   const { avatar } = useSelector((state: RootState) => state.userInfo);
+   const { avatar, username } = useSelector(
+      (state: RootState) => state.userInfo,
+   );
 
    const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -55,6 +64,9 @@ const Header = () => {
                      <Link to="/">Home</Link>
                   </CNavItem>
                   <CNavItem>
+                     <Link to="/profile">About App</Link>
+                  </CNavItem>
+                  <CNavItem>
                      <Link to="/movies-comparing">Movies Comparing</Link>
                   </CNavItem>
                   <CNavItem>
@@ -64,7 +76,7 @@ const Header = () => {
                <SearchForm />
 
                <div className={styles.headerLoginSwitchTheme}>
-                  <CHeaderNav className="mt-1">
+                  <CHeaderNav className="">
                      <LoginModal
                         isModalVisible={isModalVisible}
                         setIsModalVisible={setIsModalVisible}
@@ -72,27 +84,40 @@ const Header = () => {
                      <CNavItem>
                         {isUserLoggedIn ? (
                            <>
-                              <CButton
-                                 className="p-0"
-                                 onClick={handleUserLogOut}
-                              >
-                                 Logout
-                              </CButton>
-                              <Link to="/profile">
-                                 <CAvatar
-                                    color="warning"
-                                    textColor="white"
-                                    className="ms-2 mb-1"
-                                    src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
-                                 ></CAvatar>
-                              </Link>
+                              <CDropdown variant="nav-item">
+                                 <CDropdownToggle
+                                    color="secondary"
+                                    className="p-0"
+                                 >
+                                    {username}
+                                    <CAvatar
+                                       color="warning"
+                                       textColor="white"
+                                       className="ms-2 mb-1"
+                                       src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
+                                    ></CAvatar>
+                                 </CDropdownToggle>
+                                 <CDropdownMenu
+                                    className={styles.headerDropDownSwitchTheme}
+                                 >
+                                    <CDropdownItem onClick={handleOnClickMovie}>
+                                       Profile
+                                    </CDropdownItem>
+                                    <CDropdownItem
+                                       onClick={handleUserLogOut}
+                                       className={styles.logoutButton}
+                                    >
+                                       Logout
+                                    </CDropdownItem>
+                                 </CDropdownMenu>
+                              </CDropdown>
                            </>
                         ) : (
                            <CButton
                               className="p-0"
                               onClick={() => setIsModalVisible(!isModalVisible)}
                            >
-                              Přihlásit se
+                              Login
                               <CAvatar
                                  color="warning"
                                  textColor="white"

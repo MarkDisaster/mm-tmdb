@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
+   CAlert,
    CAvatar,
    CButton,
    CCard,
@@ -83,7 +84,7 @@ const ProfilePage = () => {
                </CCardBody>
             </CCard>
          </CRow>
-         <CRow className="d-flex w-100 mb-5">
+         <CRow className="d-flex w-100 mb-5 flex-column flex-start">
             <h2 className="mb-4">
                <CIcon
                   className="me-2"
@@ -99,15 +100,20 @@ const ProfilePage = () => {
             dataFavoriteMovies?.results.length > 0 ? (
                <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />
             ) : (
-               <h3 className="">
-                  Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
-                  <br /> Stačí u filmu kliknout na
-                  <CIcon
-                     className="ms-2"
-                     icon={cilHeart}
-                     height={22}
-                  />
-               </h3>
+               <CAlert
+                  color="warning"
+                  className="mt-4 px-5 align-self-center w-auto"
+               >
+                  <h5>
+                     Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
+                     Stačí u filmu kliknout na
+                     <CIcon
+                        className="mx-2 mt-2 align-text-bottom"
+                        icon={cilHeart}
+                        height={22}
+                     />
+                  </h5>
+               </CAlert>
             )}
          </CRow>
       </CContainer>

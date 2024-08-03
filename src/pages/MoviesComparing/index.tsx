@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { CContainer, CRow } from '@coreui/react';
+import { CAlert, CContainer, CRow } from '@coreui/react';
 
 import { RootState } from '../../store/store';
 import BarChart from '../../components/BarChart';
@@ -38,49 +38,50 @@ const MoviesComparingPage = () => {
          className={styles.container}
       >
          <h2 className="mt-5 mb-4">Compared Movies</h2>
-         <CRow className="m-0">
-            {moviesToCompareState.length > 0 ? (
-               <>
-                  <MoviesCarousel movies={moviesToCompareState} />
-                  <CRow>
-                     {barChartDataPopularity.length > 0 && (
-                        <CRow className="justify-content-center pt-5">
-                           <h2 className="pb-5">Popularity chart</h2>
-                           <BarChart barChartValues={barChartDataPopularity} />
-                        </CRow>
-                     )}
-                  </CRow>
-                  <CRow>
-                     {barChartDataVoteAverage.length > 0 && (
-                        <CRow className="justify-content-center pt-5">
-                           <h2 className="pb-5">Rating chart</h2>
-                           <BarChart barChartValues={barChartDataVoteAverage} />
-                        </CRow>
-                     )}
-                  </CRow>
-                  <CRow>
-                     {barChartDataVoteCount.length > 0 && (
-                        <CRow className="justify-content-center pt-5">
-                           <h2 className="pb-5">Vote Count chart</h2>
-                           <BarChart barChartValues={barChartDataVoteCount} />
-                        </CRow>
-                     )}
-                  </CRow>
-               </>
-            ) : (
-               <h2 className="mt-5 px-0">
-                  Vyhledej film pomocí vyhledávácího pole a přidej ho
-                  <br />
-                  tlačítkem
+         {moviesToCompareState.length > 0 ? (
+            <CRow className="m-0">
+               <MoviesCarousel movies={moviesToCompareState} />
+               <CRow>
+                  {barChartDataPopularity.length > 0 && (
+                     <CRow className="justify-content-center pt-5">
+                        <h2 className="pb-5">Popularity chart</h2>
+                        <BarChart barChartValues={barChartDataPopularity} />
+                     </CRow>
+                  )}
+               </CRow>
+               <CRow>
+                  {barChartDataVoteAverage.length > 0 && (
+                     <CRow className="justify-content-center pt-5">
+                        <h2 className="pb-5">Rating chart</h2>
+                        <BarChart barChartValues={barChartDataVoteAverage} />
+                     </CRow>
+                  )}
+               </CRow>
+               <CRow>
+                  {barChartDataVoteCount.length > 0 && (
+                     <CRow className="justify-content-center pt-5">
+                        <h2 className="pb-5">Vote Count chart</h2>
+                        <BarChart barChartValues={barChartDataVoteCount} />
+                     </CRow>
+                  )}
+               </CRow>
+            </CRow>
+         ) : (
+            <CAlert
+               color="warning"
+               className="px-5 align-self-center"
+            >
+               <h5>
+                  Vyhledej film pomocí vyhledávácího pole a přidej ho tlačítkem
                   <CIcon
                      icon={cilGraph}
-                     height={32}
-                     className="mx-2 mt-2"
+                     height={24}
+                     className="mx-2 mt-2 align-text-bottom"
                   />
                   k porovnání.
-               </h2>
-            )}
-         </CRow>
+               </h5>
+            </CAlert>
+         )}
       </CContainer>
    );
 };

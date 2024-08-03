@@ -1,5 +1,5 @@
 .switchButton {
-    margin-top: 4px;
+    margin: 0 0 2px 0 !important
 }
 
 .switchButton input {

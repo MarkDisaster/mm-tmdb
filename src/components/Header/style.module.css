@@ -17,7 +17,7 @@
 
 .headerNav {
     margin-top: 8px;
-    gap: 10px;
+    gap: 15px;
 }
 
 .headerLogo {
@@ -40,9 +40,19 @@
     display: flex !important;
     align-items: center;
     gap: 10px;
+    margin-top: 3px;
  }
 
  .headerLoginSwitchTheme * {
     color: var(--bs-gray-200) !important;
     text-decoration: none;
+ }
+
+ .headerDropDownSwitchTheme * {
+    color: var(--bs-gray-900) !important;
+    margin-top: 3px;
+ }
+
+ .logoutButton * {
+    color: var(--bs-danger) !important;
  }
