@@ -1,0 +1,8 @@
+.addRemoveComparedMoviesButton {
+    background-color: unset;
+    padding: 0 !important;
+}
+
+.addRemoveComparedMoviesIconRed path{
+    fill: var(--bs-danger)
+}

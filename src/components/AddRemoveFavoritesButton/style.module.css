@@ -2,3 +2,7 @@
     background-color: unset;
     padding: 0 !important;
 }
+
+.addToFavoritesIconRed path{
+    fill: var(--bs-danger)
+}
