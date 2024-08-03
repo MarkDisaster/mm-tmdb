@@ -23,9 +23,20 @@ const moviesToCompareSlice = createSlice({
             (movie) => movie.id !== action.payload,
          );
       },
+      addRemoveMovie: (state, action: PayloadAction<GetMovieByIdApiReturn>) => {
+         const movieIndex = state.values.findIndex(
+            (movie) => movie.id === action.payload.id,
+         );
+         if (movieIndex !== -1) {
+            state.values.splice(movieIndex, 1);
+         } else {
+            state.values.push(action.payload);
+         }
+      },
    },
 });
 
-export const { addMovie, removeMovie } = moviesToCompareSlice.actions;
+export const { addMovie, removeMovie, addRemoveMovie } =
+   moviesToCompareSlice.actions;
 
 export default moviesToCompareSlice.reducer;
