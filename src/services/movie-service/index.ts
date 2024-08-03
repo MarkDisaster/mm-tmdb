@@ -1,5 +1,9 @@
 import api from '../api';
-import { GetMovieByIdApiReturn } from './types';
+import {
+   GetMovieByIdApiReturn,
+   GetUpcommingMoviesParams,
+   GetUpcommingMoviesReturn,
+} from './types';
 
 const getMovieByIdParams = {
    language: 'en-US',
@@ -13,8 +17,19 @@ const getMovieById = async (movie_id: number) => {
    return res;
 };
 
+const getUpcommingMovies = async (
+   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+) => {
+   const res = await api.get<GetUpcommingMoviesReturn>(
+      `movie/upcoming?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+      getUpcommingMoviesParams,
+   );
+   return res;
+};
+
 const MovieService = {
    getMovieById,
+   getUpcommingMovies,
 };
 
 export default MovieService;
