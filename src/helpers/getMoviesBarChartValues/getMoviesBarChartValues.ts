@@ -1,7 +1,10 @@
-import { MovieBarChartProps } from './interfaces';
+import { DATA_TYPE, MovieBarChartProps } from './interfaces';
 
-export const getMoviesBarChartValues = (movies: MovieBarChartProps[]) => {
+export const getMoviesBarChartValues = (
+   movies: MovieBarChartProps[],
+   dataType: DATA_TYPE,
+) => {
    return movies.map((movie) => {
-      return { name: movie.original_title, popularity: movie.popularity };
+      return { name: movie.original_title, value: movie[dataType] };
    });
 };

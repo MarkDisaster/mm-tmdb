@@ -1,0 +1,77 @@
+.movieRow {
+    padding: 0 !important;
+    display: flex;
+    margin: 0 !important;
+    width: 100% !important;
+ }
+
+ .movieImageContainer {
+    height: 620px;
+    padding: 0 !important;
+    overflow: hidden;
+ }
+
+ .movieImage {
+    border: 0;
+    vertical-align: top;
+    width: 100vw;
+ }
+
+ .movieInfoContainer {
+    align-items: flex-start;
+    background-image: linear-gradient(transparent, var(--bs-black));
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: flex-end;
+    opacity: 1;
+    padding: 5rem 9rem 7rem 9rem !important;
+    position: absolute;
+    transition: opacity .3s;
+    width: 100%;
+ }
+
+ .movieTitle {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--bs-white) !important;
+    width: 75%;
+ }
+
+.movieReleaseDateContainer {
+    display: flex;
+    align-items: center;
+}
+
+ .movieReleaseDate {
+    font-size: 2rem;
+    color: var(--bs-white) !important;
+ }
+
+ .movieInfoGenre {
+    padding: 3px 7px !important;
+    font-size: .85rem !important;
+    margin: 0 0 0 15px !important;
+    font-weight: bold;
+ }
+
+ .movieOverView {
+    display: flex;
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-bottom: .25rem;
+    text-align: left;
+    width: 75%;
+    color: var(--bs-white) !important;
+ }
+
+ .movieTitleContainer {
+    display: flex !important;
+    background-color: var(--bs-gray-600) !important;
+    padding: 5px;
+    gap: 10px;
+    border-radius: var(--bs-border-radius);
+ }

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { CCol, CContainer, CRow } from '@coreui/react';
+import { CContainer, CRow } from '@coreui/react';
 
 import { RootState } from '../../store/store';
 import BarChart from '../../components/BarChart';
@@ -10,40 +10,75 @@ import { cilGraph } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 
 import styles from './style.module.css';
+import { DATA_TYPE } from '../../helpers/getMoviesBarChartValues/interfaces';
 
 const MoviesComparingPage = () => {
    const moviesToCompareState = useSelector(
       (state: RootState) => state.moviesToCompare.values,
    );
 
-   const barChartData = getMoviesBarChartValues(moviesToCompareState);
+   const barChartDataPopularity = getMoviesBarChartValues(
+      moviesToCompareState,
+      DATA_TYPE.POPULARITY,
+   );
+
+   const barChartDataVoteAverage = getMoviesBarChartValues(
+      moviesToCompareState,
+      DATA_TYPE.VOTE_AVERAGE,
+   );
+
+   const barChartDataVoteCount = getMoviesBarChartValues(
+      moviesToCompareState,
+      DATA_TYPE.VOTE_COUNT,
+   );
 
    return (
-      <CContainer fluid>
-         <CRow className={styles.container}>
+      <CContainer
+         fluid
+         className={styles.container}
+      >
+         <h2 className="mt-5 mb-4">Compared Movies</h2>
+         <CRow className="m-0">
             {moviesToCompareState.length > 0 ? (
                <>
                   <MoviesCarousel movies={moviesToCompareState} />
-                  <CCol>
-                     {barChartData.length > 0 && (
+                  <CRow>
+                     {barChartDataPopularity.length > 0 && (
                         <CRow className="justify-content-center pt-5">
-                           <h4 className="text-center pb-5">Graf popularity</h4>
-                           <BarChart barChartValues={barChartData} />
+                           <h2 className="pb-5">Popularity chart</h2>
+                           <BarChart barChartValues={barChartDataPopularity} />
                         </CRow>
                      )}
-                  </CCol>
+                  </CRow>
+                  <CRow>
+                     {barChartDataVoteAverage.length > 0 && (
+                        <CRow className="justify-content-center pt-5">
+                           <h2 className="pb-5">Rating chart</h2>
+                           <BarChart barChartValues={barChartDataVoteAverage} />
+                        </CRow>
+                     )}
+                  </CRow>
+                  <CRow>
+                     {barChartDataVoteCount.length > 0 && (
+                        <CRow className="justify-content-center pt-5">
+                           <h2 className="pb-5">Vote Count chart</h2>
+                           <BarChart barChartValues={barChartDataVoteCount} />
+                        </CRow>
+                     )}
+                  </CRow>
                </>
             ) : (
-               <h1 className="text-center mt-5">
-                  Vyhledej film pomocí vyhledávácího pole
-                  <br />a přidej ho tlačítkem
+               <h2 className="mt-5 px-0">
+                  Vyhledej film pomocí vyhledávácího pole a přidej ho
+                  <br />
+                  tlačítkem
                   <CIcon
                      icon={cilGraph}
                      height={32}
                      className="mx-2 mt-2"
                   />
                   k porovnání.
-               </h1>
+               </h2>
             )}
          </CRow>
       </CContainer>

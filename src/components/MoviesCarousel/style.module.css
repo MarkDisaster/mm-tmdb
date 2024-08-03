@@ -1,8 +1,8 @@
 .movieRow {
     overflow-x: auto;
     flex-wrap: nowrap !important;
-    min-height: 500px;
+    min-height: 420px;
     gap: 30px;
-    padding: 50px 0px 50px 50px;
-    max-width: var(--cui-breakpoint-xl) !important;
+    padding: 0 !important;
+    margin: 0 !important;
  }

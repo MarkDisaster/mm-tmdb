@@ -55,10 +55,10 @@ const Header = () => {
                      <Link to="/">Home</Link>
                   </CNavItem>
                   <CNavItem>
-                     <Link to="/movies-comparing">Porovnání popularity</Link>
+                     <Link to="/movies-comparing">Movies Comparing</Link>
                   </CNavItem>
                   <CNavItem>
-                     <Link to="/profile">Profil</Link>
+                     <Link to="/profile">Profile</Link>
                   </CNavItem>
                </CHeaderNav>
                <SearchForm />
@@ -76,7 +76,7 @@ const Header = () => {
                                  className="p-0"
                                  onClick={handleUserLogOut}
                               >
-                                 Odhlásit se
+                                 Logout
                               </CButton>
                               <Link to="/profile">
                                  <CAvatar

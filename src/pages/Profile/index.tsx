@@ -57,7 +57,7 @@ const ProfilePage = () => {
          fluid
          className={styles.container}
       >
-         <CRow className="d-flex justify-content-center">
+         <CRow className="d-flex align-self-center">
             <CCard
                style={{ width: '18rem' }}
                className="my-5 text-center"
@@ -78,28 +78,28 @@ const ProfilePage = () => {
                      href="#"
                      onClick={handleUserLogOut}
                   >
-                     Odhlásit se
+                     Logout
                   </CButton>
                </CCardBody>
             </CCard>
          </CRow>
-         <CRow className="d-flex justify-content-center">
-            <h1 className="text-center">
+         <CRow className="d-flex w-100 mb-5">
+            <h2 className="mb-4">
                <CIcon
                   className="me-2"
                   icon={cilHeart}
                   height={28}
                />
-               Oblíbené filmy (
+               Favorite Movies (
                {dataFavoriteMovies?.results &&
                   dataFavoriteMovies?.results.length}
                )
-            </h1>
+            </h2>
             {dataFavoriteMovies?.results &&
             dataFavoriteMovies?.results.length > 0 ? (
                <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />
             ) : (
-               <h3 className="text-center">
+               <h3 className="">
                   Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
                   <br /> Stačí u filmu kliknout na
                   <CIcon

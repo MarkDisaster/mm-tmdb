@@ -17,8 +17,12 @@ import AddRemoveFavoritesButton from '../AddRemoveFavoritesButton';
 import AddRemoveCompareButton from '../AddRemoveCompareButton';
 
 import styles from './style.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
+   const navigate = useNavigate();
+   const handleOnClickMovie = (id: number) => navigate(`/movie/${id}`);
+
    if (isLoading) return <CSpinner color="blue" />;
    if (movies.length < 1) return;
 
@@ -27,11 +31,11 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
          <CTable>
             <CTableBody>
                {movies?.map((movie, index) => {
-                  console.log('movie', movie);
                   return (
                      <CTableRow
                         key={index}
                         className={styles.searchTableRow}
+                        onClick={() => handleOnClickMovie(movie.id)}
                      >
                         <CTableDataCell className={styles.searchTableCell}>
                            {movie.poster_path ? (

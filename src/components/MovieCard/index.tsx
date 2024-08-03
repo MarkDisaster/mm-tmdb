@@ -15,6 +15,7 @@ import MovieScore from '../MovieScore';
 import styles from './style.module.css';
 import AddRemoveFavoritesButton from '../AddRemoveFavoritesButton';
 import AddRemoveCompareButton from '../AddRemoveCompareButton';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({
    id,
@@ -23,8 +24,14 @@ const MovieCard = ({
    popularity,
    vote_average,
 }: MovieCardProps) => {
+   const navigate = useNavigate();
+   const handleOnClickMovie = (id: number) => navigate(`/movie/${id}`);
+
    return (
-      <CCard className={styles.movieCard}>
+      <CCard
+         className={styles.movieCard}
+         onClick={() => handleOnClickMovie(id)}
+      >
          <CContainer className={styles.movieCardButtons}>
             <AddRemoveCompareButton selectedMovieId={id} />
             <AddRemoveFavoritesButton selectedMovieId={id} />

@@ -5,7 +5,7 @@
     overflow: visible;
     max-height: 46.5px;
     background-color: var(--bs-primary) !important;
-    border: 0;
+    border: 0 !important;
 }
 
 .headerConteiner {

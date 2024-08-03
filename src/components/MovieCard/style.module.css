@@ -11,6 +11,7 @@
     width: 200px !important;
     height: 385px !important;
     max-height: 385px !important;
+    cursor: pointer;
 }
 
 .movieCardButtons {
@@ -21,4 +22,9 @@
     width: auto !important;
     right: 0;
     border-bottom-left-radius: 5px;
+    padding: 0 !important;
+}
+
+.movieCardButtons button {
+    padding: 0 5px !important;
 }

@@ -30,10 +30,9 @@ const AddRemoveCompareButton = ({ selectedMovieId }: SelectedMovieId) => {
       moviesToCompareState &&
       isMovieInList(selectedMovieId, moviesToCompareState);
 
-   console.log('isMovieInCompareState', isMovieInCompareState);
-
    const handleAddMovieToCommpare = (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
+      e.stopPropagation();
       if (dataMovie) {
          dispatch(addRemoveMovie(dataMovie));
       }

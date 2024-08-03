@@ -3,6 +3,6 @@
     padding: 0 !important;
 }
 
-.addToFavoritesIconRed path{
+.addToFavoritesIconRed path {
     fill: var(--bs-danger)
 }

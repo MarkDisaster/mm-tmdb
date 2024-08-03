@@ -12,6 +12,8 @@ import { RootState } from '../../store/store';
 import MoviesComparingPage from '../../pages/MoviesComparing';
 import Header from '../../components/Header';
 import ProfilePage from '../../pages/Profile';
+import HomePage from '../../pages/Home';
+import MoviePage from '../../pages/Movie';
 
 const router = (isUserLoggedIn: boolean) => {
    return createBrowserRouter(
@@ -21,10 +23,16 @@ const router = (isUserLoggedIn: boolean) => {
             element={
                <>
                   <Header />
+
                   <Outlet />
                </>
             }
          >
+            <Route
+               index
+               element={<HomePage />}
+            />
+
             <Route
                path="/profile"
                element={isUserLoggedIn ? <ProfilePage /> : <Navigate to="/" />}
@@ -32,6 +40,10 @@ const router = (isUserLoggedIn: boolean) => {
             <Route
                path="/movies-comparing"
                element={<MoviesComparingPage />}
+            />
+            <Route
+               path="/movie/:id"
+               element={<MoviePage />}
             />
          </Route>,
       ),

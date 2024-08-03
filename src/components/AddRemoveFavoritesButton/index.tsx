@@ -44,6 +44,7 @@ const AddRemoveFavoritesButton = ({ selectedMovieId }: SelectedMovieId) => {
 
    const handleAddMovieToFavorites = (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
+      e.stopPropagation();
       const addMovieToFavoritesParams = {
          media_id: selectedMovieId,
          media_type: MEDIA_TYPE.MOVIE,

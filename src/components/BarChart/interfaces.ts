@@ -4,5 +4,5 @@ export interface BarChartProps {
 
 interface Movie {
    name: string;
-   popularity: number;
+   value: number;
 }

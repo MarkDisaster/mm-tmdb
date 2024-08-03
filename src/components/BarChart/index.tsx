@@ -2,7 +2,6 @@ import {
    Bar,
    BarChart,
    CartesianGrid,
-   Legend,
    Rectangle,
    ResponsiveContainer,
    Tooltip,
@@ -17,7 +16,7 @@ const MovieScore = ({ barChartValues }: BarChartProps) => {
    const dataKey = barChartValues[0] ? Object.keys(barChartValues[0])[1] : '';
    return (
       <ResponsiveContainer
-         width="95%"
+         width="100%"
          height={350}
       >
          <BarChart
@@ -34,7 +33,6 @@ const MovieScore = ({ barChartValues }: BarChartProps) => {
             />
             <YAxis />
             <Tooltip />
-            <Legend />
             <Bar
                dataKey={dataKey}
                fill={CHART_COLOR}

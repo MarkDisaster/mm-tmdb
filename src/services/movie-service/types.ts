@@ -1,6 +1,7 @@
 export type GetMovieByIdApiReturn = {
    id: number;
    poster_path: string;
+   backdrop_path: string;
    budget: number;
    genres: MovieGenre[];
    original_title: string;
@@ -8,6 +9,8 @@ export type GetMovieByIdApiReturn = {
    vote_average: number;
    vote_count: number;
    popularity: number;
+   release_date: string;
+   overview: string;
 };
 
 type MovieGenre = {
@@ -31,10 +34,17 @@ type GetUpcommingMoviesDates = {
    minimum: string;
 };
 
-export type GetUpcommingMoviesReturn = {
+export type GetMoviesReturn = {
    dates: GetUpcommingMoviesDates;
    page: number;
    results: GetMovieByIdApiReturn[];
    total_pages: number;
    total_results: number;
+};
+
+export type GetSimiliarMoviesParams = {
+   movieId: number;
+   language: string;
+   page: number;
+   region: string;
 };

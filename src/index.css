@@ -54,3 +54,25 @@ button:focus,
 button:focus-visible {
    outline: 0;
 }
+
+svg {
+   overflow: visible;
+}
+
+.alice-carousel__dots {
+   margin: -50px 0 0 0;
+   position: relative;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active {
+   background-color: var(--bs-primary)
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+   height: 10px;
+   width: 10px;
+}
+
+.recharts-responsive-container {
+   width: 100% !important;
+}

@@ -2,7 +2,8 @@ import api from '../api';
 import {
    GetMovieByIdApiReturn,
    GetUpcommingMoviesParams,
-   GetUpcommingMoviesReturn,
+   GetMoviesReturn,
+   GetSimiliarMoviesParams,
 } from './types';
 
 const getMovieByIdParams = {
@@ -20,9 +21,35 @@ const getMovieById = async (movie_id: number) => {
 const getUpcommingMovies = async (
    getUpcommingMoviesParams: GetUpcommingMoviesParams,
 ) => {
-   const res = await api.get<GetUpcommingMoviesReturn>(
+   const res = await api.get<GetMoviesReturn>(
       `movie/upcoming?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
-      getUpcommingMoviesParams,
+   );
+   return res;
+};
+
+const getTopRatedMovies = async (
+   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+) => {
+   const res = await api.get<GetMoviesReturn>(
+      `movie/top_rated?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+   );
+   return res;
+};
+
+const getPopularMovies = async (
+   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+) => {
+   const res = await api.get<GetMoviesReturn>(
+      `movie/popular?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+   );
+   return res;
+};
+
+const getSimiliarMovies = async (
+   getUpcommingMoviesParams: GetSimiliarMoviesParams,
+) => {
+   const res = await api.get<GetMoviesReturn>(
+      `movie/${getUpcommingMoviesParams.movieId}/similar?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
    );
    return res;
 };
@@ -30,6 +57,9 @@ const getUpcommingMovies = async (
 const MovieService = {
    getMovieById,
    getUpcommingMovies,
+   getTopRatedMovies,
+   getPopularMovies,
+   getSimiliarMovies,
 };
 
 export default MovieService;
