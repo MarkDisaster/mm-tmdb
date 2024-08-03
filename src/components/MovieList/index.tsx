@@ -13,9 +13,10 @@ import { cilImage } from '@coreui/icons';
 import { MovieTablesProps } from './interfaces';
 import { TMDB_IMG_URI } from '../../services/constants';
 
+import AddRemoveFavoritesButton from '../AddRemoveFavoritesButton';
+import AddRemoveCompareButton from '../AddRemoveCompareButton';
+
 import styles from './style.module.css';
-import AddToCompareButton from '../AddToCompareButton';
-import AddToFavoritesButton from '../AddToFavoritesButton';
 
 const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
    if (isLoading) return <CSpinner color="blue" />;
@@ -26,6 +27,7 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
          <CTable>
             <CTableBody>
                {movies?.map((movie, index) => {
+                  console.log('movie', movie);
                   return (
                      <CTableRow
                         key={index}
@@ -50,8 +52,10 @@ const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
                         <CTableDataCell className={styles.searchTableCellName}>
                            <div>{movie.original_title}</div>
                            <div className={styles.searchTableButtons}>
-                              <AddToCompareButton selectedMovieId={movie.id} />
-                              <AddToFavoritesButton
+                              <AddRemoveCompareButton
+                                 selectedMovieId={movie.id}
+                              />
+                              <AddRemoveFavoritesButton
                                  selectedMovieId={movie.id}
                               />
                            </div>

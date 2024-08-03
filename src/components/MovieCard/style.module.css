@@ -9,25 +9,16 @@
     padding: 0 !important;
     overflow: hidden;
     width: 200px !important;
+    height: 385px !important;
+    max-height: 385px !important;
 }
 
-.movieCard:hover .cardDeleteButton {
-    display: block !important;
- }
-
-.cardDeleteButton {
-    display: none !important;
-    padding: 15px;
+.movieCardButtons {
+    display: flex;
     position: absolute;
+    background-color: rgb(255 255 255 / 65%);
+    flex-direction: column;
+    width: auto !important;
     right: 0;
-    border-radius: 0 !important;
-    border-bottom-left-radius: 10px !important;
-    background-color: rgba(var(--bs-danger-rgb)) !important;
-    
- }
-
- .cardDeleteButton rect,
- .cardDeleteButton path {
-    fill: var(--bs-white) !important;
- }
- 
+    border-bottom-left-radius: 5px;
+}

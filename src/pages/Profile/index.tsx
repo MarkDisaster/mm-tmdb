@@ -22,6 +22,8 @@ import { useQuery } from '@tanstack/react-query';
 import { SORT } from '../../services/account-service/types';
 import MoviesCarousel from '../../components/MoviesCarousel';
 
+import styles from './style.module.css';
+
 const ProfilePage = () => {
    const dispatch = useDispatch();
 
@@ -51,7 +53,10 @@ const ProfilePage = () => {
    };
 
    return (
-      <CContainer fluid>
+      <CContainer
+         fluid
+         className={styles.container}
+      >
          <CRow className="d-flex justify-content-center">
             <CCard
                style={{ width: '18rem' }}
@@ -73,7 +78,7 @@ const ProfilePage = () => {
                      href="#"
                      onClick={handleUserLogOut}
                   >
-                     Logout
+                     Odhlásit se
                   </CButton>
                </CCardBody>
             </CCard>
@@ -85,19 +90,26 @@ const ProfilePage = () => {
                   icon={cilHeart}
                   height={28}
                />
-               Oblíbené filmy
+               Oblíbené filmy (
+               {dataFavoriteMovies?.results &&
+                  dataFavoriteMovies?.results.length}
+               )
             </h1>
-            <h3 className="text-center">
-               Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
-               <br /> Stačí u filmu kliknout na
-               <CIcon
-                  className="ms-2"
-                  icon={cilHeart}
-                  height={22}
-               />
-            </h3>
+            {dataFavoriteMovies?.results &&
+            dataFavoriteMovies?.results.length > 0 ? (
+               <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />
+            ) : (
+               <h3 className="text-center">
+                  Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
+                  <br /> Stačí u filmu kliknout na
+                  <CIcon
+                     className="ms-2"
+                     icon={cilHeart}
+                     height={22}
+                  />
+               </h3>
+            )}
          </CRow>
-         <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />
       </CContainer>
    );
 };

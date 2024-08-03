@@ -1,23 +1,20 @@
 import {
-   CButton,
    CCard,
    CCardBody,
    CCardImage,
    CCardText,
    CCardTitle,
+   CContainer,
    CRow,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
 
 import { MovieCardProps } from './interfaces';
 import { TMDB_IMG_URI } from '../../services/constants';
-
-import { cilTrash } from '@coreui/icons';
-import { useDispatch } from 'react-redux';
-import { removeMovie } from '../../store/slices/moviesToCompare/slice';
 import MovieScore from '../MovieScore';
 
 import styles from './style.module.css';
+import AddRemoveFavoritesButton from '../AddRemoveFavoritesButton';
+import AddRemoveCompareButton from '../AddRemoveCompareButton';
 
 const MovieCard = ({
    id,
@@ -26,22 +23,13 @@ const MovieCard = ({
    popularity,
    vote_average,
 }: MovieCardProps) => {
-   const dispatch = useDispatch();
-
    return (
-      <CCard
-         style={{ width: '200px' }}
-         className={styles.movieCard}
-      >
-         <CButton
-            className={styles.cardDeleteButton}
-            onClick={() => dispatch(removeMovie(id))}
-         >
-            <CIcon
-               icon={cilTrash}
-               height={20}
-            />
-         </CButton>
+      <CCard className={styles.movieCard}>
+         <CContainer className={styles.movieCardButtons}>
+            <AddRemoveCompareButton selectedMovieId={id} />
+            <AddRemoveFavoritesButton selectedMovieId={id} />
+         </CContainer>
+
          <CCardImage
             orientation="top"
             src={`${TMDB_IMG_URI}${poster_path}`}
