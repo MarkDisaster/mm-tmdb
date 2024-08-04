@@ -45,7 +45,7 @@ const SearchForm = () => {
             <CFormInput
                type="search"
                id="searchMovieInput"
-               placeholder="Vyhledej film"
+               placeholder="Find a movie"
                aria-describedby="searchMovieInput"
                onChange={(e) => {
                   setSearchedMovie(e.target.value);

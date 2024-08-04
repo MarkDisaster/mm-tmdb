@@ -8,6 +8,7 @@ import {
    GetMovieReviewsReturn,
    GetMovieVideosParams,
    GetMovieVideosReturn,
+   GetNowPlayingMoviesParams,
 } from './types';
 
 const getMovieByIdParams = {
@@ -27,6 +28,16 @@ const getUpcommingMovies = async (
 ) => {
    const res = await api.get<GetMoviesReturn>(
       `movie/upcoming?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+   );
+   return res;
+};
+
+const getNowPlayingMovies = async (
+   getNowPlayingMoviesParams: GetNowPlayingMoviesParams,
+) => {
+   const res = await api.get<GetMoviesReturn>(
+      `movie/now_playing`,
+      getNowPlayingMoviesParams,
    );
    return res;
 };
@@ -79,6 +90,7 @@ const getMovieVideos = async ({ movieId, language }: GetMovieVideosParams) => {
 const MovieService = {
    getMovieById,
    getUpcommingMovies,
+   getNowPlayingMovies,
    getTopRatedMovies,
    getPopularMovies,
    getSimiliarMovies,

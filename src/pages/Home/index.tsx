@@ -24,10 +24,10 @@ const HomePage = () => {
          MovieService.getUpcommingMovies(getUpcommingMoviesParams),
    });
 
-   const { data: topRatedMovies } = useQuery({
-      queryKey: ['topRatedMovies'],
+   const { data: nowPlayingMovies } = useQuery({
+      queryKey: ['nowPlayingMovies'],
       queryFn: async () =>
-         MovieService.getTopRatedMovies(getUpcommingMoviesParams),
+         MovieService.getNowPlayingMovies(getUpcommingMoviesParams),
    });
 
    const { data: popularMovies } = useQuery({
@@ -63,9 +63,9 @@ const HomePage = () => {
             controlsStrategy="alternate"
          />
          <CContainer className={styles.contentContainer}>
-            <h3 className="mt-5 mb-4">Top Rated Movies</h3>
+            <h3 className="mt-5 mb-4">Now in Theatres</h3>
             <CRow className="m-0">
-               <MoviesCarousel movies={topRatedMovies?.results ?? []} />
+               <MoviesCarousel movies={nowPlayingMovies?.results ?? []} />
             </CRow>
             <h3 className="mt-5 mb-4">Popular Movies</h3>
             <CRow className="m-0 mb-5">

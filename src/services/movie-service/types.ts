@@ -30,6 +30,12 @@ export type GetUpcommingMoviesParams = {
    region: string;
 };
 
+export type GetNowPlayingMoviesParams = {
+   language: string;
+   page: number;
+   region: string;
+};
+
 type GetUpcommingMoviesDates = {
    maximum: string;
    minimum: string;
