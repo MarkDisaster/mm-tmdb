@@ -9,10 +9,16 @@ import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
 import { AddMovieRatingBody, SORT } from '../../services/account-service/types';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMovieRating } from '../../helpers/getMovieRating';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 const StarRating = ({ movieId }: StarRatingProps) => {
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
    const [hover, setHover] = useState<number>(0);
+
+   const isUserLoggedIn = useSelector(
+      (state: RootState) => state.authentication,
+   );
 
    const queryClient = useQueryClient();
 
@@ -66,6 +72,7 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                      name="rating"
                      value={currentRating}
                      onChange={() =>
+                        isUserLoggedIn &&
                         handleAddRatingToMovie(currentRatingParams)
                      }
                      className={styles.ratingInput}
@@ -78,7 +85,9 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                               ? '#ffc107'
                               : '#e4e5e9',
                      }}
-                     onMouseEnter={() => setHover(currentRating)}
+                     onMouseEnter={() =>
+                        isUserLoggedIn && setHover(currentRating)
+                     }
                      onMouseLeave={() => setHover(0)}
                   >
                      &#9733;

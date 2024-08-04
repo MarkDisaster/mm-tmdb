@@ -90,3 +90,7 @@ svg {
 .recharts-cartesian-axis line {
    display: none;
 }
+
+.recharts-tooltip-wrapper-top {
+   margin-top: -30px;
+}
