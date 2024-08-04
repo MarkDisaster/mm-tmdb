@@ -11,6 +11,7 @@ export type GetMovieByIdApiReturn = {
    popularity: number;
    release_date: string;
    overview: string;
+   imdb_id: string;
 };
 
 type MovieGenre = {
@@ -47,4 +48,58 @@ export type GetSimiliarMoviesParams = {
    language: string;
    page: number;
    region: string;
+};
+
+export type GetMovieReviewsParams = {
+   movieId: number;
+   language: string;
+   page: number;
+};
+
+type Author = {
+   name: string;
+   username: string;
+   avatar: string;
+   rating: string;
+};
+
+type Review = {
+   author: string;
+   author_details: Author;
+   content: string;
+   created_at: string;
+   id: string;
+   updated_at: string;
+   url: string;
+};
+
+export type GetMovieReviewsReturn = {
+   id: number;
+   page: number;
+   results: Review[];
+   total_pages: number;
+   total_results: number;
+};
+
+export type GetMovieVideosParams = {
+   movieId: number;
+   language: string;
+};
+
+type MovieVideo = {
+   iso_639_1: string;
+   iso_3166_1: string;
+   name: string;
+   key: string;
+   site: string;
+   size: number;
+   type: string;
+   official: boolean;
+   published_at: string;
+   id: string;
+};
+
+export type GetMovieVideosReturn = {
+   id: number;
+   results: MovieVideo[];
 };

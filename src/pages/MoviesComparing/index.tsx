@@ -4,7 +4,7 @@ import { CAlert, CContainer, CRow } from '@coreui/react';
 import { RootState } from '../../store/store';
 import BarChart from '../../components/BarChart';
 
-import { getMoviesBarChartValues } from '../../helpers/getMoviesBarChartValues/getMoviesBarChartValues';
+import { getMoviesBarChartValues } from '../../helpers/getMoviesBarChartValues';
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { cilGraph } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
@@ -37,14 +37,14 @@ const MoviesComparingPage = () => {
          fluid
          className={styles.container}
       >
-         <h2 className="mt-5 mb-4">Compared Movies</h2>
+         <h3 className="mt-5 mb-4">Compared Movies</h3>
          {moviesToCompareState.length > 0 ? (
             <CRow className="m-0">
                <MoviesCarousel movies={moviesToCompareState} />
                <CRow>
                   {barChartDataPopularity.length > 0 && (
                      <CRow className="justify-content-center pt-5">
-                        <h2 className="pb-5">Popularity chart</h2>
+                        <h3 className="pb-5">Popularity chart</h3>
                         <BarChart barChartValues={barChartDataPopularity} />
                      </CRow>
                   )}
@@ -52,7 +52,7 @@ const MoviesComparingPage = () => {
                <CRow>
                   {barChartDataVoteAverage.length > 0 && (
                      <CRow className="justify-content-center pt-5">
-                        <h2 className="pb-5">Rating chart</h2>
+                        <h3 className="pb-5">Rating chart</h3>
                         <BarChart barChartValues={barChartDataVoteAverage} />
                      </CRow>
                   )}
@@ -60,7 +60,7 @@ const MoviesComparingPage = () => {
                <CRow>
                   {barChartDataVoteCount.length > 0 && (
                      <CRow className="justify-content-center pt-5">
-                        <h2 className="pb-5">Vote Count chart</h2>
+                        <h3 className="pb-5">Vote Count chart</h3>
                         <BarChart barChartValues={barChartDataVoteCount} />
                      </CRow>
                   )}
@@ -75,7 +75,7 @@ const MoviesComparingPage = () => {
                   Vyhledej film pomocí vyhledávácího pole a přidej ho tlačítkem
                   <CIcon
                      icon={cilGraph}
-                     height={24}
+                     height={22}
                      className="mx-2 mt-2 align-text-bottom"
                   />
                   k porovnání.

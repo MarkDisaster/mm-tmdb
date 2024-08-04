@@ -17,7 +17,7 @@
  }
  
 [data-bs-theme="light"] * {
-   color: var(--bs-black);
+   color: var(--bs-gray-800);
 }
 
 [data-bs-theme="dark"] .dropdown-menu.show * {
@@ -67,8 +67,10 @@ svg {
    overflow: visible;
 }
 
+/*PLUGINS STYLES*/
+
 .alice-carousel__dots {
-   margin: -50px 0 0 0;
+   margin: -50px 0 50px 0;
    position: relative;
 }
 
@@ -83,4 +85,8 @@ svg {
 
 .recharts-responsive-container {
    width: 100% !important;
+}
+
+.recharts-cartesian-axis line {
+   display: none;
 }

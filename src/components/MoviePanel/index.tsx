@@ -17,7 +17,6 @@ const MoviePanel = ({
    overview,
    genres,
 }: MoviePanelProps) => {
-   console.log('genres', genres);
    return (
       <CRow className={styles.movieRow}>
          <CContainer className={styles.movieImageContainer}>
@@ -37,11 +36,12 @@ const MoviePanel = ({
                <AddRemoveFavoritesButton selectedMovieId={id} />
             </div>
             <div className={styles.movieReleaseDateContainer}>
-               <h2 className={styles.movieReleaseDate}>{release_date}</h2>
-               {genres?.map((genre) => (
+               <h3 className={styles.movieReleaseDate}>{release_date}</h3>
+               {genres?.map((genre, index) => (
                   <CAlert
                      color="danger"
                      className={styles.movieInfoGenre}
+                     key={`genre-${index}`}
                   >
                      {genre.name}
                   </CAlert>

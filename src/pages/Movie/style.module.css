@@ -5,3 +5,96 @@
     padding: 0 !important;
     overflow: hidden;
 }
+
+.overview {
+    display: flex !important;
+    flex-direction: row;
+    width: var(--cui-breakpoint-xl) !important;
+    max-width: var(--cui-breakpoint-xl) !important;
+}
+
+.overviewLeftContainer {
+    width: 60% !important;
+}
+
+.overviewRightContainer {
+    width: 40% !important;
+}
+
+.similiarMoviesRow {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: var(--cui-breakpoint-xl) !important;
+    padding: 0 !important;
+    margin-bottom: 50px;
+}
+
+.similiarMoviesHeader {
+    align-self: start;
+    display: flex;
+    padding: 0;
+    margin: 3rem 0 0rem 0 !important;
+}
+
+.overviewReviewsContainer {
+    height: 500px;
+    overflow: auto;
+}
+
+.overviewReviewsLi {
+    padding: 20px 25px 20px 3px !important;
+    border: 0;
+}
+
+.nameAvatarContainer {
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nameAvatarContainer img {
+    border: 2px solid var(--bs-primary);
+}
+
+.overviewReviewsContainer li {
+    border: 0;
+    border-bottom: 1px solid var(--bs-gray-200)
+}
+
+.cAlertOverview {
+    padding: 2px 10px !important;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.cAlertOverview * {
+    color: unset !important;
+    text-decoration: none !important;
+}
+
+.cAlertOverview *:hover {
+    text-decoration: none !important;
+}
+
+.rating {
+    padding: 2px 10px !important;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.rating * {
+    color: var(--bs-alert-color) !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.overviewLinks {
+    display: flex;
+    gap: 10px;
+    padding: 0 !important;
+}

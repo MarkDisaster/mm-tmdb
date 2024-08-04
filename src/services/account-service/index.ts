@@ -6,6 +6,11 @@ import {
    GetUserInfoApiReturn,
    GetFavoriteMovies,
    GetFavoriteMoviesApiReturn,
+   GetRatedMoviesReturn,
+   GetRatedMoviesParams,
+   AddMovieRatingParams,
+   AddMovieRatingBody,
+   AddMovieRatigReturn,
 } from './types';
 
 const getUserInfo = async (sessionId: string) => {
@@ -52,11 +57,39 @@ const getFavoriteMovies = async (
    return res;
 };
 
+const getUserRatedMovies = async (
+   getUserMoviesRatingsParams: GetRatedMoviesParams,
+) => {
+   const res = await api.get<GetRatedMoviesReturn>(
+      `account/account_id/rated/movies`,
+      getUserMoviesRatingsParams,
+   );
+
+   return res;
+};
+
+const addMovieRating = async (
+   movieId: number,
+   addMovieRatingParams: AddMovieRatingParams,
+   addMovieRatingBody: AddMovieRatingBody,
+) => {
+   const res = await api.post<AddMovieRatigReturn>(
+      `movie/${movieId}/rating`,
+      addMovieRatingBody,
+      addMovieRatingParams,
+      undefined,
+   );
+
+   return res;
+};
+
 const AccountService = {
    getUserInfo,
    addRemoveMovieFavorites,
    getFavoriteMovies,
    addRemoveMovieWatchlist,
+   getUserRatedMovies,
+   addMovieRating,
 };
 
 export default AccountService;

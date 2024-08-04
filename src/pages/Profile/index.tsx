@@ -85,17 +85,17 @@ const ProfilePage = () => {
             </CCard>
          </CRow>
          <CRow className="d-flex w-100 mb-5 flex-column flex-start">
-            <h2 className="mb-4">
+            <h3 className="mb-4">
                <CIcon
                   className="me-2"
                   icon={cilHeart}
-                  height={28}
+                  height={22}
                />
                Favorite Movies (
                {dataFavoriteMovies?.results &&
                   dataFavoriteMovies?.results.length}
                )
-            </h2>
+            </h3>
             {dataFavoriteMovies?.results &&
             dataFavoriteMovies?.results.length > 0 ? (
                <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />

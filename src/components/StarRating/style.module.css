@@ -1,0 +1,9 @@
+.ratingInput {
+    display: none;
+}
+
+.ratingStar {
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-right: 5px;
+}

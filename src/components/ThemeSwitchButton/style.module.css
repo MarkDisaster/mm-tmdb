@@ -9,7 +9,3 @@
 .switchButton input:checked {
     background-color: var(--bs-body-bg) !important;
 }
-
-[data-bs-theme="dark"] .switchButton * {
-    color: var(--bs-gray-200) !important;
- }

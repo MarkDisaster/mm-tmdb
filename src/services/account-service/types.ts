@@ -84,3 +84,48 @@ export type GetFavoriteMoviesApiReturn = {
    total_pages: number;
    total_results: number;
 };
+
+export type GetRatedMoviesParams = {
+   language: string;
+   page: number;
+   session_id: string;
+   sort_by: SORT;
+};
+
+type RatedMovie = {
+   adult: boolean;
+   backdrop_path: string;
+   genre_ids: number[];
+   id: number;
+   original_language: string;
+   original_title: string;
+   overview: string;
+   popularity: number;
+   poster_path: string;
+   release_date: string;
+   title: string;
+   video: boolean;
+   vote_average: number;
+   vote_count: number;
+   rating: number;
+};
+
+export type GetRatedMoviesReturn = {
+   page: number;
+   results: RatedMovie[];
+   total_pages: number;
+   total_results: number;
+};
+
+export type AddMovieRatingParams = {
+   session_id: string;
+};
+
+export type AddMovieRatingBody = {
+   value: number;
+};
+
+export type AddMovieRatigReturn = {
+   status_code: number;
+   status_message: string;
+};

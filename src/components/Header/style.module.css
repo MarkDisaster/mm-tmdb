@@ -4,8 +4,14 @@
     align-content: flex-start !important;
     overflow: visible;
     max-height: 46.5px;
-    background-color: var(--bs-primary) !important;
-    border: 0 !important;
+}
+
+.headerWrapper * {
+   color: var(--bs-gray-800) !important;
+}
+
+.headerWrapper a:hover {
+   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1)) !important;
 }
 
 .headerConteiner {
@@ -27,7 +33,6 @@
 
 .headerLogo,
 .headerNav * {
-    color: var(--bs-gray-200) !important;
     font-weight: bold !important;
     text-decoration: none !important;
  }
@@ -44,15 +49,18 @@
  }
 
  .headerLoginSwitchTheme * {
-    color: var(--bs-gray-200) !important;
     text-decoration: none;
  }
 
  .headerDropDownSwitchTheme * {
-    color: var(--bs-gray-900) !important;
     margin-top: 3px;
  }
 
  .logoutButton * {
     color: var(--bs-danger) !important;
  }
+
+ .headerUserName {
+   font-weight: bold !important;
+   padding: 0 !important;
+}

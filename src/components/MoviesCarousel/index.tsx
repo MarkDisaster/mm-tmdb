@@ -9,6 +9,7 @@ const MovieCarousel = ({ movies }: MoviesCarouselProps) => {
       <CRow className={styles.movieRow}>
          {movies.length > 0 ? (
             movies.map((movie, index) => {
+               if (!movie.poster_path) return;
                return (
                   <MovieCard
                      {...movie}

@@ -63,11 +63,11 @@ const HomePage = () => {
             controlsStrategy="alternate"
          />
          <CContainer className={styles.contentContainer}>
-            <h2 className="mt-5 mb-4">Top Rated Movies</h2>
+            <h3 className="mt-5 mb-4">Top Rated Movies</h3>
             <CRow className="m-0">
                <MoviesCarousel movies={topRatedMovies?.results ?? []} />
             </CRow>
-            <h2 className="mt-5 mb-4">Popular Movies</h2>
+            <h3 className="mt-5 mb-4">Popular Movies</h3>
             <CRow className="m-0 mb-5">
                <MoviesCarousel movies={popularMovies?.results ?? []} />
             </CRow>

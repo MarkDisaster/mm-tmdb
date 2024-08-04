@@ -87,7 +87,7 @@ const Header = () => {
                               <CDropdown variant="nav-item">
                                  <CDropdownToggle
                                     color="secondary"
-                                    className="p-0"
+                                    className={styles.headerUserName}
                                  >
                                     {username}
                                     <CAvatar

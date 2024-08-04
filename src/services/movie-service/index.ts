@@ -4,6 +4,10 @@ import {
    GetUpcommingMoviesParams,
    GetMoviesReturn,
    GetSimiliarMoviesParams,
+   GetMovieReviewsParams,
+   GetMovieReviewsReturn,
+   GetMovieVideosParams,
+   GetMovieVideosReturn,
 } from './types';
 
 const getMovieByIdParams = {
@@ -54,12 +58,32 @@ const getSimiliarMovies = async (
    return res;
 };
 
+const getMovieReviews = async ({
+   movieId,
+   language,
+   page,
+}: GetMovieReviewsParams) => {
+   const res = await api.get<GetMovieReviewsReturn>(
+      `movie/${movieId}/reviews?language=${language}&page=${page}`,
+   );
+   return res;
+};
+
+const getMovieVideos = async ({ movieId, language }: GetMovieVideosParams) => {
+   const res = await api.get<GetMovieVideosReturn>(
+      `movie/${movieId}/videos?language=${language}`,
+   );
+   return res;
+};
+
 const MovieService = {
    getMovieById,
    getUpcommingMovies,
    getTopRatedMovies,
    getPopularMovies,
    getSimiliarMovies,
+   getMovieReviews,
+   getMovieVideos,
 };
 
 export default MovieService;
