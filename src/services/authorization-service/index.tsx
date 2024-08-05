@@ -11,7 +11,10 @@ import { LOCAL_STORAGE } from '../storage-service/interfaces';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { AuthorizationServiceProps } from './interfaces';
-import { setLoggedIn } from '../../store/slices/authentication/slice';
+import {
+   setLoggedIn,
+   setLoggedOut,
+} from '../../store/slices/authentication/slice';
 
 const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
    const dispatch = useDispatch();
@@ -32,12 +35,11 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
 
    const isTokenExpired = getIsAuthorizationTokenExpired(tokenExpiration);
 
-   const handleOnAuthUser2 = useCallback(() => {
+   const handleOnAuthUser = useCallback(() => {
       if (isTokenExpired) {
-         //odhlasit uzivatele
-         console.log('ODHLASENI');
+         dispatch(setLoggedOut());
       }
-   }, [isTokenExpired]);
+   }, [dispatch, isTokenExpired]);
 
    useEffect(() => {
       const handleUserLogIn = () => {
@@ -51,15 +53,15 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
          !tokenExpiration ||
          !sessionId
       ) {
-         handleOnAuthUser2();
+         handleOnAuthUser();
          const interval = setInterval(() => {
-            handleOnAuthUser2();
+            handleOnAuthUser();
          }, AUTH_USER_INTERVAL);
          return () => clearInterval(interval);
       }
    }, [
       isUserLoggedIn,
-      handleOnAuthUser2,
+      handleOnAuthUser,
       isTokenExpired,
       dispatch,
       tokenExpiration,

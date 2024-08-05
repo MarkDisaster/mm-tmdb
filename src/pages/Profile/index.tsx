@@ -49,8 +49,6 @@ const ProfilePage = () => {
 
    const handleUserLogOut = () => {
       dispatch(setLoggedOut());
-      LocalStorageService.removeItem(LOCAL_STORAGE.SESSION_ID);
-      LocalStorageService.removeItem(LOCAL_STORAGE.TOKEN_EXPIRATION_TIME);
    };
 
    return (
