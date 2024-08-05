@@ -1,11 +1,4 @@
-import {
-   CAlert,
-   CAvatar,
-   CContainer,
-   CListGroup,
-   CListGroupItem,
-   CRow,
-} from '@coreui/react';
+import { CAlert, CContainer, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { useQuery } from '@tanstack/react-query';
@@ -19,6 +12,8 @@ import { ResponsiveContainer, LineChart, Line, Tooltip, XAxis } from 'recharts';
 import { getYouTubeOfficialVideoKey } from '../../helpers/getOfficialMovieYoutubeVIdeo';
 import { IMDB_URI } from '../../services/constants';
 import StarRating from '../../components/StarRating';
+import YoutubeVideo from '../../components/YoutubeVideo';
+import MovieReviews from '../../components/MovieReviews';
 
 const MoviePage = () => {
    const urlLocation = useLocation();
@@ -81,40 +76,15 @@ const MoviePage = () => {
 
          <CRow className={styles.overview}>
             <CContainer className={styles.overviewLeftContainer}>
-               <h4 className={styles.similiarMoviesHeader}>Overview</h4>
-               <CContainer className={styles.overviewLinks}>
-                  {movieData?.imdb_id && (
-                     <CAlert
-                        color="warning"
-                        className={styles.cAlertOverview}
-                     >
-                        <a
-                           href={`${IMDB_URI}${movieData.imdb_id}`}
-                           target="_blank"
-                           className={styles.bold}
-                        >
-                           IMDB
-                        </a>
-                     </CAlert>
-                  )}
-                  {movieVideoUrl && (
-                     <CAlert
-                        color="danger"
-                        className={styles.cAlertOverview}
-                     >
-                        <a
-                           href={movieVideoUrl}
-                           target="_blank"
-                           className={styles.bold}
-                        >
-                           Watch YouTube Trailer
-                        </a>
-                     </CAlert>
-                  )}
-               </CContainer>
+               <h4 className={styles.similiarMoviesHeader}>Reviews</h4>
+               {movieReviews?.results ? (
+                  <MovieReviews movieReviews={movieReviews} />
+               ) : (
+                  <h6>Zatím žádné reviews.</h6>
+               )}
             </CContainer>
             <CContainer className={styles.overviewRightContainer}>
-               <h4 className={styles.similiarMoviesHeader}>Rate the Movie</h4>
+               <h4 className={styles.similiarMoviesHeader}>Your Rating</h4>
                <StarRating movieId={urlLastSegmentNumber} />
 
                <h4 className={styles.similiarMoviesHeader}>Last reviews</h4>
@@ -143,41 +113,23 @@ const MoviePage = () => {
                      </LineChart>
                   </ResponsiveContainer>
                )}
-               <CListGroup className={styles.overviewReviewsContainer}>
-                  {movieReviews?.results &&
-                     movieReviews?.results.map(
-                        ({ author_details, created_at, content }, index) => {
-                           return (
-                              <CListGroupItem
-                                 className={styles.overviewReviewsLi}
-                                 key={`review-${index}`}
-                              >
-                                 <div className="d-flex w-100 justify-content-between">
-                                    <div className={styles.nameAvatarContainer}>
-                                       <CAvatar
-                                          color="warning"
-                                          textColor="white"
-                                          src={`https://www.gravatar.com/avatar/${author_details.avatar}?d=identicon`}
-                                       ></CAvatar>
-                                       {author_details.username}
-                                    </div>
-
-                                    <small>{created_at}</small>
-                                 </div>
-                                 {author_details.rating && (
-                                    <CAlert
-                                       color="warning"
-                                       className={styles.rating}
-                                    >
-                                       Rating: <b>{author_details.rating}/10</b>
-                                    </CAlert>
-                                 )}
-                                 <p className="mb-1">{content}</p>
-                              </CListGroupItem>
-                           );
-                        },
-                     )}
-               </CListGroup>
+               <CContainer className={styles.overviewLinks}>
+                  {movieData?.imdb_id && (
+                     <CAlert
+                        color="warning"
+                        className={styles.cAlertOverview}
+                     >
+                        <a
+                           href={`${IMDB_URI}${movieData.imdb_id}`}
+                           target="_blank"
+                           className={styles.bold}
+                        >
+                           IMDB
+                        </a>
+                     </CAlert>
+                  )}
+               </CContainer>
+               {movieVideoUrl && <YoutubeVideo youtubeUrl={movieVideoUrl} />}
             </CContainer>
          </CRow>
 

@@ -6,15 +6,18 @@ import styles from './style.module.css';
 import AccountService from '../../services/account-service';
 import LocalStorageService from '../../services/storage-service';
 import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
-import { AddMovieRatingBody, SORT } from '../../services/account-service/types';
+import { SORT } from '../../services/account-service/types';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMovieRating } from '../../helpers/getMovieRating';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import cx from 'classnames';
 
 const StarRating = ({ movieId }: StarRatingProps) => {
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
    const [hover, setHover] = useState<number>(0);
+   const [isEditing, setIsEditing] = useState<boolean>(false);
+   const [selectedStar, setSelectedStar] = useState<number>(0);
 
    const isUserLoggedIn = useSelector(
       (state: RootState) => state.authentication,
@@ -39,7 +42,10 @@ const StarRating = ({ movieId }: StarRatingProps) => {
       ? getMovieRating(movieId, ratedMovies.results)
       : 0;
 
-   const handleAddRatingToMovie = (currentRating: AddMovieRatingBody) => {
+   const handleAddRatingToMovie = () => {
+      const currentRatingParams = {
+         value: selectedStar,
+      };
       const addRatingToMovieParams = {
          session_id: sessionId,
       };
@@ -47,12 +53,13 @@ const StarRating = ({ movieId }: StarRatingProps) => {
       AccountService.addMovieRating(
          movieId,
          addRatingToMovieParams,
-         currentRating,
+         currentRatingParams,
       ).then(() => {
          setTimeout(() => {
             queryClient.invalidateQueries({
                queryKey: ['ratedMovies', movieId],
             });
+            setIsEditing(false);
          }, 300);
       });
    };
@@ -61,9 +68,6 @@ const StarRating = ({ movieId }: StarRatingProps) => {
       <div className={styles.ratingContainer}>
          {[...Array(TOTAL_STARS)].map((_, index) => {
             const currentRating = index + 1;
-            const currentRatingParams = {
-               value: currentRating,
-            };
 
             return (
                <label key={`ratingStar-${index}`}>
@@ -72,29 +76,61 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                      name="rating"
                      value={currentRating}
                      onChange={() =>
-                        isUserLoggedIn &&
-                        handleAddRatingToMovie(currentRatingParams)
+                        isEditing && setSelectedStar(currentRating)
                      }
                      className={styles.ratingInput}
+                     disabled={!isEditing}
                   />
                   <span
                      className={styles.ratingStar}
                      style={{
                         color:
-                           currentRating <= (hover || movieCurrentApiRating)
+                           currentRating <=
+                           (hover ||
+                              (selectedStar
+                                 ? selectedStar
+                                 : movieCurrentApiRating))
                               ? '#ffc107'
                               : '#e4e5e9',
                      }}
                      onMouseEnter={() =>
-                        isUserLoggedIn && setHover(currentRating)
+                        isUserLoggedIn && isEditing && setHover(currentRating)
                      }
-                     onMouseLeave={() => setHover(0)}
+                     onMouseLeave={() => isEditing && setHover(0)}
                   >
                      &#9733;
                   </span>
                </label>
             );
          })}
+         {!isEditing ? (
+            <button
+               className={styles.ratingButton}
+               onClick={() => setIsEditing(true)}
+            >
+               Rate this Movie
+            </button>
+         ) : (
+            <>
+               <button
+                  className={cx(styles.ratingButton, styles.saveRatingButton)}
+                  onClick={() => {
+                     handleAddRatingToMovie();
+                  }}
+               >
+                  Save Rating
+               </button>
+               <button
+                  className={cx(styles.ratingButton, styles.closeRatingButton)}
+                  onClick={() => {
+                     setIsEditing(false);
+                     setSelectedStar(movieCurrentApiRating);
+                  }}
+               >
+                  Close
+               </button>
+            </>
+         )}
       </div>
    );
 };

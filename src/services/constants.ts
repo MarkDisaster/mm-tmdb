@@ -6,4 +6,6 @@ export const TMDB_IMG_ORIGINAL_SIZE_URI =
 
 export const YOUTUBE_URI = 'https://www.youtube.com/watch?v=';
 
+export const YOUTUBE_EMBED_URI = 'https://www.youtube.com/embed/';
+
 export const IMDB_URI = 'https://www.imdb.com/title/';

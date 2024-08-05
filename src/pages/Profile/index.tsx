@@ -64,13 +64,15 @@ const ProfilePage = () => {
                className="my-5 text-center"
             >
                <CCardBody>
-                  <CAvatar
-                     color="warning"
-                     textColor="white"
-                     className="mb-2"
-                     src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
-                     size="xl"
-                  ></CAvatar>
+                  {avatar && (
+                     <CAvatar
+                        color="warning"
+                        textColor="white"
+                        className="mb-2"
+                        src={`https://www.gravatar.com/avatar/${avatar.gravatar}?d=identicon`}
+                        size="xl"
+                     ></CAvatar>
+                  )}
                   <CCardTitle>{username}</CCardTitle>
                   {name && <CCardText>Name: {name}</CCardText>}
                   {<CCardText>ID: {id}</CCardText>}

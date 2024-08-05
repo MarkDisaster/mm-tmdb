@@ -44,7 +44,6 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
          dispatch(setLoggedIn());
       };
       if (!isUserLoggedIn && !isTokenExpired) {
-         console.log('uzivatel prihlasen');
          handleUserLogIn();
       }
       if (

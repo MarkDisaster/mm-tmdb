@@ -15,7 +15,10 @@ const authenticationSlice = createSlice({
    initialState,
    reducers: {
       setLoggedIn: () => true,
-      setLoggedOut: () => false,
+      setLoggedOut: () => {
+         LocalStorageService.clearStorage();
+         return false;
+      },
    },
 });
 

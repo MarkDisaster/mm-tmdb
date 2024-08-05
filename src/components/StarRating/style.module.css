@@ -4,6 +4,23 @@
 
 .ratingStar {
     cursor: pointer;
-    font-size: 2.5rem;
-    margin-right: 5px;
+    font-size: 2rem;
+    margin-right: .5rem;
+}
+
+.ratingButton {
+    background-color: unset;
+    padding: 0;
+}
+
+.ratingButton:hover {
+    text-decoration: underline;
+}
+
+.saveRatingButton {
+    margin-right: .5rem;
+}
+
+.closeRatingButton {
+    color: var(--bs-danger);
 }

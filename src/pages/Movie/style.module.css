@@ -14,11 +14,12 @@
 }
 
 .overviewLeftContainer {
-    width: 60% !important;
+    width: 70% !important;
+    padding-right: 3rem !important;
 }
 
 .overviewRightContainer {
-    width: 40% !important;
+    width: 30% !important;
 }
 
 .similiarMoviesRow {
@@ -33,35 +34,8 @@
 .similiarMoviesHeader {
     align-self: start;
     display: flex;
-    padding: 0;
-    margin: 3rem 0 0rem 0 !important;
-}
-
-.overviewReviewsContainer {
-    height: 500px;
-    overflow: auto;
-}
-
-.overviewReviewsLi {
-    padding: 20px 25px 20px 3px !important;
-    border: 0;
-}
-
-.nameAvatarContainer {
-    font-weight: bold;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.nameAvatarContainer img {
-    border: 2px solid var(--bs-primary);
-}
-
-.overviewReviewsContainer li {
-    border: 0;
-    border-bottom: 1px solid var(--bs-gray-200)
+    padding: 0! important;
+    margin: 5rem 0 1rem 0 !important;
 }
 
 .cAlertOverview {
@@ -77,16 +51,6 @@
 
 .cAlertOverview *:hover {
     text-decoration: none !important;
-}
-
-.rating {
-    padding: 2px 10px !important;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.rating * {
-    color: var(--bs-alert-color) !important;
 }
 
 .bold {
