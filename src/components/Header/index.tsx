@@ -47,8 +47,6 @@ const Header = () => {
 
    const handleUserLogOut = () => {
       dispatch(setLoggedOut());
-      LocalStorageService.removeItem(LOCAL_STORAGE.SESSION_ID);
-      LocalStorageService.removeItem(LOCAL_STORAGE.TOKEN_EXPIRATION_TIME);
    };
 
    <CButton color="primary">Launch demo modal</CButton>;

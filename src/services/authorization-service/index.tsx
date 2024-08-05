@@ -1,8 +1,3 @@
-// TODO: Upravit pro svoje potreby.
-// Kdyz prijdu na stranku, overit zda je ulozeny expiration time v local storage,
-// porovnat ho s aktualnim casem a podle toho set boolean isUserLoggedIn
-// + tohle nechat - If location is not changed, auth user after certain interval
-
 import { AUTH_USER_INTERVAL } from './constants';
 import { useCallback, useEffect } from 'react';
 import { getIsAuthorizationTokenExpired } from '../../helpers/getIsAuthorizationTokenExpired';
@@ -21,13 +16,6 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
    const tokenExpirationTime = LOCAL_STORAGE.TOKEN_EXPIRATION_TIME;
    const tokenExpiration = LocalStorageService.getItem(tokenExpirationTime);
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
-   console.log('token', tokenExpiration);
-   console.log(
-      'LocalStorageService.getItem(tokenExpirationTime)',
-      getIsAuthorizationTokenExpired(
-         LocalStorageService.getItem(tokenExpirationTime),
-      ),
-   );
 
    const isUserLoggedIn = useSelector(
       (state: RootState) => state.authentication,
@@ -36,6 +24,7 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
    const isTokenExpired = getIsAuthorizationTokenExpired(tokenExpiration);
 
    const handleOnAuthUser = useCallback(() => {
+      console.log('isTokenExpired', isTokenExpired);
       if (isTokenExpired) {
          dispatch(setLoggedOut());
       }
@@ -47,12 +36,7 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
       };
       if (!isUserLoggedIn && !isTokenExpired) {
          handleUserLogIn();
-      }
-      if (
-         (isUserLoggedIn && isTokenExpired) ||
-         !tokenExpiration ||
-         !sessionId
-      ) {
+      } else {
          handleOnAuthUser();
          const interval = setInterval(() => {
             handleOnAuthUser();
@@ -61,7 +45,7 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
       }
    }, [
       isUserLoggedIn,
-      handleOnAuthUser,
+      handleOnAuthUser2,
       isTokenExpired,
       dispatch,
       tokenExpiration,
