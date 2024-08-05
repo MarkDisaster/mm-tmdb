@@ -1,6 +1,6 @@
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
    CButton,
    CModal,
@@ -24,9 +24,12 @@ import { LoginModalProps } from './interfaces';
 import { schema } from './validation';
 
 import styles from './style.module.css';
+import { RootState } from '../../store/store';
 
 const LoginModal = ({ isModalVisible, setIsModalVisible }: LoginModalProps) => {
    const dispatch = useDispatch();
+
+   const isDarkThemeState = useSelector((state: RootState) => state.darkTheme);
 
    const {
       control,
@@ -93,80 +96,82 @@ const LoginModal = ({ isModalVisible, setIsModalVisible }: LoginModalProps) => {
          visible={isModalVisible}
          onClose={() => setIsModalVisible(false)}
          aria-labelledby="LiveDemoExampleLabel"
-         className={styles.loginFormModal}
+         data-bs-theme={isDarkThemeState ? 'dark' : 'light'}
       >
-         <CModalHeader>
-            <CModalTitle id="LiveDemoExampleLabel">Přihlášení</CModalTitle>
-         </CModalHeader>
-         <CModalBody>
-            <p className={styles.loginFormInfoText}>
-               Pokud máte registraci na webu www.themoviedb.org,
-               <br />
-               můžete se přihlásit pod svými údaji.
-            </p>
-            <CForm onSubmit={handleSubmit(handleLogIn)}>
-               <CContainer className={styles.loginFormContainer}>
-                  <Controller
-                     name="username"
-                     control={control}
-                     render={({ field }) => (
-                        <div>
-                           <CFormInput
-                              {...field}
-                              placeholder="Přihlašovací jméno"
-                              label="Přihlašovací jméno"
-                           />
-                           {errors.username && (
-                              <p className="text-danger">
-                                 {errors.username.message}
-                              </p>
-                           )}
-                        </div>
-                     )}
-                  />
-                  <Controller
-                     name="password"
-                     control={control}
-                     render={({ field }) => (
-                        <div>
-                           <CFormInput
-                              {...field}
-                              type="password"
-                              placeholder="Heslo"
-                              label="Heslo"
-                           />
-                           {errors.password && (
-                              <p className="text-danger">
-                                 {errors.password.message}
-                              </p>
-                           )}
-                        </div>
-                     )}
-                  />
-               </CContainer>
-
-               <p className={styles.loginFormLoginInfo}>
-                  Přihlašovací jméno: <b>marek.media</b>
+         <CContainer className={styles.loginFormModal}>
+            <CModalHeader>
+               <CModalTitle id="LiveDemoExampleLabel">Přihlášení</CModalTitle>
+            </CModalHeader>
+            <CModalBody>
+               <p className={styles.loginFormInfoText}>
+                  Pokud máte registraci na webu www.themoviedb.org,
                   <br />
-                  Heslo: <b>marek.media</b>
+                  můžete se přihlásit pod svými údaji.
                </p>
+               <CForm onSubmit={handleSubmit(handleLogIn)}>
+                  <CContainer className={styles.loginFormContainer}>
+                     <Controller
+                        name="username"
+                        control={control}
+                        render={({ field }) => (
+                           <div>
+                              <CFormInput
+                                 {...field}
+                                 placeholder="Přihlašovací jméno"
+                                 label="Přihlašovací jméno"
+                              />
+                              {errors.username && (
+                                 <p className="text-danger">
+                                    {errors.username.message}
+                                 </p>
+                              )}
+                           </div>
+                        )}
+                     />
+                     <Controller
+                        name="password"
+                        control={control}
+                        render={({ field }) => (
+                           <div>
+                              <CFormInput
+                                 {...field}
+                                 type="password"
+                                 placeholder="Heslo"
+                                 label="Heslo"
+                              />
+                              {errors.password && (
+                                 <p className="text-danger">
+                                    {errors.password.message}
+                                 </p>
+                              )}
+                           </div>
+                        )}
+                     />
+                  </CContainer>
 
-               <CModalFooter>
-                  <CButton
-                     color="secondary"
-                     onClick={() => setIsModalVisible(false)}
-                  >
-                     Zavřít
-                  </CButton>
-                  <CButton
-                     color="primary"
-                     type="submit"
-                  >
-                     Přihlásit
-                  </CButton>
-               </CModalFooter>
-            </CForm>
-         </CModalBody>
+                  <p className={styles.loginFormLoginInfo}>
+                     Přihlašovací jméno: <b>marek.media</b>
+                     <br />
+                     Heslo: <b>marek.media</b>
+                  </p>
+
+                  <CModalFooter>
+                     <CButton
+                        color="secondary"
+                        onClick={() => setIsModalVisible(false)}
+                     >
+                        Zavřít
+                     </CButton>
+                     <CButton
+                        color="primary"
+                        type="submit"
+                     >
+                        Přihlásit
+                     </CButton>
+                  </CModalFooter>
+               </CForm>
+            </CModalBody>
+         </CContainer>
       </CModal>
    );
 };

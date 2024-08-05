@@ -1,3 +1,8 @@
+.loginFormModal * {
+    background: var(--bs-body-bg) !important;
+    background-color: var(--bs-body-bg) !important;
+}
+
 .loginFormInfoText {
     padding: 0 25px;
     font-weight: bold;
