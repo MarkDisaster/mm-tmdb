@@ -1,1 +1,1 @@
-export const AUTH_USER_INTERVAL = 10000; // milliseconds
+export const AUTH_USER_INTERVAL = 300000; // milliseconds
