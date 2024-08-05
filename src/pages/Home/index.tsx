@@ -47,7 +47,6 @@ const HomePage = () => {
       >
          <AliceCarousel
             mouseTracking={true}
-            autoPlay
             disableButtonsControls
             infinite
             autoPlayInterval={3000}

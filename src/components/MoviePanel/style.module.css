@@ -14,9 +14,11 @@
  }
 
  .movieImage {
-    border: 0;
-    vertical-align: top;
-    width: 100vw;
+   border: 0;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   display: block;
  }
 
  .movieInfoContainer {
@@ -34,6 +36,12 @@
     width: 100%;
  }
 
+ @media (max-width: 768px) {
+   .movieInfoContainer {
+      padding: 2rem 4rem 5rem 4rem !important;
+   }
+}
+
  .movieTitle {
     font-size: 4.5rem;
     font-weight: bold;
@@ -43,9 +51,16 @@
     width: 75%;
  }
 
+ @media (max-width: 768px) {
+   .movieTitle {
+      font-size: 3rem;
+   }
+}
+
 .movieReleaseDateContainer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
  .movieReleaseDate {
@@ -69,6 +84,12 @@
     width: 75%;
     color: var(--bs-white) !important;
  }
+
+ @media (max-width: 768px) {
+   .movieOverView {
+      width: 100%;
+   }
+}
 
  .movieTitleContainer {
     display: flex !important;

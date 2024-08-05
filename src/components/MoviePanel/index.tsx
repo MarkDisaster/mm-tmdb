@@ -23,7 +23,6 @@ const MoviePanel = ({
             <CImage
                align="start"
                src={`${TMDB_IMG_ORIGINAL_SIZE_URI}${backdrop_path ?? poster_path}`}
-               width={50}
                className={styles.movieImage}
             />
          </CContainer>

@@ -87,31 +87,35 @@ const MoviePage = () => {
                <h4 className={styles.similiarMoviesHeader}>Your Rating</h4>
                <StarRating movieId={urlLastSegmentNumber} />
 
-               <h4 className={styles.similiarMoviesHeader}>Last reviews</h4>
-               {lastReviewsChartValues && (
-                  <ResponsiveContainer
-                     width="100%"
-                     height={100}
-                     style={{ marginBottom: '-30px' }}
-                  >
-                     <LineChart
-                        width={300}
-                        height={150}
-                        data={lastReviewsChartValues}
+               {lastReviewsChartValues && lastReviewsChartValues.length > 0 && (
+                  <>
+                     <h4 className={styles.similiarMoviesHeader}>
+                        Last reviews
+                     </h4>
+                     <ResponsiveContainer
+                        width="100%"
+                        height={100}
+                        style={{ marginBottom: '-30px' }}
                      >
-                        <XAxis
-                           dataKey="name"
-                           tick={false}
-                        />
-                        <Tooltip />
-                        <Line
-                           type="monotone"
-                           dataKey="rating"
-                           stroke="#0d6efd"
-                           strokeWidth={3}
-                        />
-                     </LineChart>
-                  </ResponsiveContainer>
+                        <LineChart
+                           width={300}
+                           height={150}
+                           data={lastReviewsChartValues}
+                        >
+                           <XAxis
+                              dataKey="name"
+                              tick={false}
+                           />
+                           <Tooltip />
+                           <Line
+                              type="monotone"
+                              dataKey="rating"
+                              stroke="#0d6efd"
+                              strokeWidth={3}
+                           />
+                        </LineChart>
+                     </ResponsiveContainer>
+                  </>
                )}
                <CContainer className={styles.overviewLinks}>
                   {movieData?.imdb_id && (

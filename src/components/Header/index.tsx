@@ -1,13 +1,16 @@
 import {
    CAvatar,
    CButton,
+   CCollapse,
    CContainer,
    CDropdown,
    CDropdownItem,
    CDropdownMenu,
    CDropdownToggle,
-   CHeader,
    CHeaderNav,
+   CNavbar,
+   CNavbarNav,
+   CNavbarToggler,
    CNavItem,
 } from '@coreui/react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -26,6 +29,9 @@ import LoginModal from '../LoginModal';
 
 const Header = () => {
    const navigate = useNavigate();
+
+   const [visible, setVisible] = useState(false);
+
    const handleOnClickMovie = () => navigate(`/profile`);
 
    const dispatch = useDispatch();
@@ -48,91 +54,97 @@ const Header = () => {
    <CButton color="primary">Launch demo modal</CButton>;
    return (
       <>
-         <CHeader className={styles.headerWrapper}>
-            <CContainer
-               fluid
-               className={styles.headerConteiner}
-            >
+         <CNavbar
+            expand="xl"
+            className={styles.headerNav}
+         >
+            <CContainer fluid>
                <Link
                   to="/"
                   className={styles.headerLogo}
                >
                   MM TMDB App
                </Link>
-               <CHeaderNav className={styles.headerNav}>
-                  <CNavItem>
-                     <Link to="/">Home</Link>
-                  </CNavItem>
-                  <CNavItem>
-                     <Link to="/profile">About App</Link>
-                  </CNavItem>
-                  <CNavItem>
-                     <Link to="/movies-comparing">Movies Comparing</Link>
-                  </CNavItem>
-                  <CNavItem>
-                     <Link to="/profile">Profile</Link>
-                  </CNavItem>
-               </CHeaderNav>
-               <SearchForm />
-
-               <div className={styles.headerLoginSwitchTheme}>
-                  <CHeaderNav className="">
-                     <LoginModal
-                        isModalVisible={isModalVisible}
-                        setIsModalVisible={setIsModalVisible}
-                     />
-                     <CNavItem>
-                        {isUserLoggedIn ? (
-                           <>
-                              <CDropdown variant="nav-item">
-                                 <CDropdownToggle
-                                    color="secondary"
-                                    className={styles.headerUserName}
-                                 >
-                                    {username}
-                                    <CAvatar
-                                       color="warning"
-                                       textColor="white"
-                                       className="ms-2 mb-1"
-                                       src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
-                                    ></CAvatar>
-                                 </CDropdownToggle>
-                                 <CDropdownMenu
-                                    className={styles.headerDropDownSwitchTheme}
-                                 >
-                                    <CDropdownItem onClick={handleOnClickMovie}>
-                                       Profile
-                                    </CDropdownItem>
-                                    <CDropdownItem
-                                       onClick={handleUserLogOut}
-                                       className={styles.logoutButton}
-                                    >
-                                       Logout
-                                    </CDropdownItem>
-                                 </CDropdownMenu>
-                              </CDropdown>
-                           </>
-                        ) : (
-                           <CButton
-                              className="p-0"
-                              onClick={() => setIsModalVisible(!isModalVisible)}
+               <CNavbarToggler onClick={() => setVisible(!visible)} />
+               <CCollapse
+                  className="navbar-collapse"
+                  visible={visible}
+               >
+                  <CNavbarNav>
+                     <CHeaderNav className={styles.headerNav}>
+                        <CNavItem>
+                           <Link to="/">Home</Link>
+                        </CNavItem>
+                        <CNavItem>
+                           <Link to="/profile">About App</Link>
+                        </CNavItem>
+                        <CNavItem>
+                           <Link to="/movies-comparing">Movies Comparing</Link>
+                        </CNavItem>
+                        <CNavItem>
+                           <Link to="/profile">Profile</Link>
+                        </CNavItem>
+                     </CHeaderNav>
+                  </CNavbarNav>
+                  <SearchForm />
+                  <LoginModal
+                     isModalVisible={isModalVisible}
+                     setIsModalVisible={setIsModalVisible}
+                  />
+                  {isUserLoggedIn ? (
+                     <>
+                        <CDropdown
+                           variant="nav-item"
+                           className={styles.usernameDropDown}
+                        >
+                           <CDropdownToggle
+                              color="secondary"
+                              className={styles.headerUserName}
                            >
-                              Login
+                              {username}
                               <CAvatar
                                  color="warning"
                                  textColor="white"
                                  className="ms-2 mb-1"
+                                 src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
+                              ></CAvatar>
+                           </CDropdownToggle>
+                           <CDropdownMenu
+                              className={styles.headerDropDownSwitchTheme}
+                           >
+                              <CDropdownItem onClick={handleOnClickMovie}>
+                                 Profile
+                              </CDropdownItem>
+                              <CDropdownItem
+                                 onClick={handleUserLogOut}
+                                 className={styles.logoutButton}
                               >
-                                 MM
-                              </CAvatar>
-                           </CButton>
-                        )}
-                     </CNavItem>
-                  </CHeaderNav>
-                  <ThemeSwitchButton />
-               </div>
+                                 Logout
+                              </CDropdownItem>
+                           </CDropdownMenu>
+                        </CDropdown>
+                     </>
+                  ) : (
+                     <CButton
+                        className="p-0"
+                        onClick={() => setIsModalVisible(!isModalVisible)}
+                     >
+                        Login
+                        <CAvatar
+                           color="warning"
+                           textColor="white"
+                           className="ms-2 mb-1"
+                        >
+                           MM
+                        </CAvatar>
+                     </CButton>
+                  )}
+                  <div className={styles.headerLoginSwitchTheme}>
+                     <ThemeSwitchButton />
+                  </div>
+               </CCollapse>
             </CContainer>
-         </CHeader>
+         </CNavbar>
       </>
    );
 };

@@ -94,3 +94,14 @@ svg {
 .recharts-tooltip-wrapper-top {
    margin-top: -30px;
 }
+
+.navbar-expand-xl .navbar-collapse {
+   justify-content: flex-end;
+}
+
+.navbar-collapse.collapsing.enter.enter-active,
+.navbar-collapse.collapse.show.enter-done {
+   display: flex !important;
+   flex-direction: column !important;;
+   gap: 1rem !important;;
+}
