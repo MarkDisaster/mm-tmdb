@@ -33,3 +33,8 @@
 .movieContainer {
     padding: 0 3rem !important;
 }
+
+.comparedMoviesHeader {
+    padding: 0 3rem !important;
+    margin-bottom: 1.5rem;
+} 

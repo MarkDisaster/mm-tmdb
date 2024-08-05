@@ -37,7 +37,7 @@ const MoviesComparingPage = () => {
          fluid
          className={styles.container}
       >
-         <h3 className="mt-5 mb-4">Compared Movies</h3>
+         <h3 className={styles.comparedMoviesHeader}>Compared Movies</h3>
          {moviesToCompareState.length > 0 ? (
             <CRow className={styles.wraper}>
                <CContainer className={styles.movieContainer}>
@@ -47,7 +47,9 @@ const MoviesComparingPage = () => {
                <CRow>
                   {barChartDataPopularity.length > 0 && (
                      <CRow className="justify-content-center pt-5">
-                        <h3 className="pb-5">Popularity chart</h3>
+                        <h3 className={styles.comparedMoviesHeader}>
+                           Popularity chart
+                        </h3>
                         <StatsBarChart
                            barChartValues={barChartDataPopularity}
                         />
