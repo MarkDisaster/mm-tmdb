@@ -45,7 +45,7 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
       }
    }, [
       isUserLoggedIn,
-      handleOnAuthUser2,
+      handleOnAuthUser,
       isTokenExpired,
       dispatch,
       tokenExpiration,
