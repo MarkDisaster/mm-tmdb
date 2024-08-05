@@ -1,5 +1,4 @@
-.loginFormModal * {
-    background: var(--bs-body-bg) !important;
+.loginFormModal {
     background-color: var(--bs-body-bg) !important;
 }
 

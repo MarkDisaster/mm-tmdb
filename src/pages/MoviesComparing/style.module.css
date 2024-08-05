@@ -12,3 +12,24 @@
         max-width: 100% !important;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+}
+
+.wraper {
+    margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .wraper {
+        max-width: 100% !important;
+    }
+}
+
+.movieContainer {
+    padding: 0 3rem !important;
+}

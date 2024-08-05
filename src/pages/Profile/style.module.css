@@ -12,3 +12,8 @@
         max-width: 100% !important;
     }
 }
+
+.movieRow {
+    padding: 0 3rem !important;
+    flex-wrap: nowrap !important;
+}

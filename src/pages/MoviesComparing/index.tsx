@@ -39,8 +39,10 @@ const MoviesComparingPage = () => {
       >
          <h3 className="mt-5 mb-4">Compared Movies</h3>
          {moviesToCompareState.length > 0 ? (
-            <CRow className="m-0">
-               <MoviesCarousel movies={moviesToCompareState} />
+            <CRow className={styles.wraper}>
+               <CContainer className={styles.movieContainer}>
+                  <MoviesCarousel movies={moviesToCompareState} />
+               </CContainer>
 
                <CRow>
                   {barChartDataPopularity.length > 0 && (
