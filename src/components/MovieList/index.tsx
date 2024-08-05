@@ -19,9 +19,16 @@ import AddRemoveCompareButton from '../AddRemoveCompareButton';
 import styles from './style.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const MoviesTable = ({ movies, isLoading }: MovieTablesProps) => {
+const MoviesTable = ({
+   movies,
+   isLoading,
+   onSelectMovie,
+}: MovieTablesProps) => {
    const navigate = useNavigate();
-   const handleOnClickMovie = (id: number) => navigate(`/movie/${id}`);
+   const handleOnClickMovie = (id: number) => {
+      navigate(`/movie/${id}`);
+      onSelectMovie(false);
+   };
 
    if (isLoading) return <CSpinner color="blue" />;
    if (movies.length < 1) return;

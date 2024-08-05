@@ -41,7 +41,7 @@ const SearchForm = () => {
 
    return (
       <CForm className={styles.searchWrapper}>
-         <CContainer>
+         <CContainer className="p-0">
             <CFormInput
                type="search"
                id="searchMovieInput"
@@ -66,6 +66,7 @@ const SearchForm = () => {
                   <MovieList
                      movies={dataSearchedMovies?.results ?? []}
                      isLoading={isLoading}
+                     onSelectMovie={setShowList}
                   />
                </CContainer>
             )}
