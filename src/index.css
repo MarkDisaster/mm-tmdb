@@ -100,7 +100,7 @@ svg {
    justify-content: space-around;
 }
 
-.navbar-collapse.collapsing.enter.enter-active,
+.navbar-collapse.collapsing,
 .navbar-collapse.collapse.show.enter-done {
    display: flex !important;
    flex-direction: column !important;;
