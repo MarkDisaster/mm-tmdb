@@ -5,3 +5,10 @@
     max-width: var(--cui-breakpoint-xl) !important;
     padding: 0 !important;
 }
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 3rem !important;
+        max-width: 100% !important;
+    }
+}
