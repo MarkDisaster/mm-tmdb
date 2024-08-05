@@ -97,6 +97,7 @@ svg {
 
 .navbar-expand-xl .navbar-collapse {
    justify-content: flex-end;
+   justify-content: space-around;
 }
 
 .navbar-collapse.collapsing.enter.enter-active,
