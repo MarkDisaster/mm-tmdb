@@ -1,4 +1,4 @@
-import { CContainer, CRow } from '@coreui/react';
+import { CContainer, CListGroup, CListGroupItem, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { useQuery } from '@tanstack/react-query';
@@ -15,6 +15,7 @@ import LastReviewsChart from '../../components/LastReviewsChart';
 
 import styles from './style.module.css';
 import ImdbLink from '../../components/ImdbLink';
+import { getFormattedBudget } from '../../helpers/getFormattedBudget';
 
 const MoviePage = () => {
    const urlLocation = useLocation();
@@ -61,6 +62,8 @@ const MoviePage = () => {
       queryFn: async () => MovieService.getMovieVideos(getMovieVideosParams),
    });
 
+   const budgetFormatted = getFormattedBudget(movieData?.budget ?? 0);
+
    const movieVideoUrl =
       movieVideos?.results && getYouTubeOfficialVideoKey(movieVideos.results);
 
@@ -91,6 +94,14 @@ const MoviePage = () => {
                <StarRating movieId={urlLastSegmentNumber} />
 
                <>
+                  <CListGroup className={styles.movieMoreInfo}>
+                     <CListGroupItem>
+                        Original name: <b>{movieData?.original_title}</b>
+                     </CListGroupItem>
+                     <CListGroupItem>
+                        Budget: <b>${budgetFormatted}</b>
+                     </CListGroupItem>
+                  </CListGroup>
                   <h4 className={styles.similiarMoviesHeader}>Last reviews</h4>
                   <LastReviewsChart chartValues={lastReviewsChartValues} />
                </>

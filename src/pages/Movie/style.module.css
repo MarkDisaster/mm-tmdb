@@ -64,7 +64,7 @@
     align-self: start;
     display: flex;
     padding: 0! important;
-    margin: 5rem 0 1rem 0 !important;
+    margin: 3rem 0 1rem 0 !important;
 }
 
 @media (max-width: 768px) {
@@ -78,4 +78,14 @@
     gap: 10px;
     padding: 0 !important;
     margin-top: 1.5rem;
+}
+
+.movieMoreInfo {
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.movieMoreInfo li {
+    border: none !important;
+    padding: 0.125rem 0;
 }

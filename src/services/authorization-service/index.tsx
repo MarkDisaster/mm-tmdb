@@ -24,7 +24,6 @@ const AuthorizationService = ({ children }: AuthorizationServiceProps) => {
    const isTokenExpired = getIsAuthorizationTokenExpired(tokenExpiration);
 
    const handleOnAuthUser = useCallback(() => {
-      console.log('isTokenExpired', isTokenExpired);
       if (isTokenExpired) {
          dispatch(setLoggedOut());
       }

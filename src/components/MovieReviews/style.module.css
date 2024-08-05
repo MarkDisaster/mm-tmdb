@@ -3,6 +3,12 @@
     overflow: auto;
 }
 
+@media (max-width: 768px) {
+    .overviewReviewsContainer {
+        height: auto;
+    }
+}
+
 .overviewReviewsLi {
     padding: 20px 25px 20px 3px !important;
     border: 0;

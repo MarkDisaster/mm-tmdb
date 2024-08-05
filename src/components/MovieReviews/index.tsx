@@ -1,7 +1,9 @@
-import { CAlert, CAvatar, CListGroup, CListGroupItem } from '@coreui/react';
+import { CAvatar, CListGroup, CListGroupItem } from '@coreui/react';
 
 import styles from './style.module.css';
 import { MovieReviewsProps } from './interfaces';
+import StarRatingUser from '../StarRatingUser';
+import { getFormattedDate } from '../../helpers/getFormattedDate';
 
 const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
    return (
@@ -9,6 +11,7 @@ const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
          {movieReviews?.results &&
             movieReviews?.results.map(
                ({ author_details, created_at, content }, index) => {
+                  const formattedDate = getFormattedDate(created_at);
                   return (
                      <CListGroupItem
                         className={styles.overviewReviewsLi}
@@ -24,16 +27,14 @@ const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
                               {author_details.username}
                            </div>
 
-                           <small>{created_at}</small>
+                           <small>{formattedDate}</small>
                         </div>
-                        {author_details.rating && (
-                           <CAlert
-                              color="warning"
-                              className={styles.rating}
-                           >
-                              Rating: <b>{author_details.rating}/10</b>
-                           </CAlert>
+                        {author_details?.rating && (
+                           <StarRatingUser
+                              ratingValue={Number(author_details.rating)}
+                           />
                         )}
+
                         <p className="mb-1">{content}</p>
                      </CListGroupItem>
                   );

@@ -40,10 +40,7 @@ const SearchForm = () => {
    }, []);
 
    return (
-      <CForm
-         className={styles.searchWrapper}
-         data-coreui-theme="light"
-      >
+      <CForm className={styles.searchWrapper}>
          <CContainer className="p-0">
             <CFormInput
                type="search"
