@@ -6,6 +6,12 @@
     z-index: 111;
 }
 
+@media (max-width: 1200px) {
+    .searchWrapper {
+        width: 100% !important;
+    }
+}
+
 .searchResultsWrapper {
     margin-top: 2px;
     padding-top: 15px;

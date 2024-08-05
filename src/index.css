@@ -106,4 +106,5 @@ svg {
    flex-direction: column !important;;
    gap: 1rem !important;
    align-items: center !important;
+   margin-top: 1rem;
 }
