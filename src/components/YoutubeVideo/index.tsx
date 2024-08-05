@@ -6,7 +6,7 @@ const YoutubeVideo = ({ youtubeUrl }: YoutubeVideoProps) => {
    return (
       <iframe
          width="100%"
-         height="250px"
+         height="200px"
          src={youtubeUrl}
          title="YouTube video player"
          frameBorder="0"
