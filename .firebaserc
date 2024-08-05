@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "tmdbmm",
+    "tmdbmm": "tmdbmm"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
