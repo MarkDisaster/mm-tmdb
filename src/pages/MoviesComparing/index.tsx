@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { CAlert, CContainer, CRow } from '@coreui/react';
 
 import { RootState } from '../../store/store';
-import BarChart from '../../components/BarChart';
+import StatsBarChart from '../../components/BarChart';
 
 import { getMoviesBarChartValues } from '../../helpers/getMoviesBarChartValues';
 import MoviesCarousel from '../../components/MoviesCarousel';
@@ -41,27 +41,34 @@ const MoviesComparingPage = () => {
          {moviesToCompareState.length > 0 ? (
             <CRow className="m-0">
                <MoviesCarousel movies={moviesToCompareState} />
+
                <CRow>
                   {barChartDataPopularity.length > 0 && (
                      <CRow className="justify-content-center pt-5">
                         <h3 className="pb-5">Popularity chart</h3>
-                        <BarChart barChartValues={barChartDataPopularity} />
+                        <StatsBarChart
+                           barChartValues={barChartDataPopularity}
+                        />
                      </CRow>
                   )}
                </CRow>
+
                <CRow>
                   {barChartDataVoteAverage.length > 0 && (
                      <CRow className="justify-content-center pt-5">
                         <h3 className="pb-5">Rating chart</h3>
-                        <BarChart barChartValues={barChartDataVoteAverage} />
+                        <StatsBarChart
+                           barChartValues={barChartDataVoteAverage}
+                        />
                      </CRow>
                   )}
                </CRow>
+
                <CRow>
                   {barChartDataVoteCount.length > 0 && (
                      <CRow className="justify-content-center pt-5">
                         <h3 className="pb-5">Vote Count chart</h3>
-                        <BarChart barChartValues={barChartDataVoteCount} />
+                        <StatsBarChart barChartValues={barChartDataVoteCount} />
                      </CRow>
                   )}
                </CRow>

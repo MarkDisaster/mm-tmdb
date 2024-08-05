@@ -1,4 +1,4 @@
-# Movie Comparator
+# TMDB (TheMovieDataBase)
 
 A project that illustrates the integration of several technologies and tools to create a robust, scalable, and easily maintainable codebase.
 

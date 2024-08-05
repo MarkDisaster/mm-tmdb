@@ -1,19 +1,20 @@
-import { CAlert, CContainer, CRow } from '@coreui/react';
+import { CContainer, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { useQuery } from '@tanstack/react-query';
 import MovieService from '../../services/movie-service';
 
-import styles from './style.module.css';
 import MoviePanel from '../../components/MoviePanel';
 import { useLocation } from 'react-router-dom';
 import { getLastReviewsChartValues } from '../../helpers/getLastReviewsChartValues';
-import { ResponsiveContainer, LineChart, Line, Tooltip, XAxis } from 'recharts';
 import { getYouTubeOfficialVideoKey } from '../../helpers/getOfficialMovieYoutubeVIdeo';
-import { IMDB_URI } from '../../services/constants';
 import StarRating from '../../components/StarRating';
 import YoutubeVideo from '../../components/YoutubeVideo';
 import MovieReviews from '../../components/MovieReviews';
+import LastReviewsChart from '../../components/LastReviewsChart';
+
+import styles from './style.module.css';
+import ImdbLink from '../../components/ImdbLink';
 
 const MoviePage = () => {
    const urlLocation = useLocation();
@@ -64,8 +65,9 @@ const MoviePage = () => {
       movieVideos?.results && getYouTubeOfficialVideoKey(movieVideos.results);
 
    const lastReviewsChartValues =
-      movieReviews?.results !== undefined &&
-      getLastReviewsChartValues(movieReviews.results);
+      movieReviews?.results !== undefined
+         ? getLastReviewsChartValues(movieReviews.results)
+         : [];
 
    return (
       <CContainer
@@ -83,56 +85,20 @@ const MoviePage = () => {
                   <h6>Zatím žádné reviews.</h6>
                )}
             </CContainer>
+
             <CContainer className={styles.overviewRightContainer}>
                <h4 className={styles.similiarMoviesHeader}>Your Rating</h4>
                <StarRating movieId={urlLastSegmentNumber} />
 
-               {lastReviewsChartValues && lastReviewsChartValues.length > 0 && (
-                  <>
-                     <h4 className={styles.similiarMoviesHeader}>
-                        Last reviews
-                     </h4>
-                     <ResponsiveContainer
-                        width="100%"
-                        height={100}
-                        style={{ marginBottom: '-30px' }}
-                     >
-                        <LineChart
-                           width={300}
-                           height={150}
-                           data={lastReviewsChartValues}
-                        >
-                           <XAxis
-                              dataKey="name"
-                              tick={false}
-                           />
-                           <Tooltip />
-                           <Line
-                              type="monotone"
-                              dataKey="rating"
-                              stroke="#0d6efd"
-                              strokeWidth={3}
-                           />
-                        </LineChart>
-                     </ResponsiveContainer>
-                  </>
-               )}
+               <>
+                  <h4 className={styles.similiarMoviesHeader}>Last reviews</h4>
+                  <LastReviewsChart chartValues={lastReviewsChartValues} />
+               </>
+
                <CContainer className={styles.overviewLinks}>
-                  {movieData?.imdb_id && (
-                     <CAlert
-                        color="warning"
-                        className={styles.cAlertOverview}
-                     >
-                        <a
-                           href={`${IMDB_URI}${movieData.imdb_id}`}
-                           target="_blank"
-                           className={styles.bold}
-                        >
-                           IMDB
-                        </a>
-                     </CAlert>
-                  )}
+                  <ImdbLink imdbId={movieData?.imdb_id ?? ''} />
                </CContainer>
+
                {movieVideoUrl && <YoutubeVideo youtubeUrl={movieVideoUrl} />}
             </CContainer>
          </CRow>

@@ -73,9 +73,13 @@ const ProfilePage = () => {
                         size="xl"
                      ></CAvatar>
                   )}
+
                   <CCardTitle>{username}</CCardTitle>
-                  {name && <CCardText>Name: {name}</CCardText>}
-                  {<CCardText>ID: {id}</CCardText>}
+
+                  <CCardText>Name: {name}</CCardText>
+
+                  <CCardText>ID: {id}</CCardText>
+
                   <CButton
                      color="primary"
                      href="#"
@@ -98,6 +102,7 @@ const ProfilePage = () => {
                   dataFavoriteMovies?.results.length}
                )
             </h3>
+
             {dataFavoriteMovies?.results &&
             dataFavoriteMovies?.results.length > 0 ? (
                <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />

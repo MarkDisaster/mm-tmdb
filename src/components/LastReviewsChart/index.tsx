@@ -1,6 +1,7 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
 
 import { BarChartProps } from './interfaces';
+import { CHART_COLOR } from './constants';
 
 const LastReviewsChart = ({ chartValues }: BarChartProps) => {
    if (chartValues.length < 1) return <div>Film zatím nikdo nehodnotil.</div>;
@@ -23,7 +24,7 @@ const LastReviewsChart = ({ chartValues }: BarChartProps) => {
             <Line
                type="monotone"
                dataKey="rating"
-               stroke="#0d6efd"
+               stroke={CHART_COLOR}
                strokeWidth={3}
             />
          </LineChart>

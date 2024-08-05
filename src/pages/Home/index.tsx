@@ -67,6 +67,7 @@ const HomePage = () => {
             <CRow className="m-0">
                <MoviesCarousel movies={nowPlayingMovies?.results ?? []} />
             </CRow>
+
             <h3 className="mt-5 mb-4">Popular Movies</h3>
             <CRow className="m-0 mb-5">
                <MoviesCarousel movies={popularMovies?.results ?? []} />

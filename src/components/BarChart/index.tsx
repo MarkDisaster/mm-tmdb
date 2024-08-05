@@ -12,7 +12,7 @@ import {
 import { BarChartProps } from './interfaces';
 import { CHART_COLOR } from './constants';
 
-const MovieScore = ({ barChartValues }: BarChartProps) => {
+const StatsBarChart = ({ barChartValues }: BarChartProps) => {
    const dataKey = barChartValues[0] ? Object.keys(barChartValues[0])[1] : '';
    return (
       <ResponsiveContainer
@@ -43,4 +43,4 @@ const MovieScore = ({ barChartValues }: BarChartProps) => {
    );
 };
 
-export default MovieScore;
+export default StatsBarChart;

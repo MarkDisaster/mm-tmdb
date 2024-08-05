@@ -67,27 +67,15 @@
     margin: 5rem 0 1rem 0 !important;
 }
 
-.cAlertOverview {
-    padding: 2px 10px !important;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.cAlertOverview * {
-    color: unset !important;
-    text-decoration: none !important;
-}
-
-.cAlertOverview *:hover {
-    text-decoration: none !important;
-}
-
-.bold {
-    font-weight: bold;
+@media (max-width: 768px) {
+    .similiarMoviesHeader {
+        margin: 2rem 0 1rem 0 !important;
+    }
 }
 
 .overviewLinks {
     display: flex;
     gap: 10px;
     padding: 0 !important;
+    margin-top: 1.5rem;
 }
