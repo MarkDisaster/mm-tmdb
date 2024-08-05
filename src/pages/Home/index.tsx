@@ -50,7 +50,7 @@ const HomePage = () => {
             mouseTracking={true}
             disableButtonsControls
             infinite
-            autoPlayInterval={3000}
+            autoPlayInterval={5000}
             animationType="fadeout"
             items={upcommingMovies?.results?.map((movie) => {
                return (
