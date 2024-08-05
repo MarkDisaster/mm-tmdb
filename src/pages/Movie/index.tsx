@@ -77,7 +77,7 @@ const MoviePage = () => {
          <CRow className={styles.overview}>
             <CContainer className={styles.overviewLeftContainer}>
                <h4 className={styles.similiarMoviesHeader}>Reviews</h4>
-               {movieReviews?.results ? (
+               {movieReviews?.results && movieReviews?.results.length > 0 ? (
                   <MovieReviews movieReviews={movieReviews} />
                ) : (
                   <h6>Zatím žádné reviews.</h6>
