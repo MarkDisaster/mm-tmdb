@@ -46,6 +46,7 @@ const HomePage = () => {
          className={styles.container}
       >
          <AliceCarousel
+            autoPlay
             mouseTracking={true}
             disableButtonsControls
             infinite
