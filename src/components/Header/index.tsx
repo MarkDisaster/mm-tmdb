@@ -22,8 +22,6 @@ import styles from './style.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { setLoggedOut } from '../../store/slices/authentication/slice';
-import LocalStorageService from '../../services/storage-service';
-import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
 import { useState } from 'react';
 import LoginModal from '../LoginModal';
 
