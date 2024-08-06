@@ -1,6 +1,17 @@
 # TMDB (TheMovieDataBase)
 
+[Visit the Live Project](https://tmdbmm.web.app/)
+
 A project that illustrates the integration of several technologies and tools to create a robust, scalable, and easily maintainable codebase.
+
+## Features
+
+- **Fully Responsive Design:** Optimized for mobile, tablet, and desktop devices.
+- **User Authentication:** Secure login/logout with access to a protected user profile and movie rating capabilities.
+- **Dark/Light Theme Toggle:** User preference for light or dark mode.
+- **Debounced Search:** Efficient search functionality to minimize server load and enhance user experience.
+- **Favorites Management:** Logged-in users can add movies to their favorites list.
+- **Movie Comparison:** Users can compare statistics of different movies using interactive charts.
 
 ### Techniques and Best Practices
 
