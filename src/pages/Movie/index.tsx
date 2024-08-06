@@ -62,7 +62,9 @@ const MoviePage = () => {
       queryFn: async () => MovieService.getMovieVideos(getMovieVideosParams),
    });
 
-   const budgetFormatted = getFormattedBudget(movieData?.budget ?? 0);
+   const budgetFormatted = movieData?.budget
+      ? getFormattedBudget(movieData?.budget)
+      : '-';
 
    const movieVideoUrl =
       movieVideos?.results && getYouTubeOfficialVideoKey(movieVideos.results);

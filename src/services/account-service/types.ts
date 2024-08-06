@@ -117,16 +117,3 @@ export type GetRatedMoviesReturn = {
    total_pages: number;
    total_results: number;
 };
-
-export type AddMovieRatingParams = {
-   session_id: string;
-};
-
-export type AddMovieRatingBody = {
-   value: number;
-};
-
-export type AddMovieRatigReturn = {
-   status_code: number;
-   status_message: string;
-};

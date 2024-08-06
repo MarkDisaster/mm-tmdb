@@ -9,6 +9,9 @@ import {
    GetMovieVideosParams,
    GetMovieVideosReturn,
    GetNowPlayingMoviesParams,
+   AddDeleteMovieRatingParams,
+   AddMovieRatingBody,
+   AddDeleteMovieRatigReturn,
 } from './types';
 
 const getMovieByIdParams = {
@@ -87,6 +90,33 @@ const getMovieVideos = async ({ movieId, language }: GetMovieVideosParams) => {
    return res;
 };
 
+const addMovieRating = async (
+   movieId: number,
+   addMovieRatingParams: AddDeleteMovieRatingParams,
+   addMovieRatingBody: AddMovieRatingBody,
+) => {
+   const res = await api.post<AddDeleteMovieRatigReturn>(
+      `movie/${movieId}/rating`,
+      addMovieRatingBody,
+      addMovieRatingParams,
+      undefined,
+   );
+
+   return res;
+};
+
+const deleteMovieRating = async (
+   movieId: number,
+   addMovieRatingParams: AddDeleteMovieRatingParams,
+) => {
+   const res = await api.delete<AddDeleteMovieRatigReturn>(
+      `movie/${movieId}/rating`,
+      addMovieRatingParams,
+   );
+
+   return res;
+};
+
 const MovieService = {
    getMovieById,
    getUpcommingMovies,
@@ -96,6 +126,8 @@ const MovieService = {
    getSimiliarMovies,
    getMovieReviews,
    getMovieVideos,
+   addMovieRating,
+   deleteMovieRating,
 };
 
 export default MovieService;

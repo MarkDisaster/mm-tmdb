@@ -12,12 +12,15 @@ import { getMovieRating } from '../../helpers/getMovieRating';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import cx from 'classnames';
+import LoginModal from '../LoginModal';
+import MovieService from '../../services/movie-service';
 
 const StarRating = ({ movieId }: StarRatingProps) => {
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
    const [hover, setHover] = useState<number>(0);
    const [isEditing, setIsEditing] = useState<boolean>(false);
    const [selectedStar, setSelectedStar] = useState<number>(0);
+   const [isModalVisible, setIsModalVisible] = useState(false);
 
    const isUserLoggedIn = useSelector(
       (state: RootState) => state.authentication,
@@ -36,36 +39,59 @@ const StarRating = ({ movieId }: StarRatingProps) => {
       queryKey: ['ratedMovies', movieId],
       queryFn: async () =>
          AccountService.getUserRatedMovies(getRatedMoviesParams),
+      enabled: isUserLoggedIn,
    });
 
    const movieCurrentApiRating = ratedMovies?.results
       ? getMovieRating(movieId, ratedMovies.results)
       : 0;
 
+   const addRatingToMovieParams = {
+      session_id: sessionId,
+   };
+
    const handleAddRatingToMovie = () => {
       const currentRatingParams = {
          value: selectedStar,
       };
-      const addRatingToMovieParams = {
-         session_id: sessionId,
-      };
 
-      AccountService.addMovieRating(
+      MovieService.addMovieRating(
          movieId,
          addRatingToMovieParams,
          currentRatingParams,
       ).then(() => {
-         setTimeout(() => {
-            queryClient.invalidateQueries({
-               queryKey: ['ratedMovies', movieId],
-            });
-            setIsEditing(false);
-         }, 300);
+         queryClient.invalidateQueries({
+            queryKey: ['ratedMovies', movieId],
+         });
+         setIsEditing(false);
       });
+   };
+
+   const handleOnDeleteRating = () => {
+      if (movieCurrentApiRating > 0) {
+         MovieService.deleteMovieRating(movieId, addRatingToMovieParams).then(
+            () => {
+               queryClient.invalidateQueries({
+                  queryKey: ['ratedMovies', movieId],
+               });
+               setHover(0);
+               setSelectedStar(0);
+               setIsEditing(false);
+            },
+         );
+      } else {
+         setHover(0);
+         setSelectedStar(0);
+         setIsEditing(false);
+      }
    };
 
    return (
       <div className={styles.ratingContainer}>
+         <LoginModal
+            isModalVisible={isModalVisible}
+            setIsModalVisible={setIsModalVisible}
+         />
          {[...Array(TOTAL_STARS)].map((_, index) => {
             const currentRating = index + 1;
 
@@ -104,12 +130,21 @@ const StarRating = ({ movieId }: StarRatingProps) => {
             );
          })}
          {!isEditing ? (
-            <button
-               className={styles.ratingButton}
-               onClick={() => setIsEditing(true)}
-            >
-               Rate this Movie
-            </button>
+            isUserLoggedIn ? (
+               <button
+                  className={styles.ratingButton}
+                  onClick={() => setIsEditing(true)}
+               >
+                  Rate this Movie
+               </button>
+            ) : (
+               <button
+                  className={styles.ratingButton}
+                  onClick={() => setIsModalVisible(!isModalVisible)}
+               >
+                  Login to Rate
+               </button>
+            )
          ) : (
             <>
                <button
@@ -119,6 +154,12 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                   }}
                >
                   Save Rating
+               </button>
+               <button
+                  className={cx(styles.ratingButton, styles.saveRatingButton)}
+                  onClick={() => handleOnDeleteRating()}
+               >
+                  Delete Rating
                </button>
                <button
                   className={cx(styles.ratingButton, styles.closeRatingButton)}

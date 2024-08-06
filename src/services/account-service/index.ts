@@ -8,9 +8,6 @@ import {
    GetFavoriteMoviesApiReturn,
    GetRatedMoviesReturn,
    GetRatedMoviesParams,
-   AddMovieRatingParams,
-   AddMovieRatingBody,
-   AddMovieRatigReturn,
 } from './types';
 
 const getUserInfo = async (sessionId: string) => {
@@ -68,28 +65,12 @@ const getUserRatedMovies = async (
    return res;
 };
 
-const addMovieRating = async (
-   movieId: number,
-   addMovieRatingParams: AddMovieRatingParams,
-   addMovieRatingBody: AddMovieRatingBody,
-) => {
-   const res = await api.post<AddMovieRatigReturn>(
-      `movie/${movieId}/rating`,
-      addMovieRatingBody,
-      addMovieRatingParams,
-      undefined,
-   );
-
-   return res;
-};
-
 const AccountService = {
    getUserInfo,
    addRemoveMovieFavorites,
    getFavoriteMovies,
    addRemoveMovieWatchlist,
    getUserRatedMovies,
-   addMovieRating,
 };
 
 export default AccountService;

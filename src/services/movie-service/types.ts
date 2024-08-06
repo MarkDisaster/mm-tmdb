@@ -110,3 +110,16 @@ export type GetMovieVideosReturn = {
    id: number;
    results: MovieVideo[];
 };
+
+export type AddDeleteMovieRatingParams = {
+   session_id: string;
+};
+
+export type AddMovieRatingBody = {
+   value: number;
+};
+
+export type AddDeleteMovieRatigReturn = {
+   status_code: number;
+   status_message: string;
+};
