@@ -55,7 +55,8 @@ A project that illustrates the integration of several technologies and tools to 
 ### Stack:
 -  React
 -  TypeScript
--  Redux
+-  Redux Tookit
+-  React Router
 -  Vite
 -  PNPM
 -  ESLint
