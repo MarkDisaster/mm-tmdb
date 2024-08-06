@@ -71,6 +71,7 @@ export type Movie = {
    poster_path: string;
    budget: number;
    genres: MovieGenre[];
+   title: string;
    original_title: string;
    revenue: number;
    vote_average: number;
