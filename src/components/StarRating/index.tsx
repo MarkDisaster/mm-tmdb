@@ -68,22 +68,16 @@ const StarRating = ({ movieId }: StarRatingProps) => {
    };
 
    const handleOnDeleteRating = () => {
-      if (movieCurrentApiRating > 0) {
-         MovieService.deleteMovieRating(movieId, addRatingToMovieParams).then(
-            () => {
-               queryClient.invalidateQueries({
-                  queryKey: ['ratedMovies', movieId],
-               });
-               setHover(0);
-               setSelectedStar(0);
-               setIsEditing(false);
-            },
-         );
-      } else {
-         setHover(0);
-         setSelectedStar(0);
-         setIsEditing(false);
-      }
+      MovieService.deleteMovieRating(movieId, addRatingToMovieParams).then(
+         () => {
+            queryClient.invalidateQueries({
+               queryKey: ['ratedMovies', movieId],
+            });
+            setHover(0);
+            setSelectedStar(0);
+            setIsEditing(false);
+         },
+      );
    };
 
    return (
@@ -155,12 +149,17 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                >
                   Save Rating
                </button>
-               <button
-                  className={cx(styles.ratingButton, styles.saveRatingButton)}
-                  onClick={() => handleOnDeleteRating()}
-               >
-                  Delete Rating
-               </button>
+               {movieCurrentApiRating > 0 && (
+                  <button
+                     className={cx(
+                        styles.ratingButton,
+                        styles.saveRatingButton,
+                     )}
+                     onClick={() => handleOnDeleteRating()}
+                  >
+                     Delete Rating
+                  </button>
+               )}
                <button
                   className={cx(styles.ratingButton, styles.closeRatingButton)}
                   onClick={() => {
