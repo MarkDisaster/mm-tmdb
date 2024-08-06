@@ -50,6 +50,8 @@ A project that illustrates the integration of several technologies and tools to 
 #### 7. Additional Performance Optimizations
   - Implement techniques like debounce to improve UI responsiveness and overall performance.
 
+---
+
 ### Stack:
 -  React
 -  TypeScript
