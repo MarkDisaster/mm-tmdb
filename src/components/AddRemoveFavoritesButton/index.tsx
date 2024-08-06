@@ -33,9 +33,10 @@ const AddRemoveFavoritesButton = ({ selectedMovieId }: SelectedMovieId) => {
    };
 
    const { data: dataFavoriteMovies } = useQuery({
-      queryKey: ['getFavoriteMovies'],
+      queryKey: ['getFavoriteMovies', sessionId],
       queryFn: async () =>
          AccountService.getFavoriteMovies(getFavoriteMoviesParams),
+      enabled: sessionId?.length > 0,
    });
 
    const isMovieInFavoritesBoolean =
