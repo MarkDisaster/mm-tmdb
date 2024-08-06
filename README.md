@@ -25,9 +25,7 @@ A project that illustrates the integration of several technologies and tools to 
 - Users can compare statistics of different movies using interactive charts.
 
 
-
-
-### Techniques and Best Practices
+## Techniques and Best Practices
 
 #### 1. TypeScript Type Checking
   - Prevent errors and improve code readability and maintainability with TypeScript.
