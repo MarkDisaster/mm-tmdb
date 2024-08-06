@@ -20,6 +20,7 @@ import { useNavigate } from 'react-router-dom';
 const MovieCard = ({
    id,
    poster_path,
+   title,
    original_title,
    popularity,
    vote_average,
@@ -45,7 +46,9 @@ const MovieCard = ({
             <MovieScore vote_average={vote_average} />
          </CRow>
          <CCardBody className={styles.movieCardImage}>
-            <CCardTitle className="fw-bold fs-6">{original_title}</CCardTitle>
+            <CCardTitle className="fw-bold fs-6">
+               {title ?? original_title}
+            </CCardTitle>
             <CCardText>Popularity: {popularity}</CCardText>
          </CCardBody>
       </CCard>

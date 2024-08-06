@@ -31,26 +31,27 @@ const MoviePanel = ({
             />
          </CContainer>
          <CContainer className={styles.movieInfoContainer}>
-            {vote_average > 0 && <MovieScore vote_average={vote_average} />}
-
-            <h1 className={styles.movieTitle}>{title ?? original_title}</h1>
-            <div className={styles.movieTitleContainer}>
-               <AddRemoveCompareButton selectedMovieId={id} />
-               <AddRemoveFavoritesButton selectedMovieId={id} />
-            </div>
-            <div className={styles.movieReleaseDateContainer}>
-               <h3 className={styles.movieReleaseDate}>{formattedDate}</h3>
-               {genres?.map((genre, index) => (
-                  <CAlert
-                     color="danger"
-                     className={styles.movieInfoGenre}
-                     key={`genre-${index}`}
-                  >
-                     {genre.name}
-                  </CAlert>
-               ))}
-            </div>
-            <p className={styles.movieOverView}>{overview}</p>
+            <CContainer className={styles.movieInfoContainerSize}>
+               {vote_average > 0 && <MovieScore vote_average={vote_average} />}
+               <h1 className={styles.movieTitle}>{title ?? original_title}</h1>
+               <div className={styles.movieTitleContainer}>
+                  <AddRemoveCompareButton selectedMovieId={id} />
+                  <AddRemoveFavoritesButton selectedMovieId={id} />
+               </div>
+               <div className={styles.movieReleaseDateContainer}>
+                  <h3 className={styles.movieReleaseDate}>{formattedDate}</h3>
+                  {genres?.map((genre, index) => (
+                     <CAlert
+                        color="danger"
+                        className={styles.movieInfoGenre}
+                        key={`genre-${index}`}
+                     >
+                        {genre.name}
+                     </CAlert>
+                  ))}
+               </div>
+               <p className={styles.movieOverView}>{overview}</p>
+            </CContainer>
          </CContainer>
       </CRow>
    );

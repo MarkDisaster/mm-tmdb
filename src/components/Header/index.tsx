@@ -50,6 +50,10 @@ const Header = () => {
    <CButton color="primary">Launch demo modal</CButton>;
    return (
       <>
+         <LoginModal
+            isModalVisible={isModalVisible}
+            setIsModalVisible={setIsModalVisible}
+         />
          <CNavbar
             expand="xl"
             className={styles.headerNav}
@@ -72,23 +76,21 @@ const Header = () => {
                            <Link to="/">Home</Link>
                         </CNavItem>
                         <CNavItem>
-                           <Link to="/profile">About App</Link>
+                           <Link to="/about-app">About App</Link>
                         </CNavItem>
                         <CNavItem>
                            <Link to="/movies-comparing">Movies Comparing</Link>
                         </CNavItem>
-                        <CNavItem>
-                           <Link to="/profile">Profile</Link>
-                        </CNavItem>
+                        {isUserLoggedIn && (
+                           <CNavItem>
+                              <Link to="/profile">Profile</Link>
+                           </CNavItem>
+                        )}
                      </CHeaderNav>
                   </CNavbarNav>
                   <SearchForm />
 
                   <div className={styles.headerLoginSwitchTheme}>
-                     <LoginModal
-                        isModalVisible={isModalVisible}
-                        setIsModalVisible={setIsModalVisible}
-                     />
                      {isUserLoggedIn ? (
                         <>
                            <CDropdown

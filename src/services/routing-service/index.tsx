@@ -14,6 +14,7 @@ import Header from '../../components/Header';
 import ProfilePage from '../../pages/Profile';
 import HomePage from '../../pages/Home';
 import MoviePage from '../../pages/Movie';
+import AboutAppPage from '../../pages/AboutApp';
 
 const router = (isUserLoggedIn: boolean) => {
    return createBrowserRouter(
@@ -34,13 +35,20 @@ const router = (isUserLoggedIn: boolean) => {
             />
 
             <Route
+               path="/about-app"
+               element={<AboutAppPage />}
+            />
+
+            <Route
                path="/profile"
                element={isUserLoggedIn ? <ProfilePage /> : <Navigate to="/" />}
             />
+
             <Route
                path="/movies-comparing"
                element={<MoviesComparingPage />}
             />
+
             <Route
                path="/movie/:id"
                element={<MoviePage />}
