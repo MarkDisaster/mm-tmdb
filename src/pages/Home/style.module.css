@@ -17,3 +17,15 @@
         max-width: 100% !important;
     }
 }
+
+.header {
+    margin: 3rem 0 1.5rem 0;
+}
+
+.movieRow {
+    margin: 0;
+}
+
+.movieRowLast {
+    margin: 0 0 3rem 0;
+}

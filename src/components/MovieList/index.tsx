@@ -50,7 +50,7 @@ const MoviesTable = ({
                                  align="start"
                                  src={`${TMDB_IMG_URI}${movie.poster_path}`}
                                  width={50}
-                                 className="py-2 px-0"
+                                 className={styles.image}
                               />
                            ) : (
                               <CIcon

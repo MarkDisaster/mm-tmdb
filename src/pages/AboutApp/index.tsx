@@ -13,10 +13,12 @@ const AboutAppPage = () => {
                <h4 className={styles.listContainerHeader}>Funkce</h4>
                <CListGroup>
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Plně responzivní design</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Plně responzivní design
+                        </h5>
                      </div>
-                     <p className="mb-1">
+                     <p className={styles.bottomDefaultMargin}>
                         Aplikace je optimalizována pro všechna zařízení,
                         zajišťuje bezproblémové uživatelské prostředí na
                         mobilních telefonech, tabletech i desktopových
@@ -25,10 +27,12 @@ const AboutAppPage = () => {
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Autentizace uživatele</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Autentizace uživatele
+                        </h5>
                      </div>
-                     <p className="mb-1">
+                     <p className={styles.bottomDefaultMargin}>
                         Uživatelé mohou bezpečně přistupovat k zabezpečeným
                         stránkám, jako je uživatelský profil, a využívat funkcí
                         hodnocení filmů.
@@ -36,32 +40,36 @@ const AboutAppPage = () => {
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
                            Přepínání mezi dark/light tématy
                         </h5>
                      </div>
-                     <p className="mb-1">
+                     <p className={styles.bottomDefaultMargin}>
                         Aplikace podporuje přepínání mezi světlým a tmavým
                         režimem, čímž se přizpůsobí preferencím uživatele.
                      </p>
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Oblíbené filmy</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Oblíbené filmy
+                        </h5>
                      </div>
-                     <p className="mb-1">
+                     <p className={styles.bottomDefaultMargin}>
                         Přihlášení uživatelé mohou přidávat filmy do oblíbených
                         a snadno k nim přistupovat.
                      </p>
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Porovnání statistik filmů</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Porovnání statistik filmů
+                        </h5>
                      </div>
-                     <p className="mb-1">
+                     <p className={styles.bottomDefaultMargin}>
                         Uživatelé mohou přidávat filmy k porovnání a analyzovat
                         jejich statistiky pomocí interaktivních grafů.
                      </p>
@@ -72,10 +80,10 @@ const AboutAppPage = () => {
                <h4 className={styles.listContainerHeader}>Stránky</h4>
                <CListGroup>
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Homepage</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>Homepage</h5>
                      </div>
-                     <ul className="mb-1">
+                     <ul className={styles.bottomDefaultMargin}>
                         <li>Carousel s náhledem nadcházejících filmů.</li>
                         <li>
                            Panely s výpisy dalších kategorií filmů (populární,
@@ -85,10 +93,12 @@ const AboutAppPage = () => {
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Detail filmu</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Detail filmu
+                        </h5>
                      </div>
-                     <ul className="mb-1">
+                     <ul className={styles.bottomDefaultMargin}>
                         <li>
                            Podrobné informace o filmu, včetně hereckého
                            obsazení, režiséra, a synopse.
@@ -103,10 +113,12 @@ const AboutAppPage = () => {
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">Uživatelský profil</h5>
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
+                           Uživatelský profil
+                        </h5>
                      </div>
-                     <ul className="mb-1">
+                     <ul className={styles.bottomDefaultMargin}>
                         <li>Pouze pro přihlášené uživatele.</li>
                         <li>
                            Uživatelské informace, historie hodnocení filmů, a
@@ -117,12 +129,12 @@ const AboutAppPage = () => {
                   </CListGroupItem>
 
                   <CListGroupItem>
-                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">
+                     <div className={styles.headerWrapper}>
+                        <h5 className={styles.bottomDefaultMargin}>
                            Stránka pro porovnání statistik filmů
                         </h5>
                      </div>
-                     <ul className="mb-1">
+                     <ul className={styles.bottomDefaultMargin}>
                         <li>
                            Interaktivní grafy a vizualizace pro porovnání
                            různých aspektů filmů (např. hodnocení, popularita,

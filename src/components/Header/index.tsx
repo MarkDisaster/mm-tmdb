@@ -105,7 +105,7 @@ const Header = () => {
                                  <CAvatar
                                     color="warning"
                                     textColor="white"
-                                    className="ms-2 mb-1"
+                                    className={styles.avatar}
                                     src={`https://www.gravatar.com/avatar/${avatar}?d=identicon`}
                                  ></CAvatar>
                               </CDropdownToggle>
@@ -126,14 +126,14 @@ const Header = () => {
                         </>
                      ) : (
                         <CButton
-                           className="p-0"
+                           className={styles.loginModalButton}
                            onClick={() => setIsModalVisible(!isModalVisible)}
                         >
                            Login
                            <CAvatar
                               color="warning"
                               textColor="white"
-                              className="ms-2 mb-1"
+                              className={styles.avatar}
                            >
                               MM
                            </CAvatar>

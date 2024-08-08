@@ -66,3 +66,12 @@
    font-weight: bold !important;
    padding: 0 !important;
 }
+
+.avatar {
+   margin-left: .5rem !important;
+   margin-bottom: .25rem !important;
+}
+
+.loginModalButton {
+   padding: 0 !important;
+}

@@ -1,5 +1,6 @@
 import { TOTAL_STARS } from './constants';
 import { StarRatingUserProps } from './interfaces';
+import cx from 'classnames';
 
 import styles from './style.module.css';
 
@@ -18,11 +19,10 @@ const StarRatingUser = ({ ratingValue }: StarRatingUserProps) => {
                      className={styles.ratingInput}
                   />
                   <span
-                     className={styles.ratingStar}
-                     style={{
-                        color:
-                           currentRating <= ratingValue ? '#ffc107' : '#e4e5e9',
-                     }}
+                     className={cx(styles.ratingStar, {
+                        [styles.activeStar]: currentRating <= ratingValue,
+                        [styles.inactiveStar]: currentRating > ratingValue,
+                     })}
                   >
                      &#9733;
                   </span>

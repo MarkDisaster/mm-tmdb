@@ -102,17 +102,14 @@ const StarRating = ({ movieId }: StarRatingProps) => {
                      disabled={!isEditing}
                   />
                   <span
-                     className={styles.ratingStar}
-                     style={{
-                        color:
+                     className={cx(styles.ratingStar, {
+                        [styles.activeStar]:
                            currentRating <=
-                           (hover ||
-                              (selectedStar
-                                 ? selectedStar
-                                 : movieCurrentApiRating))
-                              ? '#ffc107'
-                              : '#e4e5e9',
-                     }}
+                           (hover || selectedStar || movieCurrentApiRating),
+                        [styles.inactiveStar]:
+                           currentRating >
+                           (hover || selectedStar || movieCurrentApiRating),
+                     })}
                      onMouseEnter={() =>
                         isUserLoggedIn && isEditing && setHover(currentRating)
                      }

@@ -6,3 +6,11 @@
     font-size: 1rem;
     margin-right: .5rem;
 }
+
+.inactiveStar {
+    color: #e4e5e9 !important;
+}
+
+.activeStar {
+    color: #ffc107 !important;
+}

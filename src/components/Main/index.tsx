@@ -3,13 +3,15 @@ import { RootState } from '../../store/store';
 
 import { MainProps } from './interfaces';
 
+import styles from './style.module.css';
+
 const Main = ({ children }: MainProps) => {
    const isDarkThemeState = useSelector((state: RootState) => state.darkTheme);
 
    return (
       <main
          data-bs-theme={isDarkThemeState ? 'dark' : 'light'}
-         className="min-vh-100"
+         className={styles.main}
       >
          {children}
       </main>

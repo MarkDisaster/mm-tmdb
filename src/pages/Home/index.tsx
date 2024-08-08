@@ -63,13 +63,13 @@ const HomePage = () => {
             controlsStrategy="alternate"
          />
          <CContainer className={styles.contentContainer}>
-            <h3 className="mt-5 mb-4">Now in Theatres</h3>
-            <CRow className="m-0">
+            <h3 className={styles.header}>Now in Theatres</h3>
+            <CRow className={styles.movieRow}>
                <MoviesCarousel movies={nowPlayingMovies?.results ?? []} />
             </CRow>
 
-            <h3 className="mt-5 mb-4">Popular Movies</h3>
-            <CRow className="m-0 mb-5">
+            <h3 className={styles.header}>Popular Movies</h3>
+            <CRow className={styles.movieRowLast}>
                <MoviesCarousel movies={popularMovies?.results ?? []} />
             </CRow>
          </CContainer>

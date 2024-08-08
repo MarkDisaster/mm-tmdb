@@ -38,3 +38,19 @@
     padding: 0 3rem !important;
     margin-bottom: 1.5rem;
 } 
+
+.comparedMoviesRow {
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.alert {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    align-self: center;
+}
+
+.alertIcon {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    vertical-align: baseline;
+  }

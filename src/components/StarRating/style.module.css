@@ -24,3 +24,11 @@
 .closeRatingButton {
     color: var(--bs-danger);
 }
+
+.inactiveStar {
+    color: #e4e5e9 !important;
+}
+
+.activeStar {
+    color: #ffc107 !important;
+}

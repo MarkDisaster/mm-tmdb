@@ -13,7 +13,50 @@
     }
 }
 
+.profileRow {
+    display: flex;
+    align-self: center;
+}
+
+.profileCard {
+    margin: 3rem 0 !important;
+    text-align: center;
+    width: 18rem !important;
+}
+
+.avatar {
+    margin-bottom: 0.5rem;
+  }
+
+.favoriteMoviesRow {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.favoriteMoviesRowHeader {
+    margin-bottom: 1.5rem;
+}
+
+.favoriteMoviesRowHeaderIcon {
+    margin-right: 0.5rem;
+  }
+
 .movieRow {
     padding: 0 3rem !important;
     flex-wrap: nowrap !important;
 }
+
+.alert {
+    margin: 1.5rem 0 0 0;
+    padding: 0 3rem;
+    align-self: center;
+    width: auto;
+}
+
+.alertIcon {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    vertical-align: bottom;
+  }

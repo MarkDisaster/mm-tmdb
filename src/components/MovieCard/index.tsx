@@ -46,7 +46,7 @@ const MovieCard = ({
             <MovieScore vote_average={vote_average} />
          </CRow>
          <CCardBody className={styles.movieCardImage}>
-            <CCardTitle className="fw-bold fs-6">
+            <CCardTitle className={styles.cardTitle}>
                {title ?? original_title}
             </CCardTitle>
             <CCardText>Popularity: {popularity}</CCardText>

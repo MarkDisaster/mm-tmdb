@@ -35,7 +35,7 @@ const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
                            />
                         )}
 
-                        <p className="mb-1">{content}</p>
+                        <p>{content}</p>
                      </CListGroupItem>
                   );
                },

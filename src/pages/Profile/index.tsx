@@ -56,17 +56,14 @@ const ProfilePage = () => {
          fluid
          className={styles.container}
       >
-         <CRow className="d-flex align-self-center">
-            <CCard
-               style={{ width: '18rem' }}
-               className="my-5 text-center"
-            >
+         <CRow className={styles.profileRow}>
+            <CCard className={styles.profileCard}>
                <CCardBody>
                   {avatar && (
                      <CAvatar
                         color="warning"
                         textColor="white"
-                        className="mb-2"
+                        className={styles.avatar}
                         src={`https://www.gravatar.com/avatar/${avatar.gravatar}?d=identicon`}
                         size="xl"
                      ></CAvatar>
@@ -88,10 +85,10 @@ const ProfilePage = () => {
                </CCardBody>
             </CCard>
          </CRow>
-         <CRow className="d-flex w-100 mb-5 flex-column flex-start">
-            <h3 className="mb-4">
+         <CRow className={styles.favoriteMoviesRow}>
+            <h3 className={styles.favoriteMoviesRowHeader}>
                <CIcon
-                  className="me-2"
+                  className={styles.favoriteMoviesRowHeaderIcon}
                   icon={cilHeart}
                   height={22}
                />
@@ -107,13 +104,13 @@ const ProfilePage = () => {
             ) : (
                <CAlert
                   color="warning"
-                  className="mt-4 px-5 align-self-center w-auto"
+                  className={styles.alert}
                >
                   <h5>
                      Zatím nemáš žádný film v oblíbených, nějaký si přidej :-)
                      Stačí u filmu kliknout na
                      <CIcon
-                        className="mx-2 mt-2 align-text-bottom"
+                        className={styles.alertIcon}
                         icon={cilHeart}
                         height={22}
                      />

@@ -41,7 +41,7 @@ const SearchForm = () => {
 
    return (
       <CForm className={styles.searchWrapper}>
-         <CContainer className="p-0">
+         <CContainer className={styles.searchContainer}>
             <CFormInput
                type="search"
                id="searchMovieInput"
