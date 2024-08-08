@@ -37,6 +37,9 @@ jobs:
         run: pnpm run lint
 
       - name: Build project
+        env:
+          VITE_BASE_URI: ${{ secrets.VITE_BASE_URI }}
+          VITE_API_AUTH_TOKEN: ${{ secrets.VITE_API_AUTH_TOKEN }}
         run: pnpm run build
 
       - name: Deploy to Firebase Hosting
