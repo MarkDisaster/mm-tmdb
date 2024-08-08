@@ -1,7 +1,7 @@
 import api from '../api';
 import {
    GetMovieByIdApiReturn,
-   GetUpcommingMoviesParams,
+   GetUpcomingMoviesParams,
    GetMoviesReturn,
    GetSimiliarMoviesParams,
    GetMovieReviewsParams,
@@ -26,11 +26,11 @@ const getMovieById = async (movie_id: number) => {
    return res;
 };
 
-const getUpcommingMovies = async (
-   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+const getUpcomingMovies = async (
+   getUpcomingMoviesParams: GetUpcomingMoviesParams,
 ) => {
    const res = await api.get<GetMoviesReturn>(
-      `movie/upcoming?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+      `movie/upcoming?language=${getUpcomingMoviesParams.language}&page=${getUpcomingMoviesParams.page}`,
    );
    return res;
 };
@@ -46,28 +46,28 @@ const getNowPlayingMovies = async (
 };
 
 const getTopRatedMovies = async (
-   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+   getUpcomingMoviesParams: GetUpcomingMoviesParams,
 ) => {
    const res = await api.get<GetMoviesReturn>(
-      `movie/top_rated?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+      `movie/top_rated?language=${getUpcomingMoviesParams.language}&page=${getUpcomingMoviesParams.page}`,
    );
    return res;
 };
 
 const getPopularMovies = async (
-   getUpcommingMoviesParams: GetUpcommingMoviesParams,
+   getUpcomingMoviesParams: GetUpcomingMoviesParams,
 ) => {
    const res = await api.get<GetMoviesReturn>(
-      `movie/popular?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+      `movie/popular?language=${getUpcomingMoviesParams.language}&page=${getUpcomingMoviesParams.page}`,
    );
    return res;
 };
 
 const getSimiliarMovies = async (
-   getUpcommingMoviesParams: GetSimiliarMoviesParams,
+   getUpcomingMoviesParams: GetSimiliarMoviesParams,
 ) => {
    const res = await api.get<GetMoviesReturn>(
-      `movie/${getUpcommingMoviesParams.movieId}/similar?language=${getUpcommingMoviesParams.language}&page=${getUpcommingMoviesParams.page}`,
+      `movie/${getUpcomingMoviesParams.movieId}/similar?language=${getUpcomingMoviesParams.language}&page=${getUpcomingMoviesParams.page}`,
    );
    return res;
 };
@@ -119,7 +119,7 @@ const deleteMovieRating = async (
 
 const MovieService = {
    getMovieById,
-   getUpcommingMovies,
+   getUpcomingMovies,
    getNowPlayingMovies,
    getTopRatedMovies,
    getPopularMovies,

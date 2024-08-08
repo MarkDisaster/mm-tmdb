@@ -12,28 +12,28 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import styles from './style.module.css';
 
 const HomePage = () => {
-   const getUpcommingMoviesParams = {
+   const getUpcomingMoviesParams = {
       page: 1,
       language: 'en-US',
       region: 'US',
    };
 
-   const { data: upcommingMovies } = useQuery({
-      queryKey: ['upcommingMovies'],
+   const { data: upcomingMovies } = useQuery({
+      queryKey: ['upcomingMovies'],
       queryFn: async () =>
-         MovieService.getUpcommingMovies(getUpcommingMoviesParams),
+         MovieService.getUpcomingMovies(getUpcomingMoviesParams),
    });
 
    const { data: nowPlayingMovies } = useQuery({
       queryKey: ['nowPlayingMovies'],
       queryFn: async () =>
-         MovieService.getNowPlayingMovies(getUpcommingMoviesParams),
+         MovieService.getNowPlayingMovies(getUpcomingMoviesParams),
    });
 
    const { data: popularMovies } = useQuery({
       queryKey: ['popularMovies'],
       queryFn: async () =>
-         MovieService.getPopularMovies(getUpcommingMoviesParams),
+         MovieService.getPopularMovies(getUpcomingMoviesParams),
    });
 
    const responsive = {
@@ -52,7 +52,7 @@ const HomePage = () => {
             infinite
             autoPlayInterval={5000}
             animationType="fadeout"
-            items={upcommingMovies?.results?.map((movie) => {
+            items={upcomingMovies?.results?.map((movie) => {
                return (
                   <Link href={`/movie/${movie.id}`}>
                      <MoviePanel {...movie} />

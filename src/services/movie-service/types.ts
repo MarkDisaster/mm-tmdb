@@ -25,7 +25,7 @@ export type SearchMoviesResults = {
    poster_path: string;
 };
 
-export type GetUpcommingMoviesParams = {
+export type GetUpcomingMoviesParams = {
    language: string;
    page: number;
    region: string;
@@ -37,13 +37,13 @@ export type GetNowPlayingMoviesParams = {
    region: string;
 };
 
-type GetUpcommingMoviesDates = {
+type GetUpcomingMoviesDates = {
    maximum: string;
    minimum: string;
 };
 
 export type GetMoviesReturn = {
-   dates: GetUpcommingMoviesDates;
+   dates: GetUpcomingMoviesDates;
    page: number;
    results: GetMovieByIdApiReturn[];
    total_pages: number;

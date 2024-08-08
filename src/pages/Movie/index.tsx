@@ -23,7 +23,7 @@ const MoviePage = () => {
    const urlLastSegment = urlLocationParts.pop() || urlLocationParts.pop();
    const urlLastSegmentNumber = Number(urlLastSegment);
 
-   const getUpcommingMoviesParams = {
+   const getUpcomingMoviesParams = {
       movieId: urlLastSegmentNumber,
       page: 1,
       language: 'en-US',
@@ -31,14 +31,14 @@ const MoviePage = () => {
    };
 
    const { data: movieData } = useQuery({
-      queryKey: ['upcommingMovies', urlLastSegment],
+      queryKey: ['upcomingMovies', urlLastSegment],
       queryFn: async () => MovieService.getMovieById(urlLastSegmentNumber),
    });
 
    const { data: similiarMovies } = useQuery({
       queryKey: ['similiarMovies', urlLastSegmentNumber],
       queryFn: async () =>
-         MovieService.getSimiliarMovies(getUpcommingMoviesParams),
+         MovieService.getSimiliarMovies(getUpcomingMoviesParams),
    });
 
    const getMovieReviewsParams = {
