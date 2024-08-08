@@ -4,10 +4,10 @@ import CIcon from '@coreui/icons-react';
 import { cilHeart } from '@coreui/icons';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { MEDIA_TYPE, SORT } from '../../services/account-service/types';
-import AccountService from '../../services/account-service';
-import LocalStorageService from '../../services/storage-service';
-import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
+import { MEDIA_TYPE, SORT } from '../../services/AccountService/types';
+import AccountService from '../../services/AccountService';
+import LocalStorageService from '../../services/StorageService';
+import { LOCAL_STORAGE } from '../../services/StorageService/interfaces';
 import { CButton } from '@coreui/react';
 import cx from 'classnames';
 

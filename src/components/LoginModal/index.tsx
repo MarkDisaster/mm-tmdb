@@ -13,13 +13,13 @@ import {
    CContainer,
 } from '@coreui/react';
 
-import AuthenticationService from '../../services/authentication-service';
-import AccountService from '../../services/account-service';
+import AuthenticationService from '../../services/AuthenticationService';
+import AccountService from '../../services/AccountService';
 import { setLoggedIn } from '../../store/slices/authentication/slice';
-import LocalStorageService from '../../services/storage-service';
-import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
+import LocalStorageService from '../../services/StorageService';
+import { LOCAL_STORAGE } from '../../services/StorageService/interfaces';
 import { setUserInfo } from '../../store/slices/userInfo/slice';
-import { GetUserInfoApiReturn } from '../../services/account-service/types';
+import { GetUserInfoApiReturn } from '../../services/AccountService/types';
 import { LoginModalProps } from './interfaces';
 import { schema } from './validation';
 

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GetUserInfoApiReturn } from '../../../services/account-service/types';
-import LocalStorageService from '../../../services/storage-service';
-import { LOCAL_STORAGE } from '../../../services/storage-service/interfaces';
+import { GetUserInfoApiReturn } from '../../../services/AccountService/types';
+import LocalStorageService from '../../../services/StorageService';
+import { LOCAL_STORAGE } from '../../../services/StorageService/interfaces';
 
 const favoriteMovies = LocalStorageService.getItem(LOCAL_STORAGE.USER_INFO);
 

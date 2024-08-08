@@ -1,4 +1,4 @@
-import { GetUserInfoApiReturn } from '../../../services/account-service/types';
+import { GetUserInfoApiReturn } from '../../../services/AccountService/types';
 
 export interface UserInfoState {
    values: GetUserInfoApiReturn;

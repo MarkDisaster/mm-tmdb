@@ -2,7 +2,7 @@ import { CContainer, CForm, CFormInput } from '@coreui/react';
 import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useQuery } from '@tanstack/react-query';
-import SearchService from '../../services/search-service';
+import SearchService from '../../services/SearchService';
 import MovieList from '../MovieList';
 
 import styles from './style.module.css';

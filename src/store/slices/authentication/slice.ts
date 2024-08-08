@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import LocalStorageService from '../../../services/storage-service';
-import { LOCAL_STORAGE } from '../../../services/storage-service/interfaces';
+import LocalStorageService from '../../../services/StorageService';
+import { LOCAL_STORAGE } from '../../../services/StorageService/interfaces';
 import { getIsAuthorizationTokenExpired } from '../../../helpers/getIsAuthorizationTokenExpired';
 
 const tokenExpirationTime = LocalStorageService.getItem(

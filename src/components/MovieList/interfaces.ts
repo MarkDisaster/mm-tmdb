@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { SearchMoviesResults } from '../../services/search-service/types';
+import { SearchMoviesResults } from '../../services/SearchService/types';
 
 export interface MovieTablesProps {
    movies: SearchMoviesResults[];

@@ -2,7 +2,7 @@ import { CContainer, CListGroup, CListGroupItem, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { useQuery } from '@tanstack/react-query';
-import MovieService from '../../services/movie-service';
+import MovieService from '../../services/MovieService';
 
 import MoviePanel from '../../components/MoviePanel';
 import { useLocation } from 'react-router-dom';

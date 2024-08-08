@@ -2,7 +2,7 @@ import { CContainer, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
 import { useQuery } from '@tanstack/react-query';
-import MovieService from '../../services/movie-service';
+import MovieService from '../../services/MovieService';
 import MoviePanel from '../../components/MoviePanel';
 //import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';

@@ -1,8 +1,8 @@
 import { AUTH_USER_INTERVAL } from './constants';
 import { useCallback, useEffect } from 'react';
 import { getIsAuthorizationTokenExpired } from '../../helpers/getIsAuthorizationTokenExpired';
-import LocalStorageService from '../storage-service';
-import { LOCAL_STORAGE } from '../storage-service/interfaces';
+import LocalStorageService from '../StorageService';
+import { LOCAL_STORAGE } from '../StorageService/interfaces';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { AuthorizationServiceProps } from './interfaces';

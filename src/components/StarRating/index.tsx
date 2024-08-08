@@ -3,17 +3,17 @@ import { TOTAL_STARS } from './constants';
 import { StarRatingProps } from './interfaces';
 
 import styles from './style.module.css';
-import AccountService from '../../services/account-service';
-import LocalStorageService from '../../services/storage-service';
-import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
-import { SORT } from '../../services/account-service/types';
+import AccountService from '../../services/AccountService';
+import LocalStorageService from '../../services/StorageService';
+import { LOCAL_STORAGE } from '../../services/StorageService/interfaces';
+import { SORT } from '../../services/AccountService/types';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMovieRating } from '../../helpers/getMovieRating';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import cx from 'classnames';
 import LoginModal from '../LoginModal';
-import MovieService from '../../services/movie-service';
+import MovieService from '../../services/MovieService';
 
 const StarRating = ({ movieId }: StarRatingProps) => {
    const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);

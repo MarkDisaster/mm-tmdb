@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from '@tanstack/react-query';
-import MovieService from '../../services/movie-service';
+import MovieService from '../../services/MovieService';
 
 import { addRemoveMovie } from '../../store/slices/moviesToCompare/slice';
 import { SelectedMovieId } from './interfaces';

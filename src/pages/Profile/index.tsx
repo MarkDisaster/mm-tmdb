@@ -12,15 +12,15 @@ import {
 } from '@coreui/react';
 
 import { setLoggedOut } from '../../store/slices/authentication/slice';
-import LocalStorageService from '../../services/storage-service';
+import LocalStorageService from '../../services/StorageService';
 
-import { LOCAL_STORAGE } from '../../services/storage-service/interfaces';
+import { LOCAL_STORAGE } from '../../services/StorageService/interfaces';
 import { RootState } from '../../store/store';
 import { cilHeart } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
-import AccountService from '../../services/account-service';
+import AccountService from '../../services/AccountService';
 import { useQuery } from '@tanstack/react-query';
-import { SORT } from '../../services/account-service/types';
+import { SORT } from '../../services/AccountService/types';
 import MoviesCarousel from '../../components/MoviesCarousel';
 
 import styles from './style.module.css';
