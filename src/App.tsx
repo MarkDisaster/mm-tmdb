@@ -15,6 +15,7 @@ const App: React.FC = () => {
       <Provider store={rootStore}>
          <AuthorizationService>
             <Main>
+               Ahoj
                <RoutingService />
             </Main>
          </AuthorizationService>
