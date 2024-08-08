@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux';
 import { rootStore } from './store/store';
 
-import RoutingService from './services/routing-service';
-import AuthorizationService from './services/authorization-service';
+import RoutingService from './services/RoutingService';
+import AuthorizationService from './services/AuthorizationService';
 
 import Main from './components/Main';
 
