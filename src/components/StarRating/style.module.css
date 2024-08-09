@@ -1,34 +1,34 @@
 .ratingInput {
-    display: none;
+   display: none;
 }
 
 .ratingStar {
-    cursor: pointer;
-    font-size: 2rem;
-    margin-right: .5rem;
+   cursor: pointer;
+   font-size: 2rem;
+   margin-right: 0.5rem;
 }
 
 .ratingButton {
-    background-color: unset;
-    padding: 0;
+   background-color: unset;
+   padding: 0;
 }
 
 .ratingButton:hover {
-    text-decoration: underline;
+   text-decoration: underline;
 }
 
 .saveRatingButton {
-    margin-right: .5rem;
+   margin-right: 0.5rem;
 }
 
 .closeRatingButton {
-    color: var(--bs-danger);
+   color: var(--bs-danger);
 }
 
 .inactiveStar {
-    color: #e4e5e9 !important;
+   color: #e4e5e9 !important;
 }
 
 .activeStar {
-    color: #ffc107 !important;
+   color: #ffc107 !important;
 }

@@ -3,48 +3,48 @@
 }
 
 .searchTableCell {
-    color: #ffffff !important;
-    border: 0px;
-    padding: 0 5px 0 0;
-    background-color: unset !important;
- }
+   color: #ffffff !important;
+   border: 0px;
+   padding: 0 5px 0 0;
+   background-color: unset !important;
+}
 
- .searchTableCellName {
-    background-color: unset !important;
-    font-weight: bold;
-    padding: 14px 10px 0px 5px !important;
-    border: 0;
-    color: var(--bs-black) !important;
- }
+.searchTableCellName {
+   background-color: unset !important;
+   font-weight: bold;
+   padding: 14px 10px 0px 5px !important;
+   border: 0;
+   color: var(--bs-black) !important;
+}
 
 .searchTableRow {
-    cursor: pointer;
- }
- 
- .searchTableRow:hover td {
-    background-color:var(--bs-gray-300) !important;
- }
-
- [data-bs-theme="dark"] .searchTableRow:hover td {
-   background-color:var(--bs-gray-800) !important;
+   cursor: pointer;
 }
- 
- .searchTableRow td:first-child {
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
- }
- 
- .searchTableRow td:last-child {
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
- }
 
- .searchTableButtons {
+.searchTableRow:hover td {
+   background-color: var(--bs-gray-300) !important;
+}
+
+[data-bs-theme='dark'] .searchTableRow:hover td {
+   background-color: var(--bs-gray-800) !important;
+}
+
+.searchTableRow td:first-child {
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+}
+
+.searchTableRow td:last-child {
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+}
+
+.searchTableButtons {
    display: flex;
    margin-top: 5px;
    gap: 5px;
- }
+}
 
- .image {
+.image {
    padding: 0.5rem 0;
- }
+}

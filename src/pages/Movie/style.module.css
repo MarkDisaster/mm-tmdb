@@ -1,96 +1,96 @@
- .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 !important;
-    overflow: hidden;
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 0 !important;
+   overflow: hidden;
 }
 
 .overview {
-    display: flex !important;
-    flex-direction: row;
-    width: var(--cui-breakpoint-xl) !important;
-    max-width: var(--cui-breakpoint-xl) !important;
+   display: flex !important;
+   flex-direction: row;
+   width: var(--cui-breakpoint-xl) !important;
+   max-width: var(--cui-breakpoint-xl) !important;
 }
 
 @media (max-width: 1200px) {
-    .overview {
-        width: 100% !important;
-        padding: 0 2rem;
-    }
+   .overview {
+      width: 100% !important;
+      padding: 0 2rem;
+   }
 }
 
 @media (max-width: 768px) {
-    .overview {
-        padding: 0 1rem;
-        flex-direction: column-reverse !important;
-    }
+   .overview {
+      padding: 0 1rem;
+      flex-direction: column-reverse !important;
+   }
 }
 
 .overviewLeftContainer {
-    width: 70% !important;
-    padding-right: 3rem !important;
+   width: 70% !important;
+   padding-right: 3rem !important;
 }
 
 .overviewRightContainer {
-    width: 30% !important;
+   width: 30% !important;
 }
 
 @media (max-width: 768px) {
-    .overviewRightContainer,
-    .overviewLeftContainer {
-        width: 100% !important;
-        padding-right: 0rem !important;
-    }
+   .overviewRightContainer,
+   .overviewLeftContainer {
+      width: 100% !important;
+      padding-right: 0rem !important;
+   }
 }
 
 .similiarMoviesRow {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    max-width: var(--cui-breakpoint-xl) !important;
-    padding: 0 !important;
-    margin-bottom: 50px;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   max-width: var(--cui-breakpoint-xl) !important;
+   padding: 0 !important;
+   margin-bottom: 50px;
 }
 
 @media (max-width: 1200px) {
-    .similiarMoviesRow {
-        max-width: 100% !important;
-        padding: 0 3rem !important;
-    }
+   .similiarMoviesRow {
+      max-width: 100% !important;
+      padding: 0 3rem !important;
+   }
 }
 
 .similiarMoviesHeader {
-    align-self: start;
-    display: flex;
-    padding: 0! important;
-    margin: 3rem 0 1rem 0 !important;
+   align-self: start;
+   display: flex;
+   padding: 0 !important;
+   margin: 3rem 0 1rem 0 !important;
 }
 
 @media (max-width: 768px) {
-    .similiarMoviesHeader {
-        margin: 2rem 0 1rem 0 !important;
-    }
+   .similiarMoviesHeader {
+      margin: 2rem 0 1rem 0 !important;
+   }
 }
 
 .overviewLinks {
-    display: flex;
-    gap: 10px;
-    padding: 0 !important;
-    margin-top: 1.5rem;
+   display: flex;
+   gap: 10px;
+   padding: 0 !important;
+   margin-top: 1.5rem;
 }
 
 .movieMoreInfo {
-    margin-top: 2rem;
-    padding: 0;
+   margin-top: 2rem;
+   padding: 0;
 }
 
 .movieMoreInfo li {
-    border: none !important;
-    padding: 0.125rem 0;
+   border: none !important;
+   padding: 0.125rem 0;
 }
 
 .paginationContainer {
-    justify-content: center;
-    margin-top: 1.5rem;
+   justify-content: center;
+   margin-top: 1.5rem;
 }

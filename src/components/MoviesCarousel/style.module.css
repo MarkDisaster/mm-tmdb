@@ -1,9 +1,9 @@
 .movieRow {
-    overflow-x: auto;
-    flex-wrap: nowrap !important;
-    min-height: 420px;
-    gap: 30px;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
- }
+   overflow-x: auto;
+   flex-wrap: nowrap !important;
+   min-height: 420px;
+   gap: 30px;
+   padding: 0 !important;
+   margin: 0 !important;
+   width: 100%;
+}

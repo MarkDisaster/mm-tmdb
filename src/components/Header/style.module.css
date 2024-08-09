@@ -1,9 +1,9 @@
 .headerWrapper {
-    display: flex;
-    align-items: flex-start !important;
-    align-content: flex-start !important;
-    overflow: visible;
-    max-height: 46.5px;
+   display: flex;
+   align-items: flex-start !important;
+   align-content: flex-start !important;
+   overflow: visible;
+   max-height: 46.5px;
 }
 
 .headerWrapper * {
@@ -11,65 +11,65 @@
 }
 
 .headerWrapper a:hover {
-   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1)) !important;
+   color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)) !important;
 }
 
 .headerConteiner {
-    display: flex;
-    align-items: flex-start !important;
-    align-content: flex-start !important;
-    height: 32.5px;
+   display: flex;
+   align-items: flex-start !important;
+   align-content: flex-start !important;
+   height: 32.5px;
 }
 
 .headerNav {
-    gap: 15px;
+   gap: 15px;
 }
 
 .headerLogo {
-    margin-top: 3px;
-    font-size: 1.25rem;
+   margin-top: 3px;
+   font-size: 1.25rem;
 }
 
 .headerLogo,
 .headerNav * {
-    font-weight: bold !important;
-    text-decoration: none !important;
- }
+   font-weight: bold !important;
+   text-decoration: none !important;
+}
 
- .headerNav *:hover {
-    text-decoration: underline;
- }
+.headerNav *:hover {
+   text-decoration: underline;
+}
 
- .usernameDropDown {
+.usernameDropDown {
    list-style: none;
- }
+}
 
- .headerLoginSwitchTheme {
-    display: flex !important;
-    align-items: center;
-    gap: 10px;
- }
+.headerLoginSwitchTheme {
+   display: flex !important;
+   align-items: center;
+   gap: 10px;
+}
 
- .headerLoginSwitchTheme * {
-    text-decoration: none;
- }
+.headerLoginSwitchTheme * {
+   text-decoration: none;
+}
 
- .headerDropDownSwitchTheme * {
-    margin-top: 3px;
- }
+.headerDropDownSwitchTheme * {
+   margin-top: 3px;
+}
 
- .logoutButton * {
-    color: var(--bs-danger) !important;
- }
+.logoutButton * {
+   color: var(--bs-danger) !important;
+}
 
- .headerUserName {
+.headerUserName {
    font-weight: bold !important;
    padding: 0 !important;
 }
 
 .avatar {
-   margin-left: .5rem !important;
-   margin-bottom: .25rem !important;
+   margin-left: 0.5rem !important;
+   margin-bottom: 0.25rem !important;
 }
 
 .loginModalButton {

@@ -1,40 +1,40 @@
 .movieScore {
-    position: absolute;
-    left: 10px;
-    top: 200px;
-    padding: 0;
+   position: absolute;
+   left: 10px;
+   top: 200px;
+   padding: 0;
 }
 
 .movieCard {
-    padding: 0 !important;
-    overflow: hidden;
-    width: 200px !important;
-    height: 385px !important;
-    max-height: 385px !important;
-    cursor: pointer;
+   padding: 0 !important;
+   overflow: hidden;
+   width: 200px !important;
+   height: 385px !important;
+   max-height: 385px !important;
+   cursor: pointer;
 }
 
 .movieCardButtons {
-    display: flex;
-    position: absolute;
-    background-color: rgb(255 255 255 / 65%);
-    flex-direction: column;
-    width: auto !important;
-    right: 0;
-    border-bottom-left-radius: 5px;
-    padding: 0 !important;
+   display: flex;
+   position: absolute;
+   background-color: rgb(255 255 255 / 65%);
+   flex-direction: column;
+   width: auto !important;
+   right: 0;
+   border-bottom-left-radius: 5px;
+   padding: 0 !important;
 }
 
 .movieCardButtons button {
-    padding: 0 5px !important;
+   padding: 0 5px !important;
 }
 
 .cardTitle {
-    font-weight: bold;
-    font-size: 1.25rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2; 
-    -webkit-box-orient: vertical;
+   font-weight: bold;
+   font-size: 1.25rem;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   line-clamp: 2;
+   -webkit-box-orient: vertical;
 }

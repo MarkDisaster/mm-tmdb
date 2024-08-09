@@ -1,8 +1,8 @@
 .addToFavoritesButton {
-    background-color: unset;
-    padding: 0 !important;
+   background-color: unset;
+   padding: 0 !important;
 }
 
 .addToFavoritesIconRed path {
-    fill: var(--bs-danger)
+   fill: var(--bs-danger);
 }

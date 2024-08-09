@@ -8,51 +8,78 @@ A project that illustrates the integration of several technologies and tools to 
 
 ## Features
 
-**Fully Responsive Design:** 
-- Optimized for mobile, tablet, and desktop devices.
+**Fully Responsive Design:**
+
+-  Optimized for mobile, tablet, and desktop devices.
 
 **User Authentication:**
-- Secure login/logout with access to a protected user profile and movie rating capabilities.
+
+-  Secure login/logout with access to a protected user profile and movie rating capabilities.
 
 **Dark/Light Theme Toggle:**
-- User preference for light or dark mode.
+
+-  User preference for light or dark mode.
 
 **Debounced Search:**
-- Efficient search functionality to minimize server load and enhance user experience.
+
+-  Efficient search functionality to minimize server load and enhance user experience.
 
 **Favorites Management:**
-- Logged-in users can add movies to their favorites list.
+
+-  Logged-in users can add movies to their favorites list.
 
 **Movie Comparison:**
-- Users can compare statistics of different movies using interactive charts.
+
+-  Users can compare statistics of different movies using interactive charts.
 
 ---
 
 ## Techniques and Best Practices
 
 #### 1. TypeScript Type Checking
-  - Prevent errors and improve code readability and maintainability with TypeScript.
+
+-  Prevent errors and improve code readability and maintainability with TypeScript.
 
 #### 2. Modular and Reusable Components
-  - Create small, reusable components for better organization and maintainability.
+
+-  Create small, reusable components for better organization and maintainability.
 
 #### 3. State Management with Redux Toolkit
-  - Divide the state into logical slices and manage it efficiently using `createSlice`.
+
+-  Divide the state into logical slices and manage it efficiently using `createSlice`.
 
 #### 4. Asynchronous API Operations and Data Caching with React Query
 
 #### 5. Custom Hooks
-  - Enhance component logic reusability and code structure with custom hooks.
+
+-  Enhance component logic reusability and code structure with custom hooks.
 
 #### 6. Helper Functions
-  - Modularize and reuse code through small utility functions.
+
+-  Modularize and reuse code through small utility functions.
 
 #### 7. Additional Performance Optimizations
-  - Implement techniques like debounce to improve UI responsiveness and overall performance.
+
+-  Implement techniques like debounce to improve UI responsiveness and overall performance.
+
+#### 8. CI/CD Pipeline
+
+-  **Automation and Code Quality**
+
+-  This project utilizes a complete CI/CD pipeline to automate deployment and perform static code testing. The pipeline is managed using GitHub Actions and includes the following steps:
+
+1. **Automated Testing and Code Quality:**
+   - **Linting:** The code is checked using a linter to ensure that we adhere to conventional code styles and standards. Linting helps identify potential issues and inconsistencies in the code.
+   - **Formatting:** The code is automatically formatted using Prettier. This step ensures that the entire codebase is in a consistent and readable format.
+
+2. **Automated Deployment:**
+   - **Build:** Before deployment, the project is automatically built. This step includes code compilation and preparation of the application for deployment.
+   - **Deployment to Firebase Hosting:** After a successful build, the application is deployed to Firebase Hosting. This step automates the deployment process, ensuring quick and seamless updates to the production version of the application.
 
 ---
 
 ### Stack:
+
 -  React
 -  TypeScript
 -  Redux Tookit
@@ -62,7 +89,6 @@ A project that illustrates the integration of several technologies and tools to 
 -  ESLint
 -  Prettier
 -  CoreUI, Module Styles, React Query, Recharts
-
 
 ---
 

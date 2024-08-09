@@ -1,16 +1,16 @@
 .ratingInput {
-    display: none;
+   display: none;
 }
 
 .ratingStar {
-    font-size: 1rem;
-    margin-right: .5rem;
+   font-size: 1rem;
+   margin-right: 0.5rem;
 }
 
 .inactiveStar {
-    color: #e4e5e9 !important;
+   color: #e4e5e9 !important;
 }
 
 .activeStar {
-    color: #ffc107 !important;
+   color: #ffc107 !important;
 }

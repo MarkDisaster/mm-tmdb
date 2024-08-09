@@ -1,19 +1,19 @@
 .loginFormModal {
-    background-color: var(--bs-body-bg) !important;
+   background-color: var(--bs-body-bg) !important;
 }
 
 .loginFormInfoText {
-    padding: 0 25px;
-    font-weight: bold;
+   padding: 0 25px;
+   font-weight: bold;
 }
 
 .loginFormContainer {
-    padding: 0 25px 25px 25px !important;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+   padding: 0 25px 25px 25px !important;
+   gap: 10px;
+   display: flex;
+   flex-direction: column;
 }
 
 .loginFormLoginInfo {
-    padding: 0 25px;
+   padding: 0 25px;
 }

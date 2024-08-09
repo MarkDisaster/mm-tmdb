@@ -1,42 +1,42 @@
 .movieRow {
-    padding: 0 !important;
-    display: flex;
-    margin: 0 !important;
-    width: 100% !important;
-    position: relative !important;
- }
+   padding: 0 !important;
+   display: flex;
+   margin: 0 !important;
+   width: 100% !important;
+   position: relative !important;
+}
 
- .movieImageContainer {
-    height: 620px;
-    padding: 0 !important;
-    overflow: hidden;
-    border-bottom: 5px solid var(--bs-black);
- }
+.movieImageContainer {
+   height: 620px;
+   padding: 0 !important;
+   overflow: hidden;
+   border-bottom: 5px solid var(--bs-black);
+}
 
- .movieImage {
+.movieImage {
    border: 0;
    height: 100%;
    width: 100%;
    object-fit: cover;
    display: block;
- }
+}
 
- .movieInfoContainer {
-    align-items: flex-start;
-    background-image: linear-gradient(transparent, var(--bs-black));
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    height: 70%;
-    justify-content: flex-end;
-    opacity: 1;
-    padding: 5rem 2rem 7rem 2rem !important;
-    position: absolute;
-    transition: opacity .3s;
-    width: 100%;
- }
+.movieInfoContainer {
+   align-items: flex-start;
+   background-image: linear-gradient(transparent, var(--bs-black));
+   bottom: 0;
+   display: flex;
+   flex-direction: column;
+   height: 70%;
+   justify-content: flex-end;
+   opacity: 1;
+   padding: 5rem 2rem 7rem 2rem !important;
+   position: absolute;
+   transition: opacity 0.3s;
+   width: 100%;
+}
 
- @media (max-width: 1200px) {
+@media (max-width: 1200px) {
    .movieInfoContainer {
       padding: 2rem 2rem 5rem 2rem !important;
    }
@@ -49,66 +49,66 @@
    align-items: flex-start;
 }
 
- .movieTitle {
-    font-size: 4.5rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: var(--bs-white) !important;
-    width: 75%;
- }
+.movieTitle {
+   font-size: 4.5rem;
+   font-weight: bold;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   color: var(--bs-white) !important;
+   width: 75%;
+}
 
- @media (max-width: 1200px) {
+@media (max-width: 1200px) {
    .movieTitle {
       font-size: 4rem;
       width: 100%;
    }
 }
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
    .movieTitle {
       font-size: 3rem;
    }
 }
 
 .movieReleaseDateContainer {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
 }
 
- .movieReleaseDate {
-    font-size: 2rem;
-    color: var(--bs-white) !important;
- }
+.movieReleaseDate {
+   font-size: 2rem;
+   color: var(--bs-white) !important;
+}
 
- .movieInfoGenre {
-    padding: 3px 7px !important;
-    font-size: .85rem !important;
-    margin: 0 0 0 15px !important;
-    font-weight: bold;
- }
+.movieInfoGenre {
+   padding: 3px 7px !important;
+   font-size: 0.85rem !important;
+   margin: 0 0 0 15px !important;
+   font-weight: bold;
+}
 
- .movieOverView {
-    display: flex;
-    font-size: 1.25rem;
-    font-style: italic;
-    margin-bottom: .25rem;
-    text-align: left;
-    width: 75%;
-    color: var(--bs-white) !important;
- }
+.movieOverView {
+   display: flex;
+   font-size: 1.25rem;
+   font-style: italic;
+   margin-bottom: 0.25rem;
+   text-align: left;
+   width: 75%;
+   color: var(--bs-white) !important;
+}
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
    .movieOverView {
       width: 100%;
    }
 }
 
- .movieTitleContainer {
-    display: flex !important;
-    background-color: var(--bs-gray-600) !important;
-    padding: 5px;
-    gap: 10px;
-    border-radius: var(--bs-border-radius);
- }
+.movieTitleContainer {
+   display: flex !important;
+   background-color: var(--bs-gray-600) !important;
+   padding: 5px;
+   gap: 10px;
+   border-radius: var(--bs-border-radius);
+}
