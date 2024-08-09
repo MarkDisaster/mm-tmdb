@@ -86,11 +86,6 @@
 }
 
 .movieMoreInfo li {
-   border: none !important;
-   padding: 0.125rem 0;
-}
-
-.paginationContainer {
-   justify-content: center;
-   margin-top: 1.5rem;
+    border: none !important;
+    padding: 0.125rem 0;
 }

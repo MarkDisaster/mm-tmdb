@@ -15,9 +15,6 @@ import ProfilePage from '../../pages/Profile';
 import HomePage from '../../pages/Home';
 import MoviePage from '../../pages/Movie';
 import AboutAppPage from '../../pages/AboutApp';
-import { getMovieByIdLoader } from '../../pages/Movie/loader';
-import { profilePageLoader } from '../../pages/Profile/loader';
-import { homePageLoader } from '../../pages/Home/loader';
 
 const router = (isUserLoggedIn: boolean) => {
    return createBrowserRouter(
@@ -35,7 +32,6 @@ const router = (isUserLoggedIn: boolean) => {
             <Route
                index
                element={<HomePage />}
-               loader={homePageLoader}
             />
 
             <Route
@@ -46,7 +42,6 @@ const router = (isUserLoggedIn: boolean) => {
             <Route
                path="/profile"
                element={isUserLoggedIn ? <ProfilePage /> : <Navigate to="/" />}
-               loader={profilePageLoader}
             />
 
             <Route
@@ -57,7 +52,6 @@ const router = (isUserLoggedIn: boolean) => {
             <Route
                path="/movie/:id"
                element={<MoviePage />}
-               loader={getMovieByIdLoader}
             />
          </Route>,
       ),

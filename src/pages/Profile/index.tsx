@@ -12,14 +12,18 @@ import {
 } from '@coreui/react';
 
 import { setLoggedOut } from '../../store/slices/authentication/slice';
+import LocalStorageService from '../../services/StorageService';
+
+import { LOCAL_STORAGE } from '../../services/StorageService/interfaces';
 import { RootState } from '../../store/store';
 import { cilHeart } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
+import AccountService from '../../services/AccountService';
+import { useQuery } from '@tanstack/react-query';
+import { SORT } from '../../services/AccountService/types';
 import MoviesCarousel from '../../components/MoviesCarousel';
 
 import styles from './style.module.css';
-import { useLoaderData } from 'react-router-dom';
-import { FavoriteMoviesLoaderData } from './interfaces';
 
 const ProfilePage = () => {
    const dispatch = useDispatch();
@@ -28,9 +32,20 @@ const ProfilePage = () => {
       (state: RootState) => state.userInfo,
    );
 
-   const favoriteMovies = useLoaderData() as FavoriteMoviesLoaderData;
+   const sessionId = LocalStorageService.getItem(LOCAL_STORAGE.SESSION_ID);
 
-   console.log('favoriteMovies', favoriteMovies);
+   const getFavoriteMoviesParams = {
+      page: 1,
+      language: 'en-US',
+      session_id: sessionId,
+      sort_by: SORT.ASC,
+   };
+
+   const { data: dataFavoriteMovies } = useQuery({
+      queryKey: ['getFavoriteMovies'],
+      queryFn: async () =>
+         AccountService.getFavoriteMovies(getFavoriteMoviesParams),
+   });
 
    const handleUserLogOut = () => {
       dispatch(setLoggedOut());
@@ -78,11 +93,14 @@ const ProfilePage = () => {
                   height={22}
                />
                Favorite Movies (
-               {favoriteMovies?.results && favoriteMovies?.results.length})
+               {dataFavoriteMovies?.results &&
+                  dataFavoriteMovies?.results.length}
+               )
             </h3>
 
-            {favoriteMovies?.results && favoriteMovies?.results.length > 0 ? (
-               <MoviesCarousel movies={favoriteMovies?.results ?? []} />
+            {dataFavoriteMovies?.results &&
+            dataFavoriteMovies?.results.length > 0 ? (
+               <MoviesCarousel movies={dataFavoriteMovies?.results ?? []} />
             ) : (
                <CAlert
                   color="warning"

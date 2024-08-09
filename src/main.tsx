@@ -8,7 +8,7 @@ import './index.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const queryClient = new QueryClient({
+const queryClient = new QueryClient({
    defaultOptions: {
       queries: {
          retry: 0,
