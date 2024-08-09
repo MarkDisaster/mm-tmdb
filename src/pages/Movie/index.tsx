@@ -1,66 +1,26 @@
 import { CContainer, CListGroup, CListGroupItem, CRow } from '@coreui/react';
-
 import MoviesCarousel from '../../components/MoviesCarousel';
-import { useQuery } from '@tanstack/react-query';
-import MovieService from '../../services/MovieService';
-
 import MoviePanel from '../../components/MoviePanel';
-import { useLocation } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { getLastReviewsChartValues } from '../../helpers/getLastReviewsChartValues';
 import { getYouTubeOfficialVideoKey } from '../../helpers/getOfficialMovieYoutubeVIdeo';
 import StarRating from '../../components/StarRating';
 import YoutubeVideo from '../../components/YoutubeVideo';
 import MovieReviews from '../../components/MovieReviews';
 import LastReviewsChart from '../../components/LastReviewsChart';
-
-import styles from './style.module.css';
 import ImdbLink from '../../components/ImdbLink';
 import { getFormattedBudget } from '../../helpers/getFormattedBudget';
+import { useState } from 'react';
+import Pagination from '../../components/Pagination';
+import { MovieLoaderData } from './interfaces';
+
+import styles from './style.module.css';
 
 const MoviePage = () => {
-   const urlLocation = useLocation();
-   const urlLocationParts = urlLocation.pathname.split('/');
-   const urlLastSegment = urlLocationParts.pop() || urlLocationParts.pop();
-   const urlLastSegmentNumber = Number(urlLastSegment);
+   const [currentReviewsPage, setCurrentReviewsPage] = useState(1);
 
-   const getUpcomingMoviesParams = {
-      movieId: urlLastSegmentNumber,
-      page: 1,
-      language: 'en-US',
-      region: 'US',
-   };
-
-   const { data: movieData } = useQuery({
-      queryKey: ['upcomingMovies', urlLastSegment],
-      queryFn: async () => MovieService.getMovieById(urlLastSegmentNumber),
-   });
-
-   const { data: similiarMovies } = useQuery({
-      queryKey: ['similiarMovies', urlLastSegmentNumber],
-      queryFn: async () =>
-         MovieService.getSimiliarMovies(getUpcomingMoviesParams),
-   });
-
-   const getMovieReviewsParams = {
-      movieId: urlLastSegmentNumber,
-      page: 1,
-      language: 'en-US',
-   };
-
-   const { data: movieReviews } = useQuery({
-      queryKey: ['movieReviews', urlLastSegmentNumber],
-      queryFn: async () => MovieService.getMovieReviews(getMovieReviewsParams),
-   });
-
-   const getMovieVideosParams = {
-      movieId: urlLastSegmentNumber,
-      language: 'en-US',
-   };
-
-   const { data: movieVideos } = useQuery({
-      queryKey: ['movieVideos', urlLastSegmentNumber],
-      queryFn: async () => MovieService.getMovieVideos(getMovieVideosParams),
-   });
+   const { movieData, movieReviews, movieVideos, similiarMovies } =
+      useLoaderData() as MovieLoaderData;
 
    const budgetFormatted = movieData?.budget
       ? getFormattedBudget(movieData?.budget)
@@ -74,6 +34,9 @@ const MoviePage = () => {
          ? getLastReviewsChartValues(movieReviews.results)
          : [];
 
+   const handleOnChangeReviewPage = (page: number) =>
+      setCurrentReviewsPage(page);
+
    return (
       <CContainer
          fluid
@@ -85,7 +48,16 @@ const MoviePage = () => {
             <CContainer className={styles.overviewLeftContainer}>
                <h4 className={styles.similiarMoviesHeader}>Reviews</h4>
                {movieReviews?.results && movieReviews?.results.length > 0 ? (
-                  <MovieReviews movieReviews={movieReviews} />
+                  <>
+                     <MovieReviews movieReviews={movieReviews} />
+                     <CContainer className={styles.paginationContainer}>
+                        <Pagination
+                           currentPage={movieReviews.page || currentReviewsPage}
+                           totalPages={movieReviews.total_pages}
+                           handleOnPageChange={handleOnChangeReviewPage}
+                        />
+                     </CContainer>
+                  </>
                ) : (
                   <h6>Zatím žádné reviews.</h6>
                )}
@@ -93,7 +65,7 @@ const MoviePage = () => {
 
             <CContainer className={styles.overviewRightContainer}>
                <h4 className={styles.similiarMoviesHeader}>Your Rating</h4>
-               <StarRating movieId={urlLastSegmentNumber} />
+               <StarRating movieId={movieData.id} />
 
                <>
                   <CListGroup className={styles.movieMoreInfo}>

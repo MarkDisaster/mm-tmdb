@@ -1,43 +1,17 @@
 import { CContainer, CRow } from '@coreui/react';
-
 import MoviesCarousel from '../../components/MoviesCarousel';
-import { useQuery } from '@tanstack/react-query';
-import MovieService from '../../services/MovieService';
 import MoviePanel from '../../components/MoviePanel';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-alice-carousel';
-
 import 'react-alice-carousel/lib/alice-carousel.css';
 import styles from './style.module.css';
+import { useLoaderData } from 'react-router-dom';
+import { HomePageLoaderData } from './interfaces';
+import { carouselResponsive } from './constants';
 
 const HomePage = () => {
-   const getUpcomingMoviesParams = {
-      page: 1,
-      language: 'en-US',
-      region: 'US',
-   };
-
-   const { data: upcomingMovies } = useQuery({
-      queryKey: ['upcomingMovies'],
-      queryFn: async () =>
-         MovieService.getUpcomingMovies(getUpcomingMoviesParams),
-   });
-
-   const { data: nowPlayingMovies } = useQuery({
-      queryKey: ['nowPlayingMovies'],
-      queryFn: async () =>
-         MovieService.getNowPlayingMovies(getUpcomingMoviesParams),
-   });
-
-   const { data: popularMovies } = useQuery({
-      queryKey: ['popularMovies'],
-      queryFn: async () =>
-         MovieService.getPopularMovies(getUpcomingMoviesParams),
-   });
-
-   const responsive = {
-      0: { items: 1 },
-   };
+   const { upcomingMovies, nowPlayingMovies, popularMovies } =
+      useLoaderData() as HomePageLoaderData;
 
    return (
       <CContainer
@@ -58,7 +32,7 @@ const HomePage = () => {
                   </Link>
                );
             })}
-            responsive={responsive}
+            responsive={carouselResponsive}
             controlsStrategy="alternate"
          />
          <CContainer className={styles.contentContainer}>
