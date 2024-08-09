@@ -42,7 +42,7 @@ const ProfilePage = () => {
    };
 
    const { data: dataFavoriteMovies } = useQuery({
-      queryKey: ['getFavoriteMovies'],
+      queryKey: ['getFavoriteMovies', sessionId],
       queryFn: async () =>
          AccountService.getFavoriteMovies(getFavoriteMoviesParams),
    });
