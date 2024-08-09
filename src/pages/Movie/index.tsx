@@ -1,7 +1,7 @@
 import { CContainer, CListGroup, CListGroupItem, CRow } from '@coreui/react';
 
 import MoviesCarousel from '../../components/MoviesCarousel';
-import { useQuery } from '@tanstack/react-query';
+import { useQueries } from '@tanstack/react-query';
 import MovieService from '../../services/MovieService';
 
 import MoviePanel from '../../components/MoviePanel';
@@ -30,40 +30,46 @@ const MoviePage = () => {
       region: 'US',
    };
 
-   const { data: movieData } = useQuery({
-      queryKey: ['upcomingMovies', urlLastSegment],
-      queryFn: async () => MovieService.getMovieById(urlLastSegmentNumber),
-   });
-
-   const { data: similiarMovies } = useQuery({
-      queryKey: ['similiarMovies', urlLastSegmentNumber],
-      queryFn: async () =>
-         MovieService.getSimiliarMovies(getUpcomingMoviesParams),
-   });
-
    const getMovieReviewsParams = {
       movieId: urlLastSegmentNumber,
       page: 1,
       language: 'en-US',
    };
 
-   const { data: movieReviews } = useQuery({
-      queryKey: ['movieReviews', urlLastSegmentNumber],
-      queryFn: async () => MovieService.getMovieReviews(getMovieReviewsParams),
-   });
-
    const getMovieVideosParams = {
       movieId: urlLastSegmentNumber,
       language: 'en-US',
    };
 
-   const { data: movieVideos } = useQuery({
-      queryKey: ['movieVideos', urlLastSegmentNumber],
-      queryFn: async () => MovieService.getMovieVideos(getMovieVideosParams),
+   const [
+      { data: upcomingMovies },
+      { data: similiarMovies },
+      { data: movieReviews },
+      { data: movieVideos },
+   ] = useQueries({
+      queries: [
+         {
+            queryKey: ['upcomingMovies', urlLastSegmentNumber],
+            queryFn: () => MovieService.getMovieById(urlLastSegmentNumber),
+         },
+         {
+            queryKey: ['similiarMovies', urlLastSegmentNumber],
+            queryFn: () =>
+               MovieService.getSimiliarMovies(getUpcomingMoviesParams),
+         },
+         {
+            queryKey: ['movieReviews', urlLastSegmentNumber],
+            queryFn: () => MovieService.getMovieReviews(getMovieReviewsParams),
+         },
+         {
+            queryKey: ['movieVideos', urlLastSegmentNumber],
+            queryFn: () => MovieService.getMovieVideos(getMovieVideosParams),
+         },
+      ],
    });
 
-   const budgetFormatted = movieData?.budget
-      ? getFormattedBudget(movieData?.budget)
+   const budgetFormatted = upcomingMovies?.budget
+      ? getFormattedBudget(upcomingMovies?.budget)
       : '-';
 
    const movieVideoUrl =
@@ -79,7 +85,7 @@ const MoviePage = () => {
          fluid
          className={styles.container}
       >
-         {movieData && <MoviePanel {...movieData} />}
+         {upcomingMovies && <MoviePanel {...upcomingMovies} />}
 
          <CRow className={styles.overview}>
             <CContainer className={styles.overviewLeftContainer}>
@@ -98,7 +104,7 @@ const MoviePage = () => {
                <>
                   <CListGroup className={styles.movieMoreInfo}>
                      <CListGroupItem>
-                        Original name: <b>{movieData?.original_title}</b>
+                        Original name: <b>{upcomingMovies?.original_title}</b>
                      </CListGroupItem>
                      <CListGroupItem>
                         Budget: <b>${budgetFormatted}</b>
@@ -109,7 +115,7 @@ const MoviePage = () => {
                </>
 
                <CContainer className={styles.overviewLinks}>
-                  <ImdbLink imdbId={movieData?.imdb_id ?? ''} />
+                  <ImdbLink imdbId={upcomingMovies?.imdb_id ?? ''} />
                </CContainer>
 
                {movieVideoUrl && <YoutubeVideo youtubeUrl={movieVideoUrl} />}
