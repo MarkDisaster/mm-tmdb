@@ -7,6 +7,7 @@ const AboutAppPage = () => {
       <CContainer
          fluid
          className={styles.container}
+         data-testid="CContainer"
       >
          <CRow className={styles.containerRow}>
             <CContainer className={styles.listContainer}>
