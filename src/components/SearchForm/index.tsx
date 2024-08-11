@@ -40,37 +40,42 @@ const SearchForm = () => {
    }, []);
 
    return (
-      <CForm className={styles.searchWrapper}>
-         <CContainer className={styles.searchContainer}>
-            <CFormInput
-               type="search"
-               id="searchMovieInput"
-               placeholder="Find a movie"
-               aria-describedby="searchMovieInput"
-               onChange={(e) => {
-                  setSearchedMovie(e.target.value);
-                  setShowList(true);
-               }}
-               onClick={() => {
-                  setShowList(true);
-               }}
-            />
-         </CContainer>
-         {showList &&
-            dataSearchedMovies?.results !== undefined &&
-            dataSearchedMovies?.results.length > 0 && (
-               <CContainer
-                  className={styles.searchResultsWrapper}
-                  ref={listRef}
-               >
-                  <MovieList
-                     movies={dataSearchedMovies?.results ?? []}
-                     isLoading={isLoading}
-                     onSelectMovie={setShowList}
-                  />
-               </CContainer>
-            )}
-      </CForm>
+      <div
+         className={styles.searchWrapper}
+         data-testId="cySearchForm"
+      >
+         <CForm className={styles.searchForm}>
+            <CContainer className={styles.searchContainer}>
+               <CFormInput
+                  type="search"
+                  id="searchMovieInput"
+                  placeholder="Find a movie"
+                  aria-describedby="searchMovieInput"
+                  onChange={(e) => {
+                     setSearchedMovie(e.target.value);
+                     setShowList(true);
+                  }}
+                  onClick={() => {
+                     setShowList(true);
+                  }}
+               />
+            </CContainer>
+            {showList &&
+               dataSearchedMovies?.results !== undefined &&
+               dataSearchedMovies?.results.length > 0 && (
+                  <CContainer
+                     className={styles.searchResultsWrapper}
+                     ref={listRef}
+                  >
+                     <MovieList
+                        movies={dataSearchedMovies?.results ?? []}
+                        isLoading={isLoading}
+                        onSelectMovie={setShowList}
+                     />
+                  </CContainer>
+               )}
+         </CForm>
+      </div>
    );
 };
 

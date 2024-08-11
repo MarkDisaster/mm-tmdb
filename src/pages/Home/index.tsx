@@ -46,6 +46,7 @@ const HomePage = () => {
       <CContainer
          fluid
          className={styles.container}
+         data-testId="cyAliceCarousel"
       >
          <AliceCarousel
             {...CAROUSEL_SETTINGS}
@@ -58,12 +59,22 @@ const HomePage = () => {
             })}
          />
          <CContainer className={styles.contentContainer}>
-            <h3 className={styles.header}>Now in Theatres</h3>
+            <h3
+               className={styles.header}
+               data-testId="cyMoviesInTheaterHeader"
+            >
+               Now in Theatres
+            </h3>
             <CRow className={styles.movieRow}>
                <MoviesCarousel movies={nowPlayingMovies?.results ?? []} />
             </CRow>
 
-            <h3 className={styles.header}>Popular Movies</h3>
+            <h3
+               className={styles.header}
+               data-testId="cyPopularMoviesHeader"
+            >
+               Popular Movies
+            </h3>
             <CRow className={styles.movieRowLast}>
                <MoviesCarousel movies={popularMovies?.results ?? []} />
             </CRow>

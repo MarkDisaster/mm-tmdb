@@ -47,6 +47,13 @@ jobs:
               VITE_BASE_URI: ${{ secrets.VITE_BASE_URI }}
               VITE_API_AUTH_TOKEN: ${{ secrets.VITE_API_AUTH_TOKEN }}
            run: pnpm run build
+                pnpm start &
+                sleep 10
+
+        - name: Run Cypress tests
+          run: pnpm run cypress:run
+          env:
+            CYPRESS_baseUrl: 'http://localhost:5173'
 
          - name: Deploy to Firebase Hosting
            uses: FirebaseExtended/action-hosting-deploy@v0
