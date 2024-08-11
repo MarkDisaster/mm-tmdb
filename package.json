@@ -9,7 +9,9 @@
       "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
       "format": "prettier --write .",
       "preview": "vite preview",
-      "test": "vitest"
+      "test": "vitest",
+      "cypress:open": "cypress open",
+      "cypress:run": "cypress run"
    },
    "dependencies": {
       "@coreui/coreui": "^5.1.0",
