@@ -1,64 +1,65 @@
 name: Deploy to Firebase Hosting on merge
 
 on:
-   push:
-      branches:
-         - main
+  push:
+    branches:
+      - main
 
 jobs:
-   build_and_deploy:
-      runs-on: ubuntu-latest
-      steps:
-         - name: Checkout code
-           uses: actions/checkout@v4
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-         - name: Setup pnpm
-           uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-         - name: Set up Node.js
-           uses: actions/setup-node@v3
-           with:
-              node-version: '22.1.0'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.1.0'
 
-         - name: Cache pnpm store
-           uses: actions/cache@v3
-           with:
-              path: |
-                 ~/.pnpm-store
-                 node_modules
-              key: ${{ runner.os }}-pnpm-${{ hashFiles('**/package-lock.json') }}
-              restore-keys: |
-                 ${{ runner.os }}-pnpm-
+      - name: Cache pnpm store
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
-         - name: Install dependencies
-           run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-         - name: Run Vitest tests
-           run: pnpm run test -- --coverage
+      - name: Run Vitest tests
+        run: pnpm run test -- --coverage
 
-         - name: Lint code
-           run: pnpm run lint
+      - name: Lint code
+        run: pnpm run lint
 
-         - name: Format code
-           run: pnpm run format
+      - name: Format code
+        run: pnpm run format
 
-         - name: Build project
-           env:
-              VITE_BASE_URI: ${{ secrets.VITE_BASE_URI }}
-              VITE_API_AUTH_TOKEN: ${{ secrets.VITE_API_AUTH_TOKEN }}
-           run: pnpm run build
-                pnpm start &
-                sleep 10
+      - name: Build project
+        env:
+          VITE_BASE_URI: ${{ secrets.VITE_BASE_URI }}
+          VITE_API_AUTH_TOKEN: ${{ secrets.VITE_API_AUTH_TOKEN }}
+        run: |
+          pnpm run build
+          pnpm start &
+          sleep 10
 
-        - name: Run Cypress tests
-          run: pnpm run cypress:run
-          env:
-            CYPRESS_baseUrl: 'http://localhost:5173'
+      - name: Run Cypress tests
+        run: pnpm run cypress:run
+        env:
+          CYPRESS_baseUrl: 'http://localhost:5173'
 
-         - name: Deploy to Firebase Hosting
-           uses: FirebaseExtended/action-hosting-deploy@v0
-           with:
-              repoToken: ${{ secrets.GITHUB_TOKEN }}
-              firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TMDBMM }}
-              channelId: live
-              projectId: tmdbmm
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TMDBMM }}
+          channelId: live
+          projectId: tmdbmm
